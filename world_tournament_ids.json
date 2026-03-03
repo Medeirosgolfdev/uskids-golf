@@ -1,0 +1,222 @@
+[
+  {
+    "year": 2002,
+    "tournament_id": "467603",
+    "name": "2002 World Championship (Jul 27)"
+  },
+  {
+    "year": 2003,
+    "tournament_id": "467795",
+    "name": "2003 World Championship (Jul 31)"
+  },
+  {
+    "year": 2004,
+    "tournament_id": "467787",
+    "name": "2004 World Championship (Jul 29)"
+  },
+  {
+    "year": 2005,
+    "tournament_id": "468622",
+    "name": "2005 World Championship (Jul 28)"
+  },
+  {
+    "year": 2006,
+    "tournament_id": "465383",
+    "name": "2006 World Championship (Jul 27)"
+  },
+  {
+    "year": 2007,
+    "tournament_id": "466382",
+    "name": "2007 World Championship (Aug 2)"
+  },
+  {
+    "year": 2008,
+    "tournament_id": "466891",
+    "name": "2008 World Championship (Jul 31)"
+  },
+  {
+    "year": 2009,
+    "tournament_id": "467506",
+    "name": "2009 World Championship (Aug 6)"
+  },
+  {
+    "year": 2010,
+    "tournament_id": "467963",
+    "name": "2010 World Championship (Aug 5)"
+  },
+  {
+    "year": 2011,
+    "tournament_id": "468662",
+    "name": "2011 World Championship (Aug 4)"
+  },
+  {
+    "year": 2012,
+    "tournament_id": "469325",
+    "name": "2012 World Championship (Aug 2)"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "285105",
+    "name": "World Championship 2013 (Aug 1)"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "470371",
+    "name": "World Championship 2014 (Jul 31)"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "486841",
+    "name": "World Cup 2014 (Aug 3)"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "490640",
+    "name": "2015 World Championship (Jul 30)"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496159",
+    "name": "World Championship 2016 (Aug 4)"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "497128",
+    "name": "World Van Horn Cup 2016 (Aug 7)"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497750",
+    "name": "World Championship 2017 (Aug 3)"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "498897",
+    "name": "World Van Horn Cup 2017 (Aug 6)"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499725",
+    "name": "World Championship 2018 (Aug 2)"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499820",
+    "name": "World Van Horn Cup 2018 (Aug 5)"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501438",
+    "name": "World Championship 2019 (Aug 1)"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501444",
+    "name": "World Van Horn Cup 2019 (Aug 4)"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502918",
+    "name": "World Championship 2020 (Jul 30)"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "503291",
+    "name": "World Van Horn Cup 2020 (Aug 2)"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504808",
+    "name": "World Championship 2021 (Jul 29)"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504817",
+    "name": "World Van Horn Cup 2021 (Aug 1)"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "507563",
+    "name": "Veteran Golfers Association World Championship Qualifier 2022 (Aug 1)"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506877",
+    "name": "World Championship 2022 (Aug 4)"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506886",
+    "name": "World Van Horn Cup 2022 (Aug 7)"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509620",
+    "name": "Veteran Golfers Association World Championship Qualifier 2023 (Jul 31)"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509581",
+    "name": "World Championship 2023 (Aug 3)"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509580",
+    "name": "World Teen Championship 2023 (Jul 27)"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509610",
+    "name": "World Van Horn Cup 2023 (Aug 6)"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511786",
+    "name": "Teen Van Horn Cup 2024 (Jul 28)"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511801",
+    "name": "Veteran Golfers Association World Championship Qualifier 2024 (Jul 29)"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511570",
+    "name": "World Championship 2024 (Aug 1)"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511778",
+    "name": "World Teen Championship 2024 (Jul 25)"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511787",
+    "name": "World Van Horn Cup 2024 (Aug 4)"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514148",
+    "name": "Teen Van Horn Cup 2025 (Jul 27)"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514134",
+    "name": "Veteran Golfers Association World Championship Qualifier 2025 (Jul 28)"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514125",
+    "name": "World Championship 2025 (Jul 31)"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514126",
+    "name": "World Teen Championship 2025 (Jul 24)"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514149",
+    "name": "World Van Horn Cup 2025 (Aug 3)"
+  }
+]

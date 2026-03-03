@@ -1,0 +1,68 @@
+[
+  {
+    "year": 2022,
+    "tournament_id": "507824",
+    "name": "2022 Girls Invitational - Jekyll Island (GA) (Aug 27)",
+    "signupanytime_t": "12444"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "507801",
+    "name": "2022 Girls Invitational - Moffett Field (CA) (Sep 3)",
+    "signupanytime_t": "12387"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509776",
+    "name": "2023 Girls Invitational - Jekyll Island (GA) (May 13)",
+    "signupanytime_t": "14215"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "511132",
+    "name": "2023 Girls Invitational - Longleaf (NC) (Nov 11)",
+    "signupanytime_t": "15509"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510266",
+    "name": "2023 Girls Invitational - Paradise Valley (CA) (Sep 2)",
+    "signupanytime_t": "14645"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "512424",
+    "name": "2024 Girls Invitational - Del Monte (CA) (Jun 15)",
+    "signupanytime_t": "16714"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "513850",
+    "name": "2024 Girls Invitational - Longleaf (NC) (Nov 9)",
+    "signupanytime_t": "18001"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "512007",
+    "name": "2024 Girls Invitational - Osprey Point (FL) (May 11)",
+    "signupanytime_t": "16327"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515163",
+    "name": "2025 Girls Invitational - Baylands (CA) (Jun 14)",
+    "signupanytime_t": "19378"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514630",
+    "name": "2025 Girls Invitational - Hammock Creek (FL) (May 10)",
+    "signupanytime_t": "18887"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "516605",
+    "name": "2025 Girls Invitational - Longleaf (NC) (Nov 15)",
+    "signupanytime_t": "20700"
+  }
+]

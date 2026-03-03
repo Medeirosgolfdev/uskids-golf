@@ -1,0 +1,968 @@
+[
+  {
+    "year": 2004,
+    "tournament_id": "467715",
+    "name": "2004 Jekyll Island Cup (Feb 15)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2005,
+    "tournament_id": "467796",
+    "name": "2005 Jekyll Island Cup (Feb 20)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2006,
+    "tournament_id": "469135",
+    "name": "2006 Jekyll Island Cup (Feb 19)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2007,
+    "tournament_id": "466247",
+    "name": "2007 Jekyll Island Cup (Feb 18)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2008,
+    "tournament_id": "467056",
+    "name": "2008 Desert Shootout (Dec 28)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2008,
+    "tournament_id": "466638",
+    "name": "2008 Jekyll Island Cup (Feb 17)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2008,
+    "tournament_id": "466988",
+    "name": "2008 PGA Golf Club Invitational (Oct 12)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2009,
+    "tournament_id": "467552",
+    "name": "2009 Desert Shootout (Dec 28)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2009,
+    "tournament_id": "467104",
+    "name": "2009 Jekyll Island Cup (Feb 15)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2009,
+    "tournament_id": "467531",
+    "name": "2009 PGA Golf Club Invitational (Oct 10)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2010,
+    "tournament_id": "467581",
+    "name": "2010 Copperhead Classic (Jan 17)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2010,
+    "tournament_id": "468375",
+    "name": "2010 Hawaiian Classic (Dec 20)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2010,
+    "tournament_id": "467888",
+    "name": "2010 Jekyll Island Cup (Feb 14)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2010,
+    "tournament_id": "468366",
+    "name": "2010 PGA Golf Club Invitational (Oct 9)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2010,
+    "tournament_id": "468349",
+    "name": "2010 Seaview Open (Sep 5)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2011,
+    "tournament_id": "468515",
+    "name": "2011 Desert Shootout (Feb 20)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2011,
+    "tournament_id": "468538",
+    "name": "2011 Jekyll Island Cup (Mar 26)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2011,
+    "tournament_id": "469016",
+    "name": "2011 Ka’anapali Hawaiian Classic (Dec 19)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2011,
+    "tournament_id": "468990",
+    "name": "2011 Monterey Challenge (Nov 5)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2011,
+    "tournament_id": "468973",
+    "name": "2011 PGA Golf Club Invitational (Oct 8)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "469156",
+    "name": "2012 Copperhead Classic (Jan 14)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "469171",
+    "name": "2012 Desert Shootout (Feb 18)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "465021",
+    "name": "2012 Holiday Classic (Dec 21)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "469229",
+    "name": "2012 Jekyll Island Cup (Mar 24)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "465004",
+    "name": "2012 Monterey Challenge (Nov 10)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "464976",
+    "name": "2012 PGA Golf Club Invitational (Oct 6)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2012,
+    "tournament_id": "464639",
+    "name": "2012 Seaview Open (Sep 1)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2013,
+    "tournament_id": "465134",
+    "name": "2013 Copperhead Classic (Jan 19)",
+    "signupanytime_t": null
+  },
+  {
+    "year": 2013,
+    "tournament_id": "469498",
+    "name": "Desert Shootout - 2013 (Feb 16)",
+    "signupanytime_t": "4"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "469373",
+    "name": "Holiday Classic 2013 (Dec 21)",
+    "signupanytime_t": "115"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "469499",
+    "name": "Jekyll Island Cup - 2013 (Mar 23)",
+    "signupanytime_t": "5"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "285118",
+    "name": "Monterey Challenge 2013 (Nov 9)",
+    "signupanytime_t": "46"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "285115",
+    "name": "PGA Golf Club Invitational 2013 (Oct 12)",
+    "signupanytime_t": "45"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "285109",
+    "name": "Seaview Open 2013 (Aug 31)",
+    "signupanytime_t": "44"
+  },
+  {
+    "year": 2013,
+    "tournament_id": "469500",
+    "name": "Texas Open 2013 (May 11)",
+    "signupanytime_t": "6"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "469393",
+    "name": "Copperhead Classic 2014 (Jan 18)",
+    "signupanytime_t": "116"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "469413",
+    "name": "Desert Shootout 2014 (Feb 15)",
+    "signupanytime_t": "117"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "481771",
+    "name": "Holiday Classic 2014 (Dec 21)",
+    "signupanytime_t": "509"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "469425",
+    "name": "Jekyll Island Cup 2014 (Mar 22)",
+    "signupanytime_t": "118"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "481769",
+    "name": "Monterey Challenge 2014 (Nov 8)",
+    "signupanytime_t": "508"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "481768",
+    "name": "PGA Golf Club Invitational 2014 (Oct 11)",
+    "signupanytime_t": "507"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "481709",
+    "name": "Seaview Open 2014 (Aug 30)",
+    "signupanytime_t": "455"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "469635",
+    "name": "Texas Open 2014 (May 10)",
+    "signupanytime_t": "145"
+  },
+  {
+    "year": 2014,
+    "tournament_id": "484206",
+    "name": "Van Horn Cup 2014 (May 30)",
+    "signupanytime_t": "768"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "487561",
+    "name": "Copperhead Classic 2015 (Jan 17)",
+    "signupanytime_t": "926"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "488569",
+    "name": "Desert Shootout 2015 (Feb 14)",
+    "signupanytime_t": "1000"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "495741",
+    "name": "Holiday Classic 2015 (Dec 21)",
+    "signupanytime_t": "1964"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "489162",
+    "name": "Jekyll Island Cup 2015 (Mar 21)",
+    "signupanytime_t": "1029"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "495528",
+    "name": "Monterey Challenge 2015 (Nov 7)",
+    "signupanytime_t": "1772"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "492089",
+    "name": "Palm Springs Open 2015 (Sep 12)",
+    "signupanytime_t": "1387"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "494579",
+    "name": "PGA Golf Club Invitational 2015 (Oct 10)",
+    "signupanytime_t": "1679"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "493334",
+    "name": "Seaview Open 2015 (Sep 5)",
+    "signupanytime_t": "1544"
+  },
+  {
+    "year": 2015,
+    "tournament_id": "490166",
+    "name": "Texas Open 2015 (May 9)",
+    "signupanytime_t": "1107"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "495706",
+    "name": "Copperhead Classic 2016 (Jan 16)",
+    "signupanytime_t": "1928"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "495800",
+    "name": "Desert Shootout 2016 (Feb 13)",
+    "signupanytime_t": "2010"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "497235",
+    "name": "Holiday Classic 2016 (Dec 21)",
+    "signupanytime_t": "3235"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "495872",
+    "name": "Jekyll Island Cup 2016 (Mar 12)",
+    "signupanytime_t": "2067"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496926",
+    "name": "Monterey Challenge 2016 (Nov 5)",
+    "signupanytime_t": "2939"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496768",
+    "name": "Palm Springs Open 2016 (Sep 10)",
+    "signupanytime_t": "2751"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496418",
+    "name": "Red White & Blue Invitational 2016 (Jul 2)",
+    "signupanytime_t": "2508"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496717",
+    "name": "Seaview Open 2016 (Sep 3)",
+    "signupanytime_t": "2750"
+  },
+  {
+    "year": 2016,
+    "tournament_id": "496063",
+    "name": "Texas Open 2016 (May 7)",
+    "signupanytime_t": "2210"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497263",
+    "name": "Copperhead Classic 2017 (Jan 14)",
+    "signupanytime_t": "3259"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497332",
+    "name": "Desert Shootout 2017 (Feb 18)",
+    "signupanytime_t": "3306"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497852",
+    "name": "Holiday Classic 2017 (Dec 21)",
+    "signupanytime_t": "3777"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497417",
+    "name": "Jekyll Island Cup 2017 (Mar 25)",
+    "signupanytime_t": "3362"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497851",
+    "name": "Monterey Challenge 2017 (Nov 4)",
+    "signupanytime_t": "3776"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497849",
+    "name": "Palm Springs Open 2017 (Sep 23)",
+    "signupanytime_t": "3774"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497847",
+    "name": "Red White & Blue Invitational 2017 (Jul 1)",
+    "signupanytime_t": "3772"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497848",
+    "name": "Seaview Open 2017 (Sep 2)",
+    "signupanytime_t": "3773"
+  },
+  {
+    "year": 2017,
+    "tournament_id": "497641",
+    "name": "Texas Open 2017 (May 13)",
+    "signupanytime_t": "3519"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499141",
+    "name": "Colonial Williamsburg Classic 2018 (Apr 14)",
+    "signupanytime_t": "4950"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499138",
+    "name": "Copperhead Classic 2018 (Jan 13)",
+    "signupanytime_t": "4947"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499139",
+    "name": "Desert Shootout 2018 (Feb 17)",
+    "signupanytime_t": "4948"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499284",
+    "name": "Holiday Classic 2018 (Dec 21)",
+    "signupanytime_t": "5047"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499140",
+    "name": "Jekyll Island Cup 2018 (Mar 24)",
+    "signupanytime_t": "4949"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499397",
+    "name": "Monterey Challenge 2018 (Nov 3)",
+    "signupanytime_t": "5093"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499283",
+    "name": "Palm Springs Open 2018 (Sep 15)",
+    "signupanytime_t": "5046"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "500491",
+    "name": "PGA Golf Club Invitational 2018 (Oct 6)",
+    "signupanytime_t": "6040"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499177",
+    "name": "Red White & Blue Invitational 2018 (Jun 30)",
+    "signupanytime_t": "4967"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499282",
+    "name": "Seaview Open 2018 (Sep 1)",
+    "signupanytime_t": "5045"
+  },
+  {
+    "year": 2018,
+    "tournament_id": "499176",
+    "name": "Texas Open 2018 (May 12)",
+    "signupanytime_t": "4966"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501213",
+    "name": "Colonial Williamsburg Classic 2019 (Apr 13)",
+    "signupanytime_t": "6712"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501040",
+    "name": "Copperhead Classic 2019 (Jan 19)",
+    "signupanytime_t": "6578"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501041",
+    "name": "Desert Shootout 2019 (Feb 16)",
+    "signupanytime_t": "6579"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "502302",
+    "name": "Holiday Classic 2019 (Dec 21)",
+    "signupanytime_t": "7644"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501042",
+    "name": "Jekyll Island Cup 2019 (Mar 23)",
+    "signupanytime_t": "6580"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "502300",
+    "name": "Monterey Challenge 2019 (Nov 2)",
+    "signupanytime_t": "7643"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501273",
+    "name": "Ozarks Open 2019 (May 11)",
+    "signupanytime_t": "6763"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "502129",
+    "name": "Palm Springs Open 2019 (Sep 21)",
+    "signupanytime_t": "7491"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "502299",
+    "name": "PGA Golf Club Invitational 2019 (Oct 12)",
+    "signupanytime_t": "7642"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "501717",
+    "name": "Red White & Blue Invitational 2019 (Jun 29)",
+    "signupanytime_t": "7170"
+  },
+  {
+    "year": 2019,
+    "tournament_id": "502125",
+    "name": "Seaview Open 2019 (Aug 31)",
+    "signupanytime_t": "7490"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "503292",
+    "name": "Colonial Williamsburg Classic 2020 (Nov 7)",
+    "signupanytime_t": "8508"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502903",
+    "name": "Copperhead Classic 2020 (Jan 18)",
+    "signupanytime_t": "8181"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502913",
+    "name": "Desert Shootout 2020 (Feb 15)",
+    "signupanytime_t": "8189"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "503294",
+    "name": "Holiday Classic 2020 (Dec 21)",
+    "signupanytime_t": "8510"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502914",
+    "name": "Jekyll Island Cup 2020 (Sep 12)",
+    "signupanytime_t": "8190"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "503293",
+    "name": "Monterey Challenge 2020 (Nov 7)",
+    "signupanytime_t": "8509"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502920",
+    "name": "Palm Springs Open 2020 (Sep 19)",
+    "signupanytime_t": "8196"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "504045",
+    "name": "PGA Golf Club Invitational 2020 (Oct 10)",
+    "signupanytime_t": "9124"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502916",
+    "name": "Red White & Blue Invitational 2020 (Jul 4)",
+    "signupanytime_t": "8192"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502919",
+    "name": "Seaview Open 2020 (Sep 5)",
+    "signupanytime_t": "8195"
+  },
+  {
+    "year": 2020,
+    "tournament_id": "502915",
+    "name": "Texas Open 2020 (Nov 21)",
+    "signupanytime_t": "8191"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505541",
+    "name": "Colonial Williamsburg Classic 2021 (Nov 6)",
+    "signupanytime_t": "10305"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504611",
+    "name": "Copperhead Classic 2021 (Jan 16)",
+    "signupanytime_t": "9631"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504634",
+    "name": "Desert Shootout 2021 (Feb 13)",
+    "signupanytime_t": "9652"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505543",
+    "name": "Holiday Classic 2021 (Dec 21)",
+    "signupanytime_t": "10306"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504720",
+    "name": "Jekyll Island Cup 2021 (Mar 27)",
+    "signupanytime_t": "9714"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505542",
+    "name": "Monterey Challenge 2021 (Nov 6)",
+    "signupanytime_t": "10304"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505539",
+    "name": "Palm Springs Open 2021 (Sep 18)",
+    "signupanytime_t": "10302"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505540",
+    "name": "PGA Golf Club Invitational 2021 (Oct 9)",
+    "signupanytime_t": "10303"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505163",
+    "name": "Red White & Blue Invitational 2021 (Jul 3)",
+    "signupanytime_t": "10118"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "505538",
+    "name": "Seaview Open 2021 (Sep 4)",
+    "signupanytime_t": "10300"
+  },
+  {
+    "year": 2021,
+    "tournament_id": "504765",
+    "name": "Texas Open 2021 (May 8)",
+    "signupanytime_t": "9766"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "508245",
+    "name": "Colonial Williamsburg Classic 2022 (Nov 5)",
+    "signupanytime_t": "12829"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506551",
+    "name": "Copperhead Classic 2022 (Jan 15)",
+    "signupanytime_t": "11364"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506603",
+    "name": "Desert Shootout 2022 (Feb 26)",
+    "signupanytime_t": "11408"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "508721",
+    "name": "Holiday Classic 2022 (Dec 21)",
+    "signupanytime_t": "13273"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506716",
+    "name": "Jekyll Island Cup 2022 (Mar 26)",
+    "signupanytime_t": "11451"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "508353",
+    "name": "Monterey Challenge 2022 (Nov 5)",
+    "signupanytime_t": "12930"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "507926",
+    "name": "Palm Springs Open 2022 (Sep 17)",
+    "signupanytime_t": "12496"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "508078",
+    "name": "PGA Golf Club Invitational 2022 (Oct 8)",
+    "signupanytime_t": "12674"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "507426",
+    "name": "Red White & Blue Invitational 2022 (Jul 2)",
+    "signupanytime_t": "12093"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "507866",
+    "name": "Seaview Open 2022 (Sep 3)",
+    "signupanytime_t": "12495"
+  },
+  {
+    "year": 2022,
+    "tournament_id": "506901",
+    "name": "Texas Open 2022 (May 7)",
+    "signupanytime_t": "11623"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510658",
+    "name": "Colonial Williamsburg Classic 2023 (Nov 4)",
+    "signupanytime_t": "15049"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "508870",
+    "name": "Copperhead Classic 2023 (Jan 14)",
+    "signupanytime_t": "13411"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509362",
+    "name": "Desert Shootout - Practice Round (Feb 24)",
+    "signupanytime_t": "13764"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "508931",
+    "name": "Desert Shootout 2023 (Feb 25)",
+    "signupanytime_t": "13467"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "511102",
+    "name": "Holiday Classic 2023 (Dec 21)",
+    "signupanytime_t": "15480"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509030",
+    "name": "Jekyll Island Cup 2023 (Mar 25)",
+    "signupanytime_t": "13559"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510718",
+    "name": "Monterey Challenge 2023 (Nov 4)",
+    "signupanytime_t": "15105"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510225",
+    "name": "Palm Springs Open 2023 (Sep 16)",
+    "signupanytime_t": "14644"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510437",
+    "name": "PGA Golf Club Invitational 2023 (Oct 7)",
+    "signupanytime_t": "14845"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509795",
+    "name": "Red White & Blue Invitational 2023 (Jul 1)",
+    "signupanytime_t": "14218"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "510240",
+    "name": "Seaview Open 2023 (Sep 2)",
+    "signupanytime_t": "14585"
+  },
+  {
+    "year": 2023,
+    "tournament_id": "509609",
+    "name": "Teen Van Horn Cup 2023 (Jul 30)",
+    "signupanytime_t": "14061"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "513453",
+    "name": "Colonial Williamsburg Classic 2024 (Nov 2)",
+    "signupanytime_t": "17753"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511354",
+    "name": "Copperhead Classic 2024 (Jan 13)",
+    "signupanytime_t": "15659"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511456",
+    "name": "Desert Shootout 2024 (Feb 24)",
+    "signupanytime_t": "15806"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "513807",
+    "name": "Holiday Classic 2024 (Dec 21)",
+    "signupanytime_t": "18000"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511562",
+    "name": "Jekyll Island Cup 2024 (Mar 16)",
+    "signupanytime_t": "15903"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "513592",
+    "name": "Monterey Challenge 2024 (Nov 2)",
+    "signupanytime_t": "17895"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "512896",
+    "name": "Palm Springs Open 2024 (Sep 21)",
+    "signupanytime_t": "17197"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "512416",
+    "name": "Red White & Blue Invitational 2024 (Jul 6)",
+    "signupanytime_t": "16705"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "512871",
+    "name": "Seaview Open 2024 (Aug 31)",
+    "signupanytime_t": "17172"
+  },
+  {
+    "year": 2024,
+    "tournament_id": "511841",
+    "name": "Texas Open 2024 (May 11)",
+    "signupanytime_t": "16170"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515903",
+    "name": "Colonial Williamsburg Classic 2025 (Nov 8)",
+    "signupanytime_t": "20064"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "513963",
+    "name": "Desert Shootout 2025 (Feb 22)",
+    "signupanytime_t": "18249"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "516789",
+    "name": "Holiday Classic 2025 (Dec 21)",
+    "signupanytime_t": "20878"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514113",
+    "name": "Jekyll Island Cup 2025 (Mar 29)",
+    "signupanytime_t": "18415"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515902",
+    "name": "Monterey Challenge 2025 (Nov 8)",
+    "signupanytime_t": "20063"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515710",
+    "name": "Palm Springs Open 2025 (Sep 13)",
+    "signupanytime_t": "19865"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514896",
+    "name": "Palmer Foundation Kids Invitational 2025 (Jun 20)",
+    "signupanytime_t": "19161"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515055",
+    "name": "PGA Golf Club Invitational 2025 (Oct 11)",
+    "signupanytime_t": "19281"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514718",
+    "name": "Red White & Blue Invitational 2025 (Jul 5)",
+    "signupanytime_t": "18719"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "515652",
+    "name": "Seaview Open 2025 (Aug 30)",
+    "signupanytime_t": "19816"
+  },
+  {
+    "year": 2025,
+    "tournament_id": "514124",
+    "name": "Texas Open 2025 (May 10)",
+    "signupanytime_t": "18424"
+  },
+  {
+    "year": 2026,
+    "tournament_id": "516958",
+    "name": "Desert Shootout 2026 (Feb 21)",
+    "signupanytime_t": "21004"
+  },
+  {
+    "year": 2026,
+    "tournament_id": "516801",
+    "name": "Sandestin Championship 2026 (Jan 17)",
+    "signupanytime_t": "20895"
+  }
+]

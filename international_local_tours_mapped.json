@@ -1,0 +1,152 @@
+[
+  {
+    "region": "Buenos Aires",
+    "region_id": "498534",
+    "region_slug": "buenos-aires-ar",
+    "year": null,
+    "tournament_id": "517477",
+    "name": "San Sebastián Club de Golf (Mar 1)",
+    "signupanytime_t": "21551",
+    "needs_fetch": true
+  },
+  {
+    "region": "Quito",
+    "region_id": "504801",
+    "region_slug": "quito-ec",
+    "year": null,
+    "tournament_id": "517083",
+    "name": "Club Los Chillos (Mar 1)",
+    "signupanytime_t": "21167",
+    "needs_fetch": true
+  },
+  {
+    "region": "Quito",
+    "region_id": "504801",
+    "region_slug": "quito-ec",
+    "year": null,
+    "tournament_id": "517084",
+    "name": "Arrayanes Country Club (Feb 22)",
+    "signupanytime_t": "21168",
+    "needs_fetch": true
+  },
+  {
+    "region": "Quito",
+    "region_id": "504801",
+    "region_slug": "quito-ec",
+    "year": null,
+    "tournament_id": "517082",
+    "name": "Arrayanes Country Club (Jan 18)",
+    "signupanytime_t": "21166",
+    "needs_fetch": true
+  },
+  {
+    "region": "Honduras",
+    "region_id": "511520",
+    "region_slug": "honduras-hn",
+    "year": null,
+    "tournament_id": "517796",
+    "name": "Club Campestre La Lima (Mar 1)",
+    "signupanytime_t": "21857",
+    "needs_fetch": true
+  },
+  {
+    "region": "Rome",
+    "region_id": "495924",
+    "region_slug": "rome-it",
+    "year": null,
+    "tournament_id": "517546",
+    "name": "Golf Nazionale (Mar 1)",
+    "signupanytime_t": "21569",
+    "needs_fetch": true
+  },
+  {
+    "region": "Southern Italy",
+    "region_id": "501310",
+    "region_slug": "southern-italy-it",
+    "year": null,
+    "tournament_id": "517307",
+    "name": "Acaya Golf Club (Mar 1)",
+    "signupanytime_t": "21393",
+    "needs_fetch": true
+  },
+  {
+    "region": "Southern Italy",
+    "region_id": "501310",
+    "region_slug": "southern-italy-it",
+    "year": null,
+    "tournament_id": "517306",
+    "name": "Verdura Resort - East Links (Feb 22)",
+    "signupanytime_t": "21392",
+    "needs_fetch": true
+  },
+  {
+    "region": "Nairobi",
+    "region_id": "507128",
+    "region_slug": "nairobi-ke",
+    "year": null,
+    "tournament_id": "517671",
+    "name": "Limuru Country Club (Mar 1)",
+    "signupanytime_t": "21735",
+    "needs_fetch": true
+  },
+  {
+    "region": "Nairobi",
+    "region_id": "507128",
+    "region_slug": "nairobi-ke",
+    "year": null,
+    "tournament_id": "517670",
+    "name": "Vet Lab Sports Club (Feb 15)",
+    "signupanytime_t": "21734",
+    "needs_fetch": true
+  },
+  {
+    "region": "Casablanca",
+    "region_id": "509236",
+    "region_slug": "casablanca-ma",
+    "year": null,
+    "tournament_id": "517138",
+    "name": "The Tony Jacklin - Casablanca (Feb 15)",
+    "signupanytime_t": "21211",
+    "needs_fetch": true
+  },
+  {
+    "region": "Casablanca",
+    "region_id": "509236",
+    "region_slug": "casablanca-ma",
+    "year": null,
+    "tournament_id": "517137",
+    "name": "Casa Green Golf Club (Feb 8)",
+    "signupanytime_t": "21210",
+    "needs_fetch": true
+  },
+  {
+    "region": "Casablanca",
+    "region_id": "509236",
+    "region_slug": "casablanca-ma",
+    "year": null,
+    "tournament_id": "517136",
+    "name": "PalmGolf Country Club (Jan 18)",
+    "signupanytime_t": "21209",
+    "needs_fetch": true
+  },
+  {
+    "region": "Puerto Rico",
+    "region_id": "512734",
+    "region_slug": "puerto-rico-pr",
+    "year": null,
+    "tournament_id": "517623",
+    "name": "Rio Mar Country Club - River (Feb 22)",
+    "signupanytime_t": "21691",
+    "needs_fetch": true
+  },
+  {
+    "region": "Puerto Rico",
+    "region_id": "512734",
+    "region_slug": "puerto-rico-pr",
+    "year": null,
+    "tournament_id": "517622",
+    "name": "Rio Bayamon Golf Course (Feb 21)",
+    "signupanytime_t": "21690",
+    "needs_fetch": true
+  }
+]
