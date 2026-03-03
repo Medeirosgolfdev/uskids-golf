@@ -264,28 +264,38 @@ function App(){
   var _ty=useState("all"),tYearF=_ty[0],setTYearF=_ty[1];
   var fileRef=useRef(null);
 
+  var JSON_FILES=["uskids_complete_v2.json","uskids_americanos.json"];
+
+  var loadFromFiles=useCallback(function(texts){
+    setStatus("A processar JSON...");
+    setTimeout(function(){
+      try{
+        var allTournaments=[];
+        for(var i=0;i<texts.length;i++){
+          var raw=JSON.parse(texts[i]);
+          raw=adaptFormat(raw);
+          var ts=raw.tournaments||[];
+          allTournaments=allTournaments.concat(ts);
+        }
+        var merged={tournaments:allTournaments};
+        setStatus("A indexar "+allTournaments.length+" torneios...");
+        setTimeout(function(){var result=processData(merged);setData(result);setSelTourn(null);setSelPlayer(null);setView("dashboard");setLoading(false);setStatus("");},50);
+      }catch(err){setError("Erro: "+err.message);setLoading(false);setStatus("");}
+    },50);
+  },[]);
+
+  React.useEffect(function(){
+    setLoading(true);setError(null);setStatus("A carregar "+JSON_FILES.length+" ficheiros...");
+    var promises=JSON_FILES.map(function(f){return fetch(f).then(function(r){if(!r.ok)throw new Error(f+" -> "+r.status);return r.text();});});
+    Promise.all(promises).then(function(texts){loadFromFiles(texts);}).catch(function(err){setError("Erro ao carregar ficheiros: "+err.message);setLoading(false);setStatus("");});
+  },[]);
+
   var handleFile=useCallback(function(e){
     var files=e.target.files;if(!files||files.length===0)return;
     setLoading(true);setError(null);setStatus("A ler "+files.length+" ficheiro(s)...");
     var promises=[];
     for(var i=0;i<files.length;i++){promises.push(files[i].text());}
-    Promise.all(promises).then(function(texts){
-      setStatus("A processar JSON...");
-      setTimeout(function(){
-        try{
-          var allTournaments=[];
-          for(var i=0;i<texts.length;i++){
-            var raw=JSON.parse(texts[i]);
-            raw=adaptFormat(raw);
-            var ts=raw.tournaments||[];
-            allTournaments=allTournaments.concat(ts);
-          }
-          var merged={tournaments:allTournaments};
-          setStatus("A indexar "+allTournaments.length+" torneios...");
-          setTimeout(function(){var result=processData(merged);setData(result);setSelTourn(null);setSelPlayer(null);setView("dashboard");setLoading(false);setStatus("");},50);
-        }catch(err){setError("Erro: "+err.message);setLoading(false);setStatus("");}
-      },50);
-    });
+    Promise.all(promises).then(function(texts){loadFromFiles(texts);});
   },[]);
 
   var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||a.name.localeCompare(b.name);});},[data,tYearF,tSearch]);
@@ -308,9 +318,9 @@ function App(){
         <p style={{fontSize:14,color:T.textMuted,margin:"0 0 32px"}}>Analytics \u00b7 Torneios \u00b7 Jogadores \u00b7 Scorecards</p>
         {error&&<div style={{background:"#7f1d1d90",color:"#fca5a5",padding:"12px 18px",borderRadius:12,marginBottom:16,fontSize:12,border:"1px solid #991b1b"}}>{error}</div>}
         {status&&<div style={{color:T.accent,fontSize:13,marginBottom:12,fontWeight:500}}>{status}</div>}
-        <button onClick={function(){fileRef.current&&fileRef.current.click();}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A processar...":"Carregar JSON(s)"}</button>
+        <button onClick={function(){fileRef.current&&fileRef.current.click();}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"Carregar manualmente"}</button>
         <input ref={fileRef} type="file" accept=".json" multiple onChange={handleFile} style={{display:"none"}}/>
-        <p style={{fontSize:11,color:"#4a6070",marginTop:16}}>Seleciona um ou mais ficheiros (ex: uskids_complete_v2.json + uskids_americanos.json)</p>
+        <p style={{fontSize:11,color:"#4a6070",marginTop:16}}>Auto-load: {JSON_FILES.join(" + ")}</p>
       </div>
     </div></React.Fragment>
   );
