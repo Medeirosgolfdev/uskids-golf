@@ -52,21 +52,22 @@ function processData(raw){
         var first=(pd.first||"").trim(),last=(pd.last||"").trim(),name=(first+" "+last).trim();
         if(!name||name==="Unknown Player")continue;
         var country=(pd.country||"").toUpperCase(),place=(pd.place||"").trim();
+        var teeName=(pd.teeMarkerName||"").trim(),teeColor=(pd.teeMarkerColor||"").trim();
         var rnds=[],totStrokes=0;
         var rEntries=Object.entries(pd.rounds||{});
         for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rd.num_holes||strokes.length});totStrokes+=total;}
         rnds.sort(function(a,b){return a.round-b.round;});var isWD=pd.status!==1||totStrokes===0;
         var numRounds=rnds.length||1;var par=calcPar(hpr,numRounds);var vsPar=isWD?null:totStrokes-par;
-        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:meta.start_date||t.date||"",category:catName,hpr:hpr,par:par,course:meta.courses||"",iframeUrl:t.iframe_url||null,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0};
+        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:meta.start_date||t.date||"",category:catName,hpr:hpr,par:par,course:meta.courses||"",iframeUrl:t.iframe_url||null,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName,teeColor:teeColor};
         catApps.push(app);allApps.push(app);
-        catPlayers.push({name:name,country:country,place:place,gender:gender,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,par:par});
+        catPlayers.push({name:name,country:country,place:place,gender:gender,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,par:par,teeName:teeName,teeColor:teeColor});
       }
       catPlayers.sort(function(a,b){if(a.status!==b.status)return a.status==="OK"?-1:1;if(a.totalStrokes==null)return 1;if(b.totalStrokes==null)return-1;return a.totalStrokes-b.totalStrokes;});
       var pos=1;catPlayers.forEach(function(p,i){if(p.status!=="OK"){p.pos="WD";return;}p.pos=(i>0&&p.totalStrokes===catPlayers[i-1].totalStrokes)?catPlayers[i-1].pos:pos;pos=i+2;});
       var catTotal=catPlayers.filter(function(p){return p.status==="OK";}).length;
       catPlayers.forEach(function(p){p.catTotal=catTotal;});
       for(var ci2=0;ci2<catPlayers.length;ci2++){var cp=catPlayers[ci2];var match=catApps.find(function(a){return a.name===cp.name&&a.country===cp.country;});if(match){match.pos=cp.pos;match.catTotal=catTotal;}}
-      if(catPlayers.length>0)tInfo.categories.push({id:fId,name:catName,gender:gender,hpr:hpr,players:catPlayers});
+      if(catPlayers.length>0){var tees={};catPlayers.forEach(function(p){if(p.teeName){var k=p.teeName+(p.teeColor?" ("+p.teeColor+")":"");tees[k]=(tees[k]||0)+1;}});tInfo.categories.push({id:fId,name:catName,gender:gender,hpr:hpr,players:catPlayers,tees:Object.keys(tees)});}
     }
     if(tInfo.categories.length>0)tournIndex.push(tInfo);
   }
@@ -111,7 +112,7 @@ function estPar(hpr){return hpr&&hpr<=9?3:4;}
 var F="'Outfit','DM Sans',-apple-system,sans-serif";
 var FL="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap";
 var pill={fontSize:10,padding:"3px 10px",borderRadius:20,fontWeight:600,display:"inline-block",letterSpacing:0.3};
-var pillSm={fontSize:9,padding:"2px 7px",borderRadius:12,fontWeight:600};
+var pillSm={fontSize:10,padding:"2px 7px",borderRadius:12,fontWeight:600};
 var thS={padding:"8px 10px",fontSize:10,fontWeight:700,color:T.textMuted,borderBottom:"2px solid "+T.borderLight,position:"sticky",top:0,background:T.surface,zIndex:1,textTransform:"uppercase",letterSpacing:0.8};
 var tdS={padding:"7px 10px",fontSize:12,borderBottom:"1px solid "+T.borderLight};
 var inpS={width:"100%",padding:"9px 12px",fontSize:12,borderRadius:10,border:"1px solid "+T.borderLight,outline:"none",boxSizing:"border-box",fontFamily:F,background:"#fff"};
@@ -142,8 +143,8 @@ function Dashboard({data,onNavigate}){
           <StatCard icon={"\u2b50"} label="Veterano" value={stats.veterans[0]?stats.veterans[0].numT+"T":"\u2013"} sub={stats.veterans[0]?stats.veterans[0].name:"\u2013"}/>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18,marginBottom:24}}>
-          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Torneios por ano</div><ResponsiveContainer width="100%" height={180}><BarChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><XAxis dataKey="year" tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Bar dataKey="tournaments" fill={T.accent} radius={[4,4,0,0]} name="Torneios"/></BarChart></ResponsiveContainer></div>
-          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Jogadores ativos por ano</div><ResponsiveContainer width="100%" height={180}><AreaChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><defs><linearGradient id="gP" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={T.blue} stopOpacity={0.3}/><stop offset="100%" stopColor={T.blue} stopOpacity={0.02}/></linearGradient></defs><XAxis dataKey="year" tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Area type="monotone" dataKey="players" stroke={T.blue} fill="url(#gP)" strokeWidth={2} name="Jogadores"/></AreaChart></ResponsiveContainer></div>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Torneios por ano</div><ResponsiveContainer width="100%" height={180}><BarChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><XAxis dataKey="year" tick={{fontSize:10,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:10,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Bar dataKey="tournaments" fill={T.accent} radius={[4,4,0,0]} name="Torneios"/></BarChart></ResponsiveContainer></div>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Jogadores ativos por ano</div><ResponsiveContainer width="100%" height={180}><AreaChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><defs><linearGradient id="gP" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={T.blue} stopOpacity={0.3}/><stop offset="100%" stopColor={T.blue} stopOpacity={0.02}/></linearGradient></defs><XAxis dataKey="year" tick={{fontSize:10,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:10,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Area type="monotone" dataKey="players" stroke={T.blue} fill="url(#gP)" strokeWidth={2} name="Jogadores"/></AreaChart></ResponsiveContainer></div>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18}}>
           <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Top pa\u00edses</div>{stats.topCountries.map(function(c,i){return(<div key={c.country} style={{display:"flex",alignItems:"center",gap:8,padding:"5px 0",borderBottom:i<stats.topCountries.length-1?"1px solid "+T.borderLight:"none"}}><span style={{fontSize:10,fontWeight:700,color:T.textMuted,width:18,textAlign:"right"}}>{i+1}</span><span style={{fontSize:16}}>{c.fl}</span><span style={{fontSize:12,fontWeight:600,color:T.textDark,flex:1}}>{c.name}</span><div style={{width:120,height:6,background:T.surfaceAlt,borderRadius:3,overflow:"hidden"}}><div style={{width:(c.count/stats.topCountries[0].count*100)+"%",height:"100%",background:CL[i%CL.length],borderRadius:3}}/></div><span style={{fontSize:11,fontWeight:700,color:T.textBody,minWidth:36,textAlign:"right"}}>{c.count}</span></div>);})}</div>
@@ -165,20 +166,21 @@ function TournDetail({tourn,onPlayerClick}){
     <div style={{display:"flex",flexDirection:"column",height:"100%"}}>
       <div style={{padding:"14px 16px",borderBottom:"1px solid #e5e7eb",background:"linear-gradient(135deg,#f8fafc,#eff6ff)",flexShrink:0}}>
         <h2 style={{margin:0,fontSize:17,fontWeight:800}}>{tourn.name}</h2>
-        <div style={{fontSize:11,color:T.textMuted,marginTop:3,display:"flex",gap:10,flexWrap:"wrap"}}><span>{tourn.date}</span><span>{tourn.courses||""}</span><span>{tourn.categories.length} cats</span></div>
+        <div style={{fontSize:11,color:T.textMuted,marginTop:3,display:"flex",gap:10,flexWrap:"wrap"}}><span>{tourn.date}</span><span>{tourn.categories.length} categorias</span></div>
+        {tourn.courses&&<div style={{fontSize:12,color:T.accentDark,fontWeight:600,marginTop:4}}>{"\u26f3"} {tourn.courses}</div>}
         {tourn.iframeUrl&&<a href={tourn.iframeUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:T.blue,textDecoration:"none",fontWeight:600,marginTop:4,display:"inline-block"}}>Resultados originais \u2197</a>}
       </div>
       <div style={{display:"flex",gap:3,padding:"6px 10px",flexWrap:"wrap",borderBottom:"1px solid #e5e7eb",background:"#fafafa",flexShrink:0}}>
         {tourn.categories.map(function(c,i){var s=catStyle(c.name);var act=ci===i;return<button key={c.id} onClick={function(){setCi(i);setShowHBH(false);}} style={Object.assign({},pillSm,s,{border:"none",cursor:"pointer",opacity:act?1:0.5,boxShadow:act?"0 0 0 2px "+s.color+"40":"none",padding:"3px 10px"})}>{c.name} ({c.players.length})</button>;})}
       </div>
-      <div style={{padding:"4px 14px",fontSize:11,color:T.textMuted,flexShrink:0}}>{cat.name} \u00b7 {cat.hpr||"?"}h \u00b7 {cat.players.length} jogadores \u00b7 Par {parPerRound}{numRounds>1?" \u00d7 "+numRounds+"R = "+totalPar:""} (est.)</div>
+      <div style={{padding:"4px 14px",fontSize:11,color:T.textMuted,flexShrink:0}}>{cat.name} \u00b7 {cat.hpr||"?"}h \u00b7 {cat.players.length} jogadores \u00b7 Par {parPerRound}{numRounds>1?" \u00d7 "+numRounds+"R = "+totalPar:""} (est.){cat.tees&&cat.tees.length>0?" \u00b7 Tee: "+cat.tees.join(", "):""}</div>
       <div style={{flex:1,overflowY:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse"}}>
-          <thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:42})}>Pos</th><th style={Object.assign({},thS,{width:22})}></th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"left",width:90})}>Local</th>{(cat.players[0]&&cat.players[0].rounds||[]).map(function(_,i){return<th key={i} style={Object.assign({},thS,{textAlign:"center",width:42})}>R{i+1}</th>;})}<th style={Object.assign({},thS,{textAlign:"center",width:46})}>Tot</th><th style={Object.assign({},thS,{textAlign:"center",width:50})}>vs Par</th></tr></thead>
-          <tbody>{cat.players.map(function(p,i){var m=posMedal(p.pos,p.catTotal||cat.players.filter(function(x){return x.status==="OK";}).length);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontSize:13})}>{flag(p.country)}</td><td style={Object.assign({},tdS,{fontWeight:600})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onPlayerClick)onPlayerClick(p.name,p.country,p.gender||cat.gender);}}>{p.name}</span></td><td style={Object.assign({},tdS,{color:T.textMuted,fontSize:11})}>{p.place}</td>{p.rounds.map(function(r,ri){return<td key={ri} style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.total||"\u2013"}</td>;})}<td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700})}>{p.totalStrokes||"\u2013"}</td><td style={Object.assign({},tdS,{textAlign:"center"},sClr(p.vsPar))}>{fmtS(p.vsPar)}</td></tr>);})}</tbody>
+          <thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:42})}>Pos</th><th style={Object.assign({},thS,{width:22})}></th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"left",width:90})}>Local</th><th style={Object.assign({},thS,{textAlign:"center",width:60})}>Tee</th>{(cat.players[0]&&cat.players[0].rounds||[]).map(function(_,i){return<th key={i} style={Object.assign({},thS,{textAlign:"center",width:42})}>R{i+1}</th>;})}<th style={Object.assign({},thS,{textAlign:"center",width:46})}>Tot</th><th style={Object.assign({},thS,{textAlign:"center",width:50})}>vs Par</th></tr></thead>
+          <tbody>{cat.players.map(function(p,i){var m=posMedal(p.pos,p.catTotal||cat.players.filter(function(x){return x.status==="OK";}).length);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontSize:13})}>{flag(p.country)}</td><td style={Object.assign({},tdS,{fontWeight:600})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onPlayerClick)onPlayerClick(p.name,p.country,p.gender||cat.gender);}}>{p.name}</span></td><td style={Object.assign({},tdS,{color:T.textMuted,fontSize:11})}>{p.place}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:10,color:T.textMuted})}>{p.teeName||"\u2013"}</td>{p.rounds.map(function(r,ri){return<td key={ri} style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.total||"\u2013"}</td>;})}<td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700})}>{p.totalStrokes||"\u2013"}</td><td style={Object.assign({},tdS,{textAlign:"center"},sClr(p.vsPar))}>{fmtS(p.vsPar)}</td></tr>);})}</tbody>
         </table>
         {hbhPlayers.length>0&&<React.Fragment><button onClick={function(){setShowHBH(!showHBH);}} style={{width:"100%",padding:"8px 14px",border:"none",borderTop:"1px solid #e5e7eb",cursor:"pointer",background:"#f9fafb",textAlign:"left",fontSize:12,fontWeight:600,color:T.textDark}}>{showHBH?"\u25bc":"\u25b6"} Scorecards ({hbhPlayers.length})</button>
-          {showHBH&&<div style={{overflowX:"auto",padding:"0 8px 12px"}}><table style={{borderCollapse:"collapse",fontSize:11}}><thead><tr style={{background:"#f8fafc"}}><th style={{padding:"4px 8px",textAlign:"left",fontSize:10,color:T.textMuted,position:"sticky",left:0,background:"#f8fafc",zIndex:2,minWidth:120}}>Jogador</th><th style={{padding:"4px 3px",fontSize:9,color:T.textMuted}}>R</th>{Array.from({length:cat.hpr||9},function(_,i){return<th key={i} style={{padding:"4px 3px",textAlign:"center",fontSize:10,color:T.textMuted,minWidth:22}}>{i+1}</th>;})}<th style={{padding:"4px 6px",textAlign:"right",fontSize:10,fontWeight:700}}>Tot</th></tr></thead><tbody>{hbhPlayers.map(function(p,pi){var validRnds=p.rounds.filter(function(r){return r.strokes&&r.strokes.length>0;});return validRnds.map(function(r,ri){return(<tr key={pi+"-"+ri} style={{borderBottom:ri===validRnds.length-1?"2px solid #e5e7eb":"1px solid #f3f4f6"}}>{ri===0&&<td rowSpan={validRnds.length} style={{padding:"3px 8px",fontWeight:600,fontSize:11,position:"sticky",left:0,background:pi%2?"#f9fafb":"#fff",zIndex:1,verticalAlign:"top"}}>{flag(p.country)} {p.name}</td>}<td style={{padding:"3px 3px",textAlign:"center",color:T.textMuted,fontSize:10}}>R{r.round}</td>{r.strokes.map(function(s,si){var sc=scoreCell(s,estPar(cat.hpr));return<td key={si} style={{padding:"3px 2px",textAlign:"center",verticalAlign:"middle"}}><span style={Object.assign({},sc.style,{margin:"0 auto"})}>{sc.text}</span></td>;})}{Array.from({length:Math.max(0,(cat.hpr||9)-r.strokes.length)},function(_,i){return<td key={"p"+i} style={{padding:"3px 3px",textAlign:"center",color:"#e5e7eb"}}>{"\u2013"}</td>;})}<td style={{padding:"3px 6px",textAlign:"right",fontWeight:700}}>{r.total}</td></tr>);});})}</tbody></table></div>}
+          {showHBH&&<div style={{overflowX:"auto",padding:"0 8px 12px"}}><table style={{borderCollapse:"collapse",fontSize:11}}><thead><tr style={{background:"#f8fafc"}}><th style={{padding:"4px 8px",textAlign:"left",fontSize:10,color:T.textMuted,position:"sticky",left:0,background:"#f8fafc",zIndex:2,minWidth:120}}>Jogador</th><th style={{padding:"4px 3px",fontSize:10,color:T.textMuted}}>R</th>{Array.from({length:cat.hpr||9},function(_,i){return<th key={i} style={{padding:"4px 3px",textAlign:"center",fontSize:10,color:T.textMuted,minWidth:22}}>{i+1}</th>;})}<th style={{padding:"4px 6px",textAlign:"right",fontSize:10,fontWeight:700}}>Tot</th></tr></thead><tbody>{hbhPlayers.map(function(p,pi){var validRnds=p.rounds.filter(function(r){return r.strokes&&r.strokes.length>0;});return validRnds.map(function(r,ri){return(<tr key={pi+"-"+ri} style={{borderBottom:ri===validRnds.length-1?"2px solid #e5e7eb":"1px solid #f3f4f6"}}>{ri===0&&<td rowSpan={validRnds.length} style={{padding:"3px 8px",fontWeight:600,fontSize:11,position:"sticky",left:0,background:pi%2?"#f9fafb":"#fff",zIndex:1,verticalAlign:"top"}}>{flag(p.country)} {p.name}</td>}<td style={{padding:"3px 3px",textAlign:"center",color:T.textMuted,fontSize:10}}>R{r.round}</td>{r.strokes.map(function(s,si){var sc=scoreCell(s,estPar(cat.hpr));return<td key={si} style={{padding:"3px 2px",textAlign:"center",verticalAlign:"middle"}}><span style={Object.assign({},sc.style,{margin:"0 auto"})}>{sc.text}</span></td>;})}{Array.from({length:Math.max(0,(cat.hpr||9)-r.strokes.length)},function(_,i){return<td key={"p"+i} style={{padding:"3px 3px",textAlign:"center",color:"#e5e7eb"}}>{"\u2013"}</td>;})}<td style={{padding:"3px 6px",textAlign:"right",fontWeight:700}}>{r.total}</td></tr>);});})}</tbody></table></div>}
         </React.Fragment>}
       </div>
     </div>
@@ -218,16 +220,18 @@ function PDetail({player,onTournClick}){
                 <span style={Object.assign({},m.style,{minWidth:30,textAlign:"center"})}>{m.text}</span>
                 <span style={Object.assign({},pillSm,catStyle(a.category),{minWidth:65,textAlign:"center"})}>{a.category}</span>
                 <span style={{fontWeight:600,flex:1,minWidth:130,color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament}</span>
+                {a.course&&<span style={{fontSize:10,color:T.accentDark,fontWeight:500}}>{a.course}</span>}
                 {a.iframeUrl&&<a href={a.iframeUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:T.textMuted,textDecoration:"none"}}>{"\u2197"}</a>}
                 <span style={{fontSize:10,color:T.textMuted}}>{a.hpr}h\u00d7{a.rounds.length}R</span>
                 <span style={{fontSize:10,color:T.textMuted}}>par {a.par}</span>
+                {a.teeName&&<span style={{fontSize:10,color:T.gold,fontWeight:500}}>Tee: {a.teeName}</span>}
                 {a.status==="OK"?<React.Fragment><span style={{fontWeight:700,minWidth:32,textAlign:"right"}}>{a.totalStrokes}</span><span style={Object.assign({},sClr(a.vsPar),{minWidth:36,textAlign:"right"})}>({fmtS(a.vsPar)})</span>{a.rounds.map(function(r,ri){return<span key={ri} style={{fontSize:10,color:T.textMuted}}>R{r.round}:{r.total}</span>;})}</React.Fragment>:<span style={{color:"#ef4444",fontWeight:600}}>WD</span>}
               </div>);})}
           </div>);})}
         {tab==="evolution"&&(!hist.length?<div style={{fontSize:11,color:T.textMuted}}>Sem dados</div>:<div>
-          {hist.length>1&&<div style={{marginBottom:20}}><ResponsiveContainer width="100%" height={180}><LineChart data={hist.map(function(a){return{label:a.tournament.substring(0,12)+" "+a.year,vsPar:a.vsPar};})} margin={{top:5,right:10,bottom:5,left:-15}}><CartesianGrid strokeDasharray="3 3" stroke={T.borderLight}/><XAxis dataKey="label" tick={{fontSize:8,fill:T.textMuted}} angle={-30} textAnchor="end" height={50}/><YAxis tick={{fontSize:9,fill:T.textMuted}}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Line type="monotone" dataKey="vsPar" stroke={T.accent} strokeWidth={2} dot={{r:4,fill:T.accent}} name="vs Par (est.)"/></LineChart></ResponsiveContainer></div>}
-          <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:36})}>Pos</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"center"})}>Cat</th><th style={Object.assign({},thS,{textAlign:"right"})}>Gross</th><th style={Object.assign({},thS,{textAlign:"right"})}>Par</th><th style={Object.assign({},thS,{textAlign:"right"})}>vs Par</th></tr></thead>
-          <tbody>{hist.map(function(a,i){var m=posMedal(a.pos,a.catTotal);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontWeight:500})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament} {a.year}</span>{a.iframeUrl&&<a href={a.iframeUrl} target="_blank" rel="noopener noreferrer" style={{marginLeft:4,fontSize:10,color:T.textMuted,textDecoration:"none"}}>{"\u2197"}</a>}</td><td style={Object.assign({},tdS,{textAlign:"center"})}><span style={Object.assign({},pillSm,catStyle(a.category))}>{a.category}</span></td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:700})}>{a.totalStrokes}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{a.par}</td><td style={Object.assign({},tdS,{textAlign:"right"},sClr(a.vsPar))}>{fmtS(a.vsPar)}</td></tr>);})}</tbody></table>
+          {hist.length>1&&<div style={{marginBottom:20}}><ResponsiveContainer width="100%" height={180}><LineChart data={hist.map(function(a){return{label:a.tournament.substring(0,12)+" "+a.year,vsPar:a.vsPar};})} margin={{top:5,right:10,bottom:5,left:-15}}><CartesianGrid strokeDasharray="3 3" stroke={T.borderLight}/><XAxis dataKey="label" tick={{fontSize:10,fill:T.textMuted}} angle={-30} textAnchor="end" height={50}/><YAxis tick={{fontSize:10,fill:T.textMuted}}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Line type="monotone" dataKey="vsPar" stroke={T.accent} strokeWidth={2} dot={{r:4,fill:T.accent}} name="vs Par (est.)"/></LineChart></ResponsiveContainer></div>}
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:36})}>Pos</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"left"})}>Campo</th><th style={Object.assign({},thS,{textAlign:"center"})}>Cat</th><th style={Object.assign({},thS,{textAlign:"right"})}>Gross</th><th style={Object.assign({},thS,{textAlign:"right"})}>Par</th><th style={Object.assign({},thS,{textAlign:"right"})}>vs Par</th></tr></thead>
+          <tbody>{hist.map(function(a,i){var m=posMedal(a.pos,a.catTotal);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontWeight:500})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament} {a.year}</span>{a.iframeUrl&&<a href={a.iframeUrl} target="_blank" rel="noopener noreferrer" style={{marginLeft:4,fontSize:10,color:T.textMuted,textDecoration:"none"}}>{"\u2197"}</a>}</td><td style={Object.assign({},tdS,{color:T.textMuted,fontSize:11})}>{a.course||"\u2013"}</td><td style={Object.assign({},tdS,{textAlign:"center"})}><span style={Object.assign({},pillSm,catStyle(a.category))}>{a.category}</span></td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:700})}>{a.totalStrokes}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{a.par}</td><td style={Object.assign({},tdS,{textAlign:"right"},sClr(a.vsPar))}>{fmtS(a.vsPar)}</td></tr>);})}</tbody></table>
         </div>)}
         {tab==="hbh"&&(function(){
           var wh=player.appearances.filter(function(a){return a.status==="OK"&&a.rounds.some(function(r){return r.strokes&&r.strokes.length>0;});});
@@ -286,61 +290,51 @@ function App(){
   }
 
   React.useEffect(function(){
-    setLoading(true);setError(null);setStatus("A procurar ficheiros JSON na pasta...");
-    var basePath=window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-    fetch(basePath).then(function(r){return r.text();}).then(function(html){
-      var jsonFiles=[];
-      var regex=/href=["']([^"']*\.json)["']/gi;
-      var m;
-      while((m=regex.exec(html))!==null){
-        var name=m[1].replace(/^\.?\//,"");
-        if(name.indexOf("/")>=0)continue;
-        jsonFiles.push(name);
-      }
-      if(jsonFiles.length===0){
-        var linkRegex=/>([^<]*\.json)</gi;
-        while((m=linkRegex.exec(html))!==null){
-          var n=m[1].trim();
-          if(n&&n.indexOf("/")<0)jsonFiles.push(n);
+    var FILES=["uskids_complete_v2.json","uskids_americanos.json"];
+    setLoading(true);setError(null);
+    setStatus("A carregar "+FILES.length+" ficheiros...");
+    console.log("Auto-load: a tentar carregar",FILES);
+    var loaded=[];var names=[];var errors=[];
+    var done=0;
+    FILES.forEach(function(f){
+      fetch("./"+f).then(function(r){
+        console.log(f+" -> status "+r.status);
+        if(!r.ok){errors.push(f+" ("+r.status+")");return null;}
+        return r.text();
+      }).then(function(txt){
+        if(txt){loaded.push(txt);names.push(f);}
+        done++;
+        setStatus("Carregados "+loaded.length+"/"+FILES.length+"...");
+        if(done===FILES.length){
+          if(loaded.length>0){
+            console.log("Auto-load OK: "+names.join(", "));
+            mergeAndProcess(loaded,names);
+          }else{
+            console.error("Auto-load falhou:",errors);
+            setError("Nenhum ficheiro carregou ("+errors.join(", ")+"). Verifica que os JSON estão na mesma pasta do HTML e usa um servidor HTTP.");
+            setLoading(false);setStatus("");
+          }
         }
-      }
-      if(jsonFiles.length===0){
-        setError("Nenhum .json encontrado na pasta. Abre a consola (F12) para ver erros. Usa o botão para carregar manualmente.");
-        setLoading(false);setStatus("");return;
-      }
-      var unique={};jsonFiles.forEach(function(f){unique[f]=1;});
-      jsonFiles=Object.keys(unique);
-      console.log("JSON encontrados:",jsonFiles);
-      setStatus("Encontrados "+jsonFiles.length+" JSON: "+jsonFiles.join(", "));
-      var loaded=[];var names=[];
-      var chain=Promise.resolve();
-      jsonFiles.forEach(function(f){
-        chain=chain.then(function(){
-          setStatus("A carregar "+f+"... ("+(loaded.length+1)+"/"+jsonFiles.length+")");
-          return fetch(basePath+f).then(function(r){
-            if(!r.ok){console.warn(f+" -> "+r.status);return;}
-            return r.text().then(function(txt){loaded.push(txt);names.push(f);});
-          }).catch(function(e){console.warn("Falha: "+f,e);});
-        });
+      }).catch(function(e){
+        console.error("Fetch falhou para "+f,e);
+        errors.push(f+" ("+e.message+")");
+        done++;
+        if(done===FILES.length){
+          if(loaded.length>0){mergeAndProcess(loaded,names);}
+          else{setError("Erro de rede ao carregar ficheiros. Se abriste via file://, usa um servidor HTTP (ex: npx serve ou python -m http.server).");setLoading(false);setStatus("");}
+        }
       });
-      chain.then(function(){
-        if(loaded.length===0){setError("Nenhum JSON carregou com sucesso.");setLoading(false);setStatus("");return;}
-        mergeAndProcess(loaded,names);
-      });
-    }).catch(function(err){
-      console.error("Sem directory listing:",err);
-      setError("Não foi possível listar a pasta. Verifica que estás a usar um servidor HTTP (ex: npx serve). Ou carrega manualmente.");
-      setLoading(false);setStatus("");
     });
   },[]);
 
   var handleFile=function(e){
-    var fileList=e.target.files;if(!fileList||fileList.length===0)return;
-    var arr=[];var names=[];
-    for(var i=0;i<fileList.length;i++){arr.push(fileList[i]);names.push(fileList[i].name);}
-    setLoading(true);setError(null);setStatus("A ler "+arr.length+" ficheiro(s): "+names.join(", "));
-    var promises=arr.map(function(f){return f.text();});
-    Promise.all(promises).then(function(texts){mergeAndProcess(texts,names);});
+    var fileList=e.target.files;
+    if(!fileList||fileList.length===0)return;
+    var arr=[];var fnames=[];
+    for(var i=0;i<fileList.length;i++){arr.push(fileList[i]);fnames.push(fileList[i].name);}
+    console.log("Manual upload:",fnames);
+    setLoading(true);setError(null);setStatus("A ler "+arr.length+" ficheiro(s): "+fnames.join(", "));
+    Promise.all(arr.map(function(f){return f.text();})).then(function(texts){mergeAndProcess(texts,fnames);});
   };
 
   var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||a.name.localeCompare(b.name);});},[data,tYearF,tSearch]);
@@ -363,9 +357,9 @@ function App(){
         <p style={{fontSize:14,color:T.textMuted,margin:"0 0 32px"}}>Analytics \u00b7 Torneios \u00b7 Jogadores \u00b7 Scorecards</p>
         {error&&<div style={{background:"#7f1d1d90",color:"#fca5a5",padding:"12px 18px",borderRadius:12,marginBottom:16,fontSize:12,border:"1px solid #991b1b",textAlign:"left",lineHeight:1.5}}>{error}</div>}
         {status&&<div style={{color:T.accent,fontSize:13,marginBottom:12,fontWeight:500}}>{status}</div>}
-        <button onClick={function(){if(fileRef.current){fileRef.current.value=null;fileRef.current.click();}}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"Carregar JSON manualmente"}</button>
-        <input ref={fileRef} type="file" accept=".json,application/json" multiple={true} onChange={handleFile} style={{display:"none"}}/>
-        <p style={{fontSize:11,color:"#4a6070",marginTop:16}}>Carrega automaticamente todos os .json da pasta, ou seleciona v\u00e1rios com Ctrl+Click</p>
+        <button onClick={function(){if(fileRef.current){fileRef.current.value="";fileRef.current.click();}}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"Carregar JSON manualmente"}</button>
+        <input ref={fileRef} type="file" accept=".json" multiple={true} onChange={handleFile} style={{position:"absolute",width:1,height:1,opacity:0,overflow:"hidden",pointerEvents:"none"}}/>
+        <p style={{fontSize:11,color:"#4a6070",marginTop:16}}>Seleciona v\u00e1rios ficheiros com Ctrl+Click ou Shift+Click</p>
       </div>
     </div></React.Fragment>
   );
@@ -375,7 +369,7 @@ function App(){
   return(<React.Fragment><link href={FL} rel="stylesheet"/><div style={{fontFamily:F,height:"100vh",display:"flex",background:T.surface}}>
     <div style={{width:64,background:T.bg,display:"flex",flexDirection:"column",alignItems:"center",padding:"12px 0",flexShrink:0,gap:2}}>
       <div style={{width:38,height:38,borderRadius:12,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,marginBottom:16,boxShadow:"0 2px 12px "+T.accent+"30"}}>{"\u26f3"}</div>
-      {navItems.map(function(n){return(<button key={n.key} onClick={function(){setView(n.key);}} style={{width:48,height:48,borderRadius:12,border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2,background:view===n.key?T.card:"transparent",color:view===n.key?T.accent:T.textMuted,fontSize:16}} title={n.label}><span>{n.icon}</span><span style={{fontSize:8,fontWeight:700,letterSpacing:0.5}}>{n.label.substring(0,4)}</span></button>);})}
+      {navItems.map(function(n){return(<button key={n.key} onClick={function(){setView(n.key);}} style={{width:48,height:48,borderRadius:12,border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2,background:view===n.key?T.card:"transparent",color:view===n.key?T.accent:T.textMuted,fontSize:16}} title={n.label}><span>{n.icon}</span><span style={{fontSize:10,fontWeight:700,letterSpacing:0.5}}>{n.label.substring(0,4)}</span></button>);})}
       <div style={{flex:1}}/>
       <button onClick={function(){setData(null);}} style={{width:38,height:38,borderRadius:10,border:"none",cursor:"pointer",background:"transparent",color:T.textMuted,fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}} title="Fechar">&times;</button>
     </div>
@@ -391,7 +385,7 @@ function App(){
             </div>
             <div style={{fontSize:10,color:T.textMuted,marginTop:6,fontWeight:600}}>{filteredTourns.length} torneios</div>
           </div>
-          <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{fontWeight:700,fontSize:12,color:T.textDark}}>{t.name}</div><div style={{fontSize:10,color:T.textMuted,marginTop:3}}>{t.date} \u00b7 {t.categories.length} cats \u00b7 {t.categories.reduce(function(s,c){return s+c.players.length;},0)} jog</div></button>);})}</div>
+          <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{fontWeight:700,fontSize:12,color:T.textDark}}>{t.name}</div>{t.courses&&<div style={{fontSize:10,color:T.accentDark,fontWeight:500,marginTop:2}}>{t.courses}</div>}<div style={{fontSize:10,color:T.textMuted,marginTop:2}}>{t.date} \u00b7 {t.categories.length} cats \u00b7 {t.categories.reduce(function(s,c){return s+c.players.length;},0)} jog</div></button>);})}</div>
         </div>
         <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selTournData?<TournDetail key={selTournData.key} tourn={selTournData} onPlayerClick={findPlayer}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:14}}>Seleciona um torneio</div>}</div>
       </React.Fragment>}
