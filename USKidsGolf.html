@@ -27,7 +27,7 @@ function extractGender(cat){if(!cat)return"?";if(/Girls/i.test(cat))return"F";if
 function estimateBirth(appearances){var estimates=[];for(var i=0;i<appearances.length;i++){var a=appearances[i];var range=extractAgeRange(a.category);if(range&&a.year){estimates.push(a.year-range.max);estimates.push(a.year-range.min);}}if(!estimates.length)return null;return Math.round(estimates.reduce(function(a,b){return a+b;},0)/estimates.length);}
 function canMerge(person,app){if(person.gender!=="?"&&app.gender!=="?"&&person.gender!==app.gender)return false;for(var i=0;i<person.appearances.length;i++){if(person.appearances[i].tournKey===app.tournKey&&person.appearances[i].category!==app.category)return false;}var appRange=extractAgeRange(app.category);if(appRange){for(var j=0;j<person.appearances.length;j++){var prev=person.appearances[j];var prevRange=extractAgeRange(prev.category);if(!prevRange)continue;var yearDiff=app.year-prev.year;if(yearDiff>0){if(appRange.max<prevRange.min-1)return false;if(appRange.min>prevRange.max+yearDiff+1)return false;var pb=prev.year-prevRange.max,ab=app.year-appRange.max;if(Math.abs(pb-ab)>1)return false;}else if(yearDiff<0){if(prevRange.max<appRange.min-1)return false;if(prevRange.min>appRange.max+Math.abs(yearDiff)+1)return false;var pb2=prev.year-prevRange.max,ab2=app.year-appRange.max;if(Math.abs(pb2-ab2)>1)return false;}else{if(appRange.min>prevRange.max+1||appRange.max<prevRange.min-1)return false;}}}return true;}
 
-function adaptFormat(raw){if(raw&&raw.tournaments)return raw;var arr=Array.isArray(raw)?raw:[];return{tournaments:arr.map(function(t){var flights={},flight_categories={};(t.flights||[]).forEach(function(f){var fid=f.flight_id||f.id||Math.random().toString(36);flights[fid]=f.data||{};flight_categories[fid]=f.flight_name||"Unknown";});return{name:t.name,year:t.year,tournament_id:t.tournament_id,iframe_url:t.iframe_url,date:t.date,flights:flights,flight_categories:flight_categories,meta:{}};})};}
+function adaptFormat(raw){if(raw&&raw.tournaments)return raw;var arr=Array.isArray(raw)?raw:[];return{tournaments:arr.map(function(t){var flights={},flight_categories={};(t.flights||[]).forEach(function(f){var fid=f.flight_id||f.id||Math.random().toString(36);flights[fid]=f.data||{};flight_categories[fid]=f.flight_name||"Unknown";});var meta=t.meta||{};var tm=meta.tournament||{};var startDate=tm.start_date||t.date||"";var yearMatch=startDate.match(/(\d{4})/);var year=t.year||(yearMatch?parseInt(yearMatch[1]):null);if(!year){var nm=t.name&&t.name.match(/(20\d{2}|199\d)/);if(nm)year=parseInt(nm[1]);}return{name:t.name,year:year,tournament_id:t.tournament_id||t.signupanytime_t||null,iframe_url:t.iframe_url||null,date:t.date||null,category:t.category||null,flights:flights,flight_categories:flight_categories,meta:meta};})};}
 
 function calcPar(hpr,numRounds){return hpr*4*numRounds;}
 
@@ -39,11 +39,14 @@ function processData(raw){
   for(var ti=0;ti<srcTournaments.length;ti++){
     var t=srcTournaments[ti],flights=t.flights||{},flightCats=t.flight_categories||{},meta=t.meta||{},ageGroups=meta.age_groups||{};
     var tKey=(t.tournament_id||t.name)+"_"+t.year;
-    var tInfo={key:tKey,name:t.name,year:t.year,date:meta.start_date||t.date||"",endDate:meta.end_date||"",courses:meta.courses||"",rounds:meta.rounds||null,numPlayers:t.num_players||0,iframeUrl:t.iframe_url||null,tournamentId:t.tournament_id||null,categories:[]};
+    var tm=meta.tournament||{};
+    var coursesStr=tm.courses||meta.courses_str||"";
+    if(!coursesStr&&meta.courses&&typeof meta.courses==="object"){var cnames=[];Object.values(meta.courses).forEach(function(c){if(c.name)cnames.push(c.name);});coursesStr=cnames.join(", ");}
+    var tInfo={key:tKey,name:t.name,year:t.year,date:tm.start_date||meta.start_date||t.date||"",endDate:tm.end_date||meta.end_date||"",courses:coursesStr,rounds:tm.rounds||meta.rounds||null,numPlayers:parseInt(tm.players_9||0)+parseInt(tm.players_18||0)||t.num_players||0,iframeUrl:t.iframe_url||null,tournamentId:t.tournament_id||null,category:t.category||null,categories:[]};
     var fKeys=Object.keys(flights);fKeys.sort(function(a,b){var na=parseInt(a),nb=parseInt(b);if(!isNaN(na)&&!isNaN(nb))return na-nb;return a.localeCompare(b);});
     for(var fi=0;fi<fKeys.length;fi++){
       var fId=fKeys[fi],fl=flights[fId],fp=fl.flight_players||fl.players||{},catName=flightCats[fId]||"Unknown",gender=extractGender(catName);
-      var hpr=null;var agVals=Object.values(ageGroups);for(var ai=0;ai<agVals.length;ai++){if(agVals[ai].name===catName){hpr=agVals[ai].holes_per_round;break;}}
+      var hpr=null;var catTeeMarker=null;var agVals=Object.values(ageGroups);for(var ai=0;ai<agVals.length;ai++){if(agVals[ai].name===catName){hpr=agVals[ai].holes_per_round;catTeeMarker=agVals[ai].tee_marker||null;break;}}
       if(!hpr){var ar=extractAgeRange(catName);hpr=(ar&&ar.max<=8)?9:18;}
       var catApps=[],catPlayers=[];
       var pEntries=Object.entries(fp);
@@ -58,7 +61,7 @@ function processData(raw){
         for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rd.num_holes||strokes.length});totStrokes+=total;}
         rnds.sort(function(a,b){return a.round-b.round;});var isWD=pd.status!==1||totStrokes===0;
         var numRounds=rnds.length||1;var par=calcPar(hpr,numRounds);var vsPar=isWD?null:totStrokes-par;
-        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:meta.start_date||t.date||"",category:catName,hpr:hpr,par:par,course:meta.courses||"",iframeUrl:t.iframe_url||null,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName,teeColor:teeColor};
+        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:tm.start_date||meta.start_date||t.date||"",category:catName,hpr:hpr,par:par,course:coursesStr,iframeUrl:t.iframe_url||null,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName,teeColor:teeColor};
         catApps.push(app);allApps.push(app);
         catPlayers.push({name:name,country:country,place:place,gender:gender,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,par:par,teeName:teeName,teeColor:teeColor});
       }
@@ -67,7 +70,7 @@ function processData(raw){
       var catTotal=catPlayers.filter(function(p){return p.status==="OK";}).length;
       catPlayers.forEach(function(p){p.catTotal=catTotal;});
       for(var ci2=0;ci2<catPlayers.length;ci2++){var cp=catPlayers[ci2];var match=catApps.find(function(a){return a.name===cp.name&&a.country===cp.country;});if(match){match.pos=cp.pos;match.catTotal=catTotal;}}
-      if(catPlayers.length>0){var tees={};catPlayers.forEach(function(p){if(p.teeName){var k=p.teeName+(p.teeColor?" ("+p.teeColor+")":"");tees[k]=(tees[k]||0)+1;}});tInfo.categories.push({id:fId,name:catName,gender:gender,hpr:hpr,players:catPlayers,tees:Object.keys(tees)});}
+      if(catPlayers.length>0){var tees={};catPlayers.forEach(function(p){if(p.teeName){var k=p.teeName+(p.teeColor?" ("+p.teeColor+")":"");tees[k]=(tees[k]||0)+1;}});tInfo.categories.push({id:fId,name:catName,gender:gender,hpr:hpr,players:catPlayers,tees:Object.keys(tees),teeMarker:catTeeMarker});}
     }
     if(tInfo.categories.length>0)tournIndex.push(tInfo);
   }
@@ -165,15 +168,15 @@ function TournDetail({tourn,onPlayerClick}){
   return(
     <div style={{display:"flex",flexDirection:"column",height:"100%"}}>
       <div style={{padding:"14px 16px",borderBottom:"1px solid #e5e7eb",background:"linear-gradient(135deg,#f8fafc,#eff6ff)",flexShrink:0}}>
-        <h2 style={{margin:0,fontSize:17,fontWeight:800}}>{tourn.name}</h2>
-        <div style={{fontSize:11,color:T.textMuted,marginTop:3,display:"flex",gap:10,flexWrap:"wrap"}}><span>{tourn.date}</span><span>{tourn.categories.length} categorias</span></div>
+        <h2 style={{margin:0,fontSize:17,fontWeight:800}}>{tourn.name}{tourn.category&&<span style={{marginLeft:8,fontSize:11,padding:"2px 8px",borderRadius:8,background:T.accentSoft,color:T.accentDark,fontWeight:600,verticalAlign:"middle"}}>{tourn.category}</span>}</h2>
+        <div style={{fontSize:11,color:T.textMuted,marginTop:3,display:"flex",gap:10,flexWrap:"wrap"}}><span>{tourn.date}</span>{tourn.rounds&&<span>{tourn.rounds} rondas</span>}<span>{tourn.numPlayers>0?tourn.numPlayers+" jogadores":""}</span><span>{tourn.categories.length} categorias</span></div>
         {tourn.courses&&<div style={{fontSize:12,color:T.accentDark,fontWeight:600,marginTop:4}}>{"\u26f3"} {tourn.courses}</div>}
         {tourn.iframeUrl&&<a href={tourn.iframeUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:T.blue,textDecoration:"none",fontWeight:600,marginTop:4,display:"inline-block"}}>Resultados originais \u2197</a>}
       </div>
       <div style={{display:"flex",gap:3,padding:"6px 10px",flexWrap:"wrap",borderBottom:"1px solid #e5e7eb",background:"#fafafa",flexShrink:0}}>
         {tourn.categories.map(function(c,i){var s=catStyle(c.name);var act=ci===i;return<button key={c.id} onClick={function(){setCi(i);setShowHBH(false);}} style={Object.assign({},pillSm,s,{border:"none",cursor:"pointer",opacity:act?1:0.5,boxShadow:act?"0 0 0 2px "+s.color+"40":"none",padding:"3px 10px"})}>{c.name} ({c.players.length})</button>;})}
       </div>
-      <div style={{padding:"4px 14px",fontSize:11,color:T.textMuted,flexShrink:0}}>{cat.name} \u00b7 {cat.hpr||"?"}h \u00b7 {cat.players.length} jogadores \u00b7 Par {parPerRound}{numRounds>1?" \u00d7 "+numRounds+"R = "+totalPar:""} (est.){cat.tees&&cat.tees.length>0?" \u00b7 Tee: "+cat.tees.join(", "):""}</div>
+      <div style={{padding:"4px 14px",fontSize:11,color:T.textMuted,flexShrink:0}}>{cat.name} \u00b7 {cat.hpr||"?"}h \u00b7 {cat.players.length} jogadores \u00b7 Par {parPerRound}{numRounds>1?" \u00d7 "+numRounds+"R = "+totalPar:""} (est.){cat.teeMarker?" \u00b7 Tee: "+cat.teeMarker:cat.tees&&cat.tees.length>0?" \u00b7 Tee: "+cat.tees.join(", "):""}</div>
       <div style={{flex:1,overflowY:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse"}}>
           <thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:42})}>Pos</th><th style={Object.assign({},thS,{width:22})}></th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"left",width:90})}>Local</th><th style={Object.assign({},thS,{textAlign:"center",width:60})}>Tee</th>{(cat.players[0]&&cat.players[0].rounds||[]).map(function(_,i){return<th key={i} style={Object.assign({},thS,{textAlign:"center",width:42})}>R{i+1}</th>;})}<th style={Object.assign({},thS,{textAlign:"center",width:46})}>Tot</th><th style={Object.assign({},thS,{textAlign:"center",width:50})}>vs Par</th></tr></thead>
@@ -385,7 +388,7 @@ function App(){
             </div>
             <div style={{fontSize:10,color:T.textMuted,marginTop:6,fontWeight:600}}>{filteredTourns.length} torneios</div>
           </div>
-          <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{fontWeight:700,fontSize:12,color:T.textDark}}>{t.name}</div>{t.courses&&<div style={{fontSize:10,color:T.accentDark,fontWeight:500,marginTop:2}}>{t.courses}</div>}<div style={{fontSize:10,color:T.textMuted,marginTop:2}}>{t.date} \u00b7 {t.categories.length} cats \u00b7 {t.categories.reduce(function(s,c){return s+c.players.length;},0)} jog</div></button>);})}</div>
+          <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{fontWeight:700,fontSize:12,color:T.textDark}}>{t.name}{t.category&&<span style={{marginLeft:5,fontSize:10,padding:"1px 6px",borderRadius:8,background:T.accentSoft,color:T.accentDark,fontWeight:600}}>{t.category}</span>}</div>{t.courses&&<div style={{fontSize:10,color:T.accentDark,fontWeight:500,marginTop:2,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{"\u26f3"} {t.courses.length>50?t.courses.substring(0,50)+"...":t.courses}</div>}<div style={{fontSize:10,color:T.textMuted,marginTop:2}}>{t.date} \u00b7 {t.categories.length} cats \u00b7 {t.categories.reduce(function(s,c){return s+c.players.length;},0)} jog</div></button>);})}</div>
         </div>
         <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selTournData?<TournDetail key={selTournData.key} tourn={selTournData} onPlayerClick={findPlayer}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:14}}>Seleciona um torneio</div>}</div>
       </React.Fragment>}
