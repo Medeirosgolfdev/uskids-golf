@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USKids Golf Analytics</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; width: 100%; overflow: hidden; }
+</style>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useMemo, useCallback, useRef } = React;
+const { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, LineChart, Line, CartesianGrid } = Recharts;
+
+var CC={AD:"Andorra",AE:"Emirados \u00c1rabes",AF:"Afeganist\u00e3o",AG:"Ant\u00edgua e Barbuda",AI:"Anguila",AL:"Alb\u00e2nia",AM:"Arm\u00e9nia",AO:"Angola",AR:"Argentina",AS:"Samoa Americana",AT:"\u00c1ustria",AU:"Austr\u00e1lia",AW:"Aruba",AZ:"Azerbaij\u00e3o",BA:"B\u00f3snia e Herzegovina",BB:"Barbados",BD:"Bangladesh",BE:"B\u00e9lgica",BF:"Burkina Faso",BG:"Bulg\u00e1ria",BH:"Bar\u00e9m",BI:"Burundi",BJ:"Benim",BM:"Bermudas",BN:"Brunei",BO:"Bol\u00edvia",BR:"Brasil",BS:"Bahamas",BT:"But\u00e3o",BW:"Botsuana",BY:"Bielorr\u00fassia",BZ:"Belize",CA:"Canad\u00e1",CD:"R.D. Congo",CF:"Rep. Centro-Africana",CG:"Congo",CH:"Su\u00ed\u00e7a",CI:"Costa do Marfim",CL:"Chile",CM:"Camar\u00f5es",CN:"China",CO:"Col\u00f4mbia",CR:"Costa Rica",CU:"Cuba",CV:"Cabo Verde",CW:"Cura\u00e7ao",CY:"Chipre",CZ:"Ch\u00e9quia",DE:"Alemanha",DJ:"Djibouti",DK:"Dinamarca",DM:"Dominica",DO:"Rep. Dominicana",DZ:"Arg\u00e9lia",EC:"Equador",EE:"Est\u00f3nia",EG:"Egito",ER:"Eritreia",ES:"Espanha",ET:"Eti\u00f3pia",FI:"Finl\u00e2ndia",FJ:"Fiji",FK:"Ilhas Falkland",FM:"Micron\u00e9sia",FO:"Ilhas Faro\u00e9",FR:"Fran\u00e7a",GA:"Gab\u00e3o",GB:"Reino Unido",GD:"Granada",GE:"Ge\u00f3rgia",GF:"Guiana Francesa",GG:"Guernsey",GH:"Gana",GI:"Gibraltar",GL:"Gronel\u00e2ndia",GM:"G\u00e2mbia",GN:"Guin\u00e9",GP:"Guadalupe",GQ:"Guin\u00e9 Equatorial",GR:"Gr\u00e9cia",GT:"Guatemala",GU:"Guam",GW:"Guin\u00e9-Bissau",GY:"Guiana",HK:"Hong Kong",HN:"Honduras",HR:"Cro\u00e1cia",HT:"Haiti",HU:"Hungria",ID:"Indon\u00e9sia",IE:"Irlanda",IL:"Israel",IM:"Ilha de Man",IN:"\u00cdndia",IQ:"Iraque",IR:"Ir\u00e3o",IS:"Isl\u00e2ndia",IT:"It\u00e1lia",JE:"Jersey",JM:"Jamaica",JO:"Jord\u00e2nia",JP:"Jap\u00e3o",KE:"Qu\u00e9nia",KG:"Quirguist\u00e3o",KH:"Camboja",KI:"Kiribati",KM:"Comores",KN:"S\u00e3o Crist\u00f3v\u00e3o e Nevis",KP:"Coreia do Norte",KR:"Coreia do Sul",KW:"Kuwait",KY:"Ilhas Caim\u00e3o",KZ:"Cazaquist\u00e3o",LA:"Laos",LB:"L\u00edbano",LC:"Santa L\u00facia",LI:"Liechtenstein",LK:"Sri Lanka",LR:"Lib\u00e9ria",LS:"Lesoto",LT:"Litu\u00e2nia",LU:"Luxemburgo",LV:"Let\u00f3nia",LY:"L\u00edbia",MA:"Marrocos",MC:"M\u00f3naco",MD:"Mold\u00e1via",ME:"Montenegro",MG:"Madag\u00e1scar",MH:"Ilhas Marshall",MK:"Maced\u00f3nia do Norte",ML:"Mali",MM:"Myanmar",MN:"Mong\u00f3lia",MO:"Macau",MQ:"Martinica",MR:"Maurit\u00e2nia",MS:"Monserrate",MT:"Malta",MU:"Maur\u00edcia",MV:"Maldivas",MW:"Mal\u00e1ui",MX:"M\u00e9xico",MY:"Mal\u00e1sia",MZ:"Mo\u00e7ambique",NA:"Nam\u00edbia",NC:"Nova Caled\u00f3nia",NE:"N\u00edger",NG:"Nig\u00e9ria",NI:"Nicar\u00e1gua",NL:"Pa\u00edses Baixos",NO:"Noruega",NP:"Nepal",NR:"Nauru",NZ:"Nova Zel\u00e2ndia",OM:"Om\u00e3",PA:"Panam\u00e1",PE:"Peru",PF:"Polin\u00e9sia Francesa",PG:"Papua Nova Guin\u00e9",PH:"Filipinas",PK:"Paquist\u00e3o",PL:"Pol\u00f3nia",PM:"S\u00e3o Pedro e Miquel\u00e3o",PR:"Porto Rico",PS:"Palestina",PT:"Portugal",PW:"Palau",PY:"Paraguai",QA:"Catar",RE:"Reuni\u00e3o",RO:"Rom\u00e9nia",RS:"S\u00e9rvia",RU:"R\u00fassia",RW:"Ruanda",SA:"Ar\u00e1bia Saudita",SB:"Ilhas Salom\u00e3o",SC:"Seicheles",SD:"Sud\u00e3o",SE:"Su\u00e9cia",SG:"Singapura",SI:"Eslov\u00e9nia",SK:"Eslov\u00e1quia",SL:"Serra Leoa",SM:"San Marino",SN:"Senegal",SO:"Som\u00e1lia",SR:"Suriname",SS:"Sud\u00e3o do Sul",ST:"S\u00e3o Tom\u00e9 e Pr\u00edncipe",SV:"El Salvador",SX:"S\u00e3o Martinho",SY:"S\u00edria",SZ:"Eswatini",TC:"Ilhas Turcas e Caicos",TD:"Chade",TG:"Togo",TH:"Tail\u00e2ndia",TJ:"Tajiquist\u00e3o",TL:"Timor-Leste",TM:"Turquemenist\u00e3o",TN:"Tun\u00edsia",TO:"Tonga",TR:"Turquia",TT:"Trindade e Tobago",TV:"Tuvalu",TW:"Taiwan",TZ:"Tanz\u00e2nia",UA:"Ucr\u00e2nia",UG:"Uganda",US:"Estados Unidos",UY:"Uruguai",UZ:"Uzbequist\u00e3o",VA:"Vaticano",VC:"S\u00e3o Vicente e Granadinas",VE:"Venezuela",VG:"Ilhas Virgens Brit\u00e2nicas",VI:"Ilhas Virgens Americanas",VN:"Vietname",VU:"Vanuatu",WS:"Samoa",XK:"Kosovo",YE:"I\u00e9men",ZA:"\u00c1frica do Sul",ZM:"Z\u00e2mbia",ZW:"Zimbabu\u00e9",EN:"Inglaterra",WA:"Pa\u00eds de Gales",UK:"Reino Unido"};
+var countryName=function(c){if(!c)return"?";var up=c.toUpperCase();return CC[up]||up;};
+
+function extractAgeRange(category){if(!category)return null;var c=category.replace(/\s+/g," ").trim();var underM=c.match(/(\d+)\s*[&]?\s*Under/i);if(underM)return{min:5,max:parseInt(underM[1])};var rangeM=c.match(/(\d+)\s*-\s*(\d+)/);if(rangeM)return{min:parseInt(rangeM[1]),max:parseInt(rangeM[2])};var singleM=c.match(/\b(\d{1,2})\b/);if(singleM){var age=parseInt(singleM[1]);if(age>=5&&age<=18)return{min:age,max:age};}return null;}
+function extractGender(cat){if(!cat)return"?";if(/Girls/i.test(cat))return"F";if(/Boys/i.test(cat))return"M";return"?";}
+function estimateBirth(appearances){var estimates=[];for(var i=0;i<appearances.length;i++){var a=appearances[i];var range=extractAgeRange(a.category);if(range&&a.year){estimates.push(a.year-range.max);estimates.push(a.year-range.min);}}if(!estimates.length)return null;return Math.round(estimates.reduce(function(a,b){return a+b;},0)/estimates.length);}
+function canMerge(person,app){if(person.gender!=="?"&&app.gender!=="?"&&person.gender!==app.gender)return false;for(var i=0;i<person.appearances.length;i++){if(person.appearances[i].tournKey===app.tournKey&&person.appearances[i].category!==app.category)return false;}var appRange=extractAgeRange(app.category);if(appRange){for(var j=0;j<person.appearances.length;j++){var prev=person.appearances[j];var prevRange=extractAgeRange(prev.category);if(!prevRange)continue;var yearDiff=app.year-prev.year;if(yearDiff>0){if(appRange.max<prevRange.min-1)return false;if(appRange.min>prevRange.max+yearDiff+1)return false;var pb=prev.year-prevRange.max,ab=app.year-appRange.max;if(Math.abs(pb-ab)>1)return false;}else if(yearDiff<0){if(prevRange.max<appRange.min-1)return false;if(prevRange.min>appRange.max+Math.abs(yearDiff)+1)return false;var pb2=prev.year-prevRange.max,ab2=app.year-appRange.max;if(Math.abs(pb2-ab2)>1)return false;}else{if(appRange.min>prevRange.max+1||appRange.max<prevRange.min-1)return false;}}}return true;}
+
+function adaptFormat(raw){if(raw&&raw.tournaments)return raw;var arr=Array.isArray(raw)?raw:[];return{tournaments:arr.map(function(t){var flights={},flight_categories={};(t.flights||[]).forEach(function(f){var fid=f.flight_id||f.id||Math.random().toString(36);flights[fid]=f.data||{};flight_categories[fid]=f.flight_name||"Unknown";});return{name:t.name,year:t.year,tournament_id:t.tournament_id,iframe_url:t.iframe_url,date:t.date,flights:flights,flight_categories:flight_categories,meta:{}};})};}
+
+function calcPar(hpr,numRounds){return hpr*4*numRounds;}
+
+function processData(raw){
+  console.time("processData");
+  raw=adaptFormat(raw);
+  var srcTournaments=raw.tournaments||[];
+  var tournIndex=[],allApps=[];
+  for(var ti=0;ti<srcTournaments.length;ti++){
+    var t=srcTournaments[ti],flights=t.flights||{},flightCats=t.flight_categories||{},meta=t.meta||{},ageGroups=meta.age_groups||{};
+    var tKey=(t.tournament_id||t.name)+"_"+t.year;
+    var tInfo={key:tKey,name:t.name,year:t.year,date:meta.start_date||t.date||"",endDate:meta.end_date||"",courses:meta.courses||"",rounds:meta.rounds||null,numPlayers:t.num_players||0,iframeUrl:t.iframe_url||null,tournamentId:t.tournament_id||null,categories:[]};
+    var fKeys=Object.keys(flights);fKeys.sort(function(a,b){var na=parseInt(a),nb=parseInt(b);if(!isNaN(na)&&!isNaN(nb))return na-nb;return a.localeCompare(b);});
+    for(var fi=0;fi<fKeys.length;fi++){
+      var fId=fKeys[fi],fl=flights[fId],fp=fl.flight_players||fl.players||{},catName=flightCats[fId]||"Unknown",gender=extractGender(catName);
+      var hpr=null;var agVals=Object.values(ageGroups);for(var ai=0;ai<agVals.length;ai++){if(agVals[ai].name===catName){hpr=agVals[ai].holes_per_round;break;}}
+      if(!hpr){var ar=extractAgeRange(catName);hpr=(ar&&ar.max<=8)?9:18;}
+      var catApps=[],catPlayers=[];
+      var pEntries=Object.entries(fp);
+      for(var pi=0;pi<pEntries.length;pi++){
+        var pid=pEntries[pi][0],pd=pEntries[pi][1];
+        var first=(pd.first||"").trim(),last=(pd.last||"").trim(),name=(first+" "+last).trim();
+        if(!name||name==="Unknown Player")continue;
+        var country=(pd.country||"").toUpperCase(),place=(pd.place||"").trim();
+        var rnds=[],totStrokes=0;
+        var rEntries=Object.entries(pd.rounds||{});
+        for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rd.num_holes||strokes.length});totStrokes+=total;}
+        rnds.sort(function(a,b){return a.round-b.round;});var isWD=pd.status!==1||totStrokes===0;
+        var numRounds=rnds.length||1;var par=calcPar(hpr,numRounds);var vsPar=isWD?null:totStrokes-par;
+        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:meta.start_date||t.date||"",category:catName,hpr:hpr,par:par,course:meta.courses||"",iframeUrl:t.iframe_url||null,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0};
+        catApps.push(app);allApps.push(app);
+        catPlayers.push({name:name,country:country,place:place,gender:gender,totalStrokes:isWD?null:totStrokes,vsPar:vsPar,score:vsPar,status:isWD?"WD":"OK",rounds:rnds,par:par});
+      }
+      catPlayers.sort(function(a,b){if(a.status!==b.status)return a.status==="OK"?-1:1;if(a.totalStrokes==null)return 1;if(b.totalStrokes==null)return-1;return a.totalStrokes-b.totalStrokes;});
+      var pos=1;catPlayers.forEach(function(p,i){if(p.status!=="OK"){p.pos="WD";return;}p.pos=(i>0&&p.totalStrokes===catPlayers[i-1].totalStrokes)?catPlayers[i-1].pos:pos;pos=i+2;});
+      var catTotal=catPlayers.filter(function(p){return p.status==="OK";}).length;
+      catPlayers.forEach(function(p){p.catTotal=catTotal;});
+      for(var ci2=0;ci2<catPlayers.length;ci2++){var cp=catPlayers[ci2];var match=catApps.find(function(a){return a.name===cp.name&&a.country===cp.country;});if(match){match.pos=cp.pos;match.catTotal=catTotal;}}
+      if(catPlayers.length>0)tInfo.categories.push({id:fId,name:catName,gender:gender,hpr:hpr,players:catPlayers});
+    }
+    if(tInfo.categories.length>0)tournIndex.push(tInfo);
+  }
+  var groups=new Map();
+  for(var ai2=0;ai2<allApps.length;ai2++){var app2=allApps[ai2];var k=app2.first.toLowerCase()+"|"+app2.last.toLowerCase()+"|"+app2.country.toLowerCase();if(!groups.has(k))groups.set(k,[]);groups.get(k).push(app2);}
+  var players=[];var pidC=0;
+  groups.forEach(function(apps){
+    var persons=[];apps.sort(function(a,b){return a.year-b.year||(a.date||"").localeCompare(b.date||"");});
+    for(var i=0;i<apps.length;i++){var app3=apps[i];var merged=false;for(var j=0;j<persons.length;j++){if(canMerge(persons[j],app3)){persons[j].appearances.push(app3);if(persons[j].gender==="?"&&app3.gender!=="?")persons[j].gender=app3.gender;merged=true;break;}}if(!merged)persons.push({gender:app3.gender,appearances:[app3]});}
+    for(var pi2=0;pi2<persons.length;pi2++){
+      var p=persons[pi2];var a0=p.appearances[0];var bestPlace="";
+      for(var ai3=0;ai3<p.appearances.length;ai3++){if(p.appearances[ai3].place&&p.appearances[ai3].place.length>bestPlace.length)bestPlace=p.appearances[ai3].place;}
+      p.appearances.sort(function(a,b){return a.year-b.year||(a.date||"").localeCompare(b.date||"");});
+      var catsSet={},yrsSet={},tNamesSet={};p.appearances.forEach(function(a){catsSet[a.category]=1;yrsSet[a.year]=1;tNamesSet[a.tournament]=1;});
+      var cats=Object.keys(catsSet),yrs=Object.keys(yrsSet).map(Number).sort(),tNames=Object.keys(tNamesSet);
+      var okApps=p.appearances.filter(function(a){return a.status==="OK"&&a.vsPar!=null;});
+      var bestVsPar=null,bestYear=null;
+      if(okApps.length){var best=okApps.reduce(function(b,a){return a.vsPar<b.vsPar?a:b;});bestVsPar=best.vsPar;bestYear=best.year;}
+      players.push({id:pidC++,name:a0.name,country:a0.country,place:bestPlace,gender:p.gender,birth:estimateBirth(p.appearances),appearances:p.appearances,categories:cats,years:yrs,tournNames:tNames,numT:tNames.length,bestScore:bestVsPar,bestYear:bestYear});
+    }
+  });
+  players.sort(function(a,b){return b.numT-a.numT||a.name.localeCompare(b.name);});
+  var yrs2=[],ySet={};srcTournaments.forEach(function(t){if(!ySet[t.year]){ySet[t.year]=1;yrs2.push(t.year);}});yrs2.sort();
+  var cc={};players.forEach(function(p){var k=p.country.toUpperCase();cc[k]=(cc[k]||0)+1;});
+  var allCountries=Object.keys(cc).sort(function(a,b){return countryName(a).localeCompare(countryName(b));});
+  var topC=Object.entries(cc).sort(function(a,b){return b[1]-a[1];}).map(function(e){return e[0];});
+  var tNamesAll=[],tnSet={};srcTournaments.forEach(function(t){if(!tnSet[t.name]){tnSet[t.name]=1;tNamesAll.push(t.name);}});tNamesAll.sort();
+  console.timeEnd("processData");
+  return{players:players,tournaments:tournIndex,years:yrs2,topCountries:topC,allCountries:allCountries,countryStats:cc,tournNames:tNamesAll};
+}
+
+var T={bg:"#0a0f1a",card:"#141b2d",surface:"#f7f8fa",surfaceAlt:"#eef0f4",border:"#1e2a45",borderLight:"#e2e5eb",accent:"#22c55e",accentDark:"#15803d",accentSoft:"#dcfce7",gold:"#f59e0b",silver:"#94a3b8",bronze:"#d97706",text:"#e2e8f0",textMuted:"#64748b",textDark:"#1e293b",textBody:"#475569",blue:"#3b82f6",red:"#ef4444",pink:"#ec4899"};
+function flag(c){if(!c||c.length!==2)return"";try{var chars=c.toUpperCase().split("");return String.fromCodePoint(0x1F1E6+chars[0].charCodeAt(0)-65,0x1F1E6+chars[1].charCodeAt(0)-65);}catch(e){return"";}}
+function fmtS(s){return s==null?"\u2013":s===0?"E":s>0?"+"+s:""+s;}
+function sClr(s){if(s==null)return{};if(s<=0)return{color:T.accent,fontWeight:700};if(s<=5)return{color:T.gold,fontWeight:600};return{color:T.red};}
+function posMedal(pos,total){if(pos==="WD")return{text:"WD",style:{color:T.red,fontWeight:600,fontSize:11}};if(pos===1)return{text:"\ud83e\udd47",style:{fontSize:15}};if(pos===2)return{text:"\ud83e\udd48",style:{fontSize:15}};if(pos===3)return{text:"\ud83e\udd49",style:{fontSize:15}};return{text:pos+"/"+total,style:{fontSize:10,color:T.textMuted,fontWeight:600}};}
+function catStyle(cat){if(!cat)return{background:"#f3f4f6",color:"#374151"};var g=/girl/i.test(cat);var ar=extractAgeRange(cat);var age=ar?ar.min:0;if(g){if(age<=7)return{background:"#fdf2f8",color:"#9d174d"};if(age<=8)return{background:"#fce7f3",color:"#be185d"};if(age<=9)return{background:"#fbcfe8",color:"#9d174d"};if(age<=10)return{background:"#f9a8d4",color:"#831843"};if(age<=11)return{background:"#f472b6",color:"#fff"};if(age<=12)return{background:"#ec4899",color:"#fff"};if(age<=14)return{background:"#db2777",color:"#fff"};return{background:"#be185d",color:"#fff"};}if(age<=7)return{background:"#eff6ff",color:"#1d4ed8"};if(age<=8)return{background:"#dbeafe",color:"#1e40af"};if(age<=9)return{background:"#bfdbfe",color:"#1e3a8a"};if(age<=10)return{background:"#93c5fd",color:"#1e3a8a"};if(age<=11)return{background:"#60a5fa",color:"#fff"};if(age<=12)return{background:"#3b82f6",color:"#fff"};if(age<=14)return{background:"#2563eb",color:"#fff"};return{background:"#1d4ed8",color:"#fff"};}
+function _sc(bg,fg,round){return{background:bg,color:fg,borderRadius:round?"50%":0,width:26,height:26,display:"inline-flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontSize:11,lineHeight:1};}
+function scoreCell(stroke,parEst){if(!stroke||stroke<=0)return{text:"\u2013",style:{color:"#d1d5db"}};var diff=parEst?stroke-parEst:null;if(diff!==null){if(diff<=-2)return{text:stroke,style:_sc("#f59e0b","#fff",true)};if(diff===-1)return{text:stroke,style:_sc("#ef4444","#fff",true)};if(diff===0)return{text:stroke,style:{fontWeight:600,color:"#1e293b"}};if(diff===1)return{text:stroke,style:_sc("#93c5fd","#1e3a5f",false)};if(diff===2)return{text:stroke,style:_sc("#60a5fa","#fff",false)};return{text:stroke,style:_sc("#3b82f6","#fff",false)};}if(stroke<=2)return{text:stroke,style:_sc("#ef4444","#fff",true)};if(stroke===3)return{text:stroke,style:{fontWeight:600,color:"#1e293b"}};if(stroke===4)return{text:stroke,style:{fontWeight:500,color:"#475569"}};if(stroke===5)return{text:stroke,style:_sc("#93c5fd","#1e3a5f",false)};if(stroke===6)return{text:stroke,style:_sc("#60a5fa","#fff",false)};return{text:stroke,style:_sc("#3b82f6","#fff",false)};}
+function estPar(hpr){return hpr&&hpr<=9?3:4;}
+
+var F="'Outfit','DM Sans',-apple-system,sans-serif";
+var FL="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap";
+var pill={fontSize:10,padding:"3px 10px",borderRadius:20,fontWeight:600,display:"inline-block",letterSpacing:0.3};
+var pillSm={fontSize:9,padding:"2px 7px",borderRadius:12,fontWeight:600};
+var thS={padding:"8px 10px",fontSize:10,fontWeight:700,color:T.textMuted,borderBottom:"2px solid "+T.borderLight,position:"sticky",top:0,background:T.surface,zIndex:1,textTransform:"uppercase",letterSpacing:0.8};
+var tdS={padding:"7px 10px",fontSize:12,borderBottom:"1px solid "+T.borderLight};
+var inpS={width:"100%",padding:"9px 12px",fontSize:12,borderRadius:10,border:"1px solid "+T.borderLight,outline:"none",boxSizing:"border-box",fontFamily:F,background:"#fff"};
+function tabSt(a){return{padding:"10px 18px",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,background:a?"#fff":"transparent",color:a?T.accent:T.textMuted,borderBottom:a?"2px solid "+T.accent:"2px solid transparent",fontFamily:F};}
+
+function Dashboard({data,onNavigate}){
+  var stats=useMemo(function(){
+    var tournByYear={},playersByYear={};
+    data.tournaments.forEach(function(t){if(!tournByYear[t.year])tournByYear[t.year]=[];tournByYear[t.year].push(t);});
+    data.players.forEach(function(p){p.years.forEach(function(y){if(!playersByYear[y])playersByYear[y]=new Set();playersByYear[y].add(p.id);});});
+    var yearData=data.years.map(function(y){return{year:y,tournaments:(tournByYear[y]||[]).length,players:(playersByYear[y]||new Set()).size};});
+    var topCountries=Object.entries(data.countryStats).sort(function(a,b){return b[1]-a[1];}).slice(0,12).map(function(e){return{country:e[0],fl:flag(e[0]),name:countryName(e[0]),count:e[1]};});
+    var gc={M:0,F:0};data.players.forEach(function(p){if(p.gender==="M"||p.gender==="F")gc[p.gender]++;});
+    var veterans=data.players.slice().sort(function(a,b){return b.numT-a.numT;}).slice(0,10);
+    var bestScorers=data.players.filter(function(p){return p.bestScore!=null;}).sort(function(a,b){return a.bestScore-b.bestScore;}).slice(0,10);
+    return{yearData:yearData,topCountries:topCountries,gc:gc,veterans:veterans,bestScorers:bestScorers};
+  },[data]);
+  var CL=[T.accent,T.blue,T.gold,T.pink,"#8b5cf6","#06b6d4","#f97316","#84cc16","#e11d48","#6366f1"];
+  function StatCard(props){return(<div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight,flex:1,minWidth:140}}><div style={{fontSize:11,color:T.textMuted,fontWeight:600,textTransform:"uppercase",letterSpacing:1,marginBottom:6}}>{props.icon} {props.label}</div><div style={{fontSize:28,fontWeight:800,color:T.textDark,fontFamily:F,lineHeight:1}}>{props.value}</div>{props.sub&&<div style={{fontSize:11,color:T.textBody,marginTop:4}}>{props.sub}</div>}</div>);}
+  return(
+    <div style={{flex:1,overflowY:"auto",background:T.surface,padding:"24px 28px"}}>
+      <div style={{maxWidth:1100,margin:"0 auto"}}>
+        <div style={{marginBottom:28}}><h1 style={{margin:0,fontSize:26,fontWeight:900,color:T.textDark,fontFamily:F}}>Dashboard</h1><p style={{margin:"4px 0 0",fontSize:13,color:T.textBody}}>Vis\u00e3o global dos dados USKids Golf International</p></div>
+        <div style={{display:"flex",gap:14,flexWrap:"wrap",marginBottom:24}}>
+          <StatCard icon={"\ud83c\udfc6"} label="Torneios" value={data.tournaments.length} sub={data.years[0]+" \u2014 "+data.years[data.years.length-1]}/>
+          <StatCard icon={"\ud83d\udc64"} label="Jogadores" value={data.players.length.toLocaleString()} sub={stats.gc.M+" rapazes \u00b7 "+stats.gc.F+" raparigas"}/>
+          <StatCard icon={"\ud83c\udf0d"} label="Pa\u00edses" value={Object.keys(data.countryStats).length} sub={"Top: "+data.topCountries.slice(0,3).map(function(c){return flag(c)||countryName(c);}).join(" ")}/>
+          <StatCard icon={"\u2b50"} label="Veterano" value={stats.veterans[0]?stats.veterans[0].numT+"T":"\u2013"} sub={stats.veterans[0]?stats.veterans[0].name:"\u2013"}/>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18,marginBottom:24}}>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Torneios por ano</div><ResponsiveContainer width="100%" height={180}><BarChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><XAxis dataKey="year" tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Bar dataKey="tournaments" fill={T.accent} radius={[4,4,0,0]} name="Torneios"/></BarChart></ResponsiveContainer></div>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Jogadores ativos por ano</div><ResponsiveContainer width="100%" height={180}><AreaChart data={stats.yearData} margin={{top:0,right:0,bottom:0,left:-20}}><defs><linearGradient id="gP" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={T.blue} stopOpacity={0.3}/><stop offset="100%" stopColor={T.blue} stopOpacity={0.02}/></linearGradient></defs><XAxis dataKey="year" tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><YAxis tick={{fontSize:9,fill:T.textMuted}} axisLine={false} tickLine={false}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Area type="monotone" dataKey="players" stroke={T.blue} fill="url(#gP)" strokeWidth={2} name="Jogadores"/></AreaChart></ResponsiveContainer></div>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18}}>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Top pa\u00edses</div>{stats.topCountries.map(function(c,i){return(<div key={c.country} style={{display:"flex",alignItems:"center",gap:8,padding:"5px 0",borderBottom:i<stats.topCountries.length-1?"1px solid "+T.borderLight:"none"}}><span style={{fontSize:10,fontWeight:700,color:T.textMuted,width:18,textAlign:"right"}}>{i+1}</span><span style={{fontSize:16}}>{c.fl}</span><span style={{fontSize:12,fontWeight:600,color:T.textDark,flex:1}}>{c.name}</span><div style={{width:120,height:6,background:T.surfaceAlt,borderRadius:3,overflow:"hidden"}}><div style={{width:(c.count/stats.topCountries[0].count*100)+"%",height:"100%",background:CL[i%CL.length],borderRadius:3}}/></div><span style={{fontSize:11,fontWeight:700,color:T.textBody,minWidth:36,textAlign:"right"}}>{c.count}</span></div>);})}</div>
+          <div style={{background:"#fff",borderRadius:14,padding:"18px 20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:14}}>Mais torneios disputados</div>{stats.veterans.map(function(p,i){return(<div key={p.id} onClick={function(){onNavigate("players",p.id);}} style={{display:"flex",alignItems:"center",gap:8,padding:"5px 0",borderBottom:i<9?"1px solid "+T.borderLight:"none",cursor:"pointer"}}><span style={{fontSize:14,fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted,width:18,textAlign:"right"}}>{i+1}</span><span style={{fontSize:14}}>{flag(p.country)}</span><span style={{fontSize:12,fontWeight:600,color:T.textDark,flex:1}}>{p.name}</span><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{p.numT}T</span></div>);})}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TournDetail({tourn,onPlayerClick}){
+  var _ci=useState(0),ci=_ci[0],setCi=_ci[1];
+  var _hbh=useState(false),showHBH=_hbh[0],setShowHBH=_hbh[1];
+  var cat=tourn.categories[ci]||tourn.categories[0];
+  if(!cat)return<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted}}>Sem categorias</div>;
+  var hbhPlayers=cat.players.filter(function(p){return p.rounds.some(function(r){return r.strokes&&r.strokes.length>0;});});
+  var parPerRound=(cat.hpr||18)*4;var numRounds=(cat.players[0]&&cat.players[0].rounds)?cat.players[0].rounds.length:1;var totalPar=parPerRound*numRounds;
+  return(
+    <div style={{display:"flex",flexDirection:"column",height:"100%"}}>
+      <div style={{padding:"14px 16px",borderBottom:"1px solid #e5e7eb",background:"linear-gradient(135deg,#f8fafc,#eff6ff)",flexShrink:0}}>
+        <h2 style={{margin:0,fontSize:17,fontWeight:800}}>{tourn.name}</h2>
+        <div style={{fontSize:11,color:T.textMuted,marginTop:3,display:"flex",gap:10,flexWrap:"wrap"}}><span>{tourn.date}</span><span>{tourn.courses||""}</span><span>{tourn.categories.length} cats</span></div>
+        {tourn.iframeUrl&&<a href={tourn.iframeUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:11,color:T.blue,textDecoration:"none",fontWeight:600,marginTop:4,display:"inline-block"}}>Resultados originais \u2197</a>}
+      </div>
+      <div style={{display:"flex",gap:3,padding:"6px 10px",flexWrap:"wrap",borderBottom:"1px solid #e5e7eb",background:"#fafafa",flexShrink:0}}>
+        {tourn.categories.map(function(c,i){var s=catStyle(c.name);var act=ci===i;return<button key={c.id} onClick={function(){setCi(i);setShowHBH(false);}} style={Object.assign({},pillSm,s,{border:"none",cursor:"pointer",opacity:act?1:0.5,boxShadow:act?"0 0 0 2px "+s.color+"40":"none",padding:"3px 10px"})}>{c.name} ({c.players.length})</button>;})}
+      </div>
+      <div style={{padding:"4px 14px",fontSize:11,color:T.textMuted,flexShrink:0}}>{cat.name} \u00b7 {cat.hpr||"?"}h \u00b7 {cat.players.length} jogadores \u00b7 Par {parPerRound}{numRounds>1?" \u00d7 "+numRounds+"R = "+totalPar:""} (est.)</div>
+      <div style={{flex:1,overflowY:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse"}}>
+          <thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:42})}>Pos</th><th style={Object.assign({},thS,{width:22})}></th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"left",width:90})}>Local</th>{(cat.players[0]&&cat.players[0].rounds||[]).map(function(_,i){return<th key={i} style={Object.assign({},thS,{textAlign:"center",width:42})}>R{i+1}</th>;})}<th style={Object.assign({},thS,{textAlign:"center",width:46})}>Tot</th><th style={Object.assign({},thS,{textAlign:"center",width:50})}>vs Par</th></tr></thead>
+          <tbody>{cat.players.map(function(p,i){var m=posMedal(p.pos,p.catTotal||cat.players.filter(function(x){return x.status==="OK";}).length);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontSize:13})}>{flag(p.country)}</td><td style={Object.assign({},tdS,{fontWeight:600})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onPlayerClick)onPlayerClick(p.name,p.country,p.gender||cat.gender);}}>{p.name}</span></td><td style={Object.assign({},tdS,{color:T.textMuted,fontSize:11})}>{p.place}</td>{p.rounds.map(function(r,ri){return<td key={ri} style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.total||"\u2013"}</td>;})}<td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700})}>{p.totalStrokes||"\u2013"}</td><td style={Object.assign({},tdS,{textAlign:"center"},sClr(p.vsPar))}>{fmtS(p.vsPar)}</td></tr>);})}</tbody>
+        </table>
+        {hbhPlayers.length>0&&<React.Fragment><button onClick={function(){setShowHBH(!showHBH);}} style={{width:"100%",padding:"8px 14px",border:"none",borderTop:"1px solid #e5e7eb",cursor:"pointer",background:"#f9fafb",textAlign:"left",fontSize:12,fontWeight:600,color:T.textDark}}>{showHBH?"\u25bc":"\u25b6"} Scorecards ({hbhPlayers.length})</button>
+          {showHBH&&<div style={{overflowX:"auto",padding:"0 8px 12px"}}><table style={{borderCollapse:"collapse",fontSize:11}}><thead><tr style={{background:"#f8fafc"}}><th style={{padding:"4px 8px",textAlign:"left",fontSize:10,color:T.textMuted,position:"sticky",left:0,background:"#f8fafc",zIndex:2,minWidth:120}}>Jogador</th><th style={{padding:"4px 3px",fontSize:9,color:T.textMuted}}>R</th>{Array.from({length:cat.hpr||9},function(_,i){return<th key={i} style={{padding:"4px 3px",textAlign:"center",fontSize:10,color:T.textMuted,minWidth:22}}>{i+1}</th>;})}<th style={{padding:"4px 6px",textAlign:"right",fontSize:10,fontWeight:700}}>Tot</th></tr></thead><tbody>{hbhPlayers.map(function(p,pi){var validRnds=p.rounds.filter(function(r){return r.strokes&&r.strokes.length>0;});return validRnds.map(function(r,ri){return(<tr key={pi+"-"+ri} style={{borderBottom:ri===validRnds.length-1?"2px solid #e5e7eb":"1px solid #f3f4f6"}}>{ri===0&&<td rowSpan={validRnds.length} style={{padding:"3px 8px",fontWeight:600,fontSize:11,position:"sticky",left:0,background:pi%2?"#f9fafb":"#fff",zIndex:1,verticalAlign:"top"}}>{flag(p.country)} {p.name}</td>}<td style={{padding:"3px 3px",textAlign:"center",color:T.textMuted,fontSize:10}}>R{r.round}</td>{r.strokes.map(function(s,si){var sc=scoreCell(s,estPar(cat.hpr));return<td key={si} style={{padding:"3px 2px",textAlign:"center",verticalAlign:"middle"}}><span style={Object.assign({},sc.style,{margin:"0 auto"})}>{sc.text}</span></td>;})}{Array.from({length:Math.max(0,(cat.hpr||9)-r.strokes.length)},function(_,i){return<td key={"p"+i} style={{padding:"3px 3px",textAlign:"center",color:"#e5e7eb"}}>{"\u2013"}</td>;})}<td style={{padding:"3px 6px",textAlign:"right",fontWeight:700}}>{r.total}</td></tr>);});})}</tbody></table></div>}
+        </React.Fragment>}
+      </div>
+    </div>
+  );
+}
+
+function PDetail({player,onTournClick}){
+  var _tab=useState("history"),tab=_tab[0],setTab=_tab[1];
+  var byYear=useMemo(function(){var m={};player.appearances.forEach(function(a){if(!m[a.year])m[a.year]=[];m[a.year].push(a);});return m;},[player]);
+  var yrs=Object.keys(byYear).sort(function(a,b){return b-a;});
+  var hist=useMemo(function(){return player.appearances.filter(function(a){return a.status==="OK"&&a.totalStrokes;});},[player]);
+  return(
+    <div style={{display:"flex",flexDirection:"column",height:"100%"}}>
+      <div style={{padding:"14px 16px 12px",borderBottom:"1px solid #e5e7eb",background:"linear-gradient(135deg,#f8fafc,#eff6ff)",flexShrink:0}}>
+        <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+          <span style={{fontSize:24}}>{flag(player.country)}</span>
+          <div><h2 style={{margin:0,fontSize:17,fontWeight:800}}>{player.name}</h2><div style={{fontSize:11,color:T.textMuted}}>{player.place} \u00b7 {countryName(player.country)}</div></div>
+          <span style={Object.assign({},pill,{background:player.gender==="F"?"#fce7f3":"#dbeafe",color:player.gender==="F"?"#9d174d":"#1d4ed8"})}>{player.gender==="F"?"\u2640 Girls":"\u2642 Boys"}</span>
+        </div>
+        <div style={{display:"flex",gap:5,marginTop:8,flexWrap:"wrap"}}>
+          {player.birth&&<span style={Object.assign({},pill,{background:"#f3e8ff",color:"#7c3aed"})}>~{player.birth}</span>}
+          <span style={Object.assign({},pill,{background:"#dbeafe",color:"#1d4ed8"})}>{player.numT}T</span>
+          <span style={Object.assign({},pill,{background:"#d1fae5",color:"#065f46"})}>{player.years[0]}\u2013{player.years[player.years.length-1]}</span>
+          {player.bestScore!=null&&<span style={Object.assign({},pill,{background:"#fef3c7",color:"#92400e"})}>Best: {fmtS(player.bestScore)} ({player.bestYear})</span>}
+          {player.categories.map(function(c){return<span key={c} style={Object.assign({},pillSm,catStyle(c))}>{c}</span>;})}
+        </div>
+      </div>
+      <div style={{display:"flex",borderBottom:"1px solid #e5e7eb",flexShrink:0}}>
+        {[["history","\ud83d\udccb Hist\u00f3rico"],["evolution","\ud83d\udcc8 Evolu\u00e7\u00e3o"],["hbh","\u26f3 Hole-by-Hole"]].map(function(e){return<button key={e[0]} onClick={function(){setTab(e[0]);}} style={tabSt(tab===e[0])}>{e[1]}</button>;})}
+      </div>
+      <div style={{flex:1,overflowY:"auto",padding:"10px 14px"}}>
+        {tab==="history"&&yrs.map(function(yr){return(
+          <div key={yr} style={{marginBottom:14}}>
+            <div style={{fontSize:13,fontWeight:700,color:T.accentDark,borderBottom:"2px solid #dbeafe",marginBottom:5,paddingBottom:3}}>{yr} <span style={{fontSize:11,fontWeight:400,color:T.textMuted}}>{byYear[yr].length}T</span></div>
+            {byYear[yr].map(function(a,i){var m=posMedal(a.pos,a.catTotal);return(
+              <div key={i} style={{display:"flex",alignItems:"center",gap:6,padding:"5px 8px",background:i%2?"#fff":"#f9fafb",borderRadius:4,fontSize:12,flexWrap:"wrap",marginBottom:1}}>
+                <span style={Object.assign({},m.style,{minWidth:30,textAlign:"center"})}>{m.text}</span>
+                <span style={Object.assign({},pillSm,catStyle(a.category),{minWidth:65,textAlign:"center"})}>{a.category}</span>
+                <span style={{fontWeight:600,flex:1,minWidth:130,color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament}</span>
+                {a.iframeUrl&&<a href={a.iframeUrl} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:T.textMuted,textDecoration:"none"}}>{"\u2197"}</a>}
+                <span style={{fontSize:10,color:T.textMuted}}>{a.hpr}h\u00d7{a.rounds.length}R</span>
+                <span style={{fontSize:10,color:T.textMuted}}>par {a.par}</span>
+                {a.status==="OK"?<React.Fragment><span style={{fontWeight:700,minWidth:32,textAlign:"right"}}>{a.totalStrokes}</span><span style={Object.assign({},sClr(a.vsPar),{minWidth:36,textAlign:"right"})}>({fmtS(a.vsPar)})</span>{a.rounds.map(function(r,ri){return<span key={ri} style={{fontSize:10,color:T.textMuted}}>R{r.round}:{r.total}</span>;})}</React.Fragment>:<span style={{color:"#ef4444",fontWeight:600}}>WD</span>}
+              </div>);})}
+          </div>);})}
+        {tab==="evolution"&&(!hist.length?<div style={{fontSize:11,color:T.textMuted}}>Sem dados</div>:<div>
+          {hist.length>1&&<div style={{marginBottom:20}}><ResponsiveContainer width="100%" height={180}><LineChart data={hist.map(function(a){return{label:a.tournament.substring(0,12)+" "+a.year,vsPar:a.vsPar};})} margin={{top:5,right:10,bottom:5,left:-15}}><CartesianGrid strokeDasharray="3 3" stroke={T.borderLight}/><XAxis dataKey="label" tick={{fontSize:8,fill:T.textMuted}} angle={-30} textAnchor="end" height={50}/><YAxis tick={{fontSize:9,fill:T.textMuted}}/><Tooltip contentStyle={{fontSize:11,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/><Line type="monotone" dataKey="vsPar" stroke={T.accent} strokeWidth={2} dot={{r:4,fill:T.accent}} name="vs Par (est.)"/></LineChart></ResponsiveContainer></div>}
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr><th style={Object.assign({},thS,{textAlign:"center",width:36})}>Pos</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"center"})}>Cat</th><th style={Object.assign({},thS,{textAlign:"right"})}>Gross</th><th style={Object.assign({},thS,{textAlign:"right"})}>Par</th><th style={Object.assign({},thS,{textAlign:"right"})}>vs Par</th></tr></thead>
+          <tbody>{hist.map(function(a,i){var m=posMedal(a.pos,a.catTotal);return(<tr key={i} style={{background:i%2?"#f9fafb":"#fff"}}><td style={Object.assign({},tdS,{textAlign:"center"},m.style)}>{m.text}</td><td style={Object.assign({},tdS,{fontWeight:500})}><span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament} {a.year}</span>{a.iframeUrl&&<a href={a.iframeUrl} target="_blank" rel="noopener noreferrer" style={{marginLeft:4,fontSize:10,color:T.textMuted,textDecoration:"none"}}>{"\u2197"}</a>}</td><td style={Object.assign({},tdS,{textAlign:"center"})}><span style={Object.assign({},pillSm,catStyle(a.category))}>{a.category}</span></td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:700})}>{a.totalStrokes}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{a.par}</td><td style={Object.assign({},tdS,{textAlign:"right"},sClr(a.vsPar))}>{fmtS(a.vsPar)}</td></tr>);})}</tbody></table>
+        </div>)}
+        {tab==="hbh"&&(function(){
+          var wh=player.appearances.filter(function(a){return a.status==="OK"&&a.rounds.some(function(r){return r.strokes&&r.strokes.length>0;});});
+          if(!wh.length)return<div style={{fontSize:11,color:T.textMuted}}>Sem dados hole-by-hole</div>;
+          return wh.map(function(a,ai){var m=posMedal(a.pos,a.catTotal);return(
+            <div key={ai} style={{marginBottom:14}}>
+              <div style={{fontSize:12,fontWeight:600,marginBottom:3,display:"flex",alignItems:"center",gap:5}}>
+                <span style={m.style}>{m.text}</span>
+                <span style={Object.assign({},pillSm,catStyle(a.category))}>{a.category}</span>
+                <span style={{color:T.blue,cursor:"pointer"}} onClick={function(){if(onTournClick)onTournClick(a.tournKey);}}>{a.tournament} ({a.year})</span>
+                <span style={{fontSize:10,color:T.textMuted,marginLeft:8}}>Par {a.par} \u00b7 Gross {a.totalStrokes} \u00b7 {fmtS(a.vsPar)}</span>
+              </div>
+              <div style={{overflowX:"auto"}}><table style={{borderCollapse:"collapse",fontSize:11}}><thead><tr style={{background:"#f8fafc"}}><th style={{padding:"3px 8px",textAlign:"left",fontSize:10,color:T.textMuted}}>R</th>{Array.from({length:a.hpr||9},function(_,i){return<th key={i} style={{padding:"3px 3px",textAlign:"center",fontSize:10,color:T.textMuted,minWidth:22}}>{i+1}</th>;})}<th style={{padding:"3px 8px",textAlign:"right",fontWeight:700,fontSize:10}}>Tot</th></tr></thead><tbody>{a.rounds.filter(function(r){return r.strokes&&r.strokes.length>0;}).map(function(r,ri){return(<tr key={ri}><td style={{padding:"3px 8px",fontWeight:600}}>R{r.round}</td>{r.strokes.map(function(s,si){var sc=scoreCell(s,estPar(a.hpr));return<td key={si} style={{padding:"3px 2px",textAlign:"center",verticalAlign:"middle"}}><span style={Object.assign({},sc.style,{margin:"0 auto"})}>{sc.text}</span></td>;})}{Array.from({length:Math.max(0,(a.hpr||9)-r.strokes.length)},function(_,i){return<td key={"p"+i} style={{padding:"3px",textAlign:"center",color:"#e5e7eb"}}>{"\u2013"}</td>;})}<td style={{padding:"3px 8px",textAlign:"right",fontWeight:700}}>{r.total}</td></tr>);})}</tbody></table></div>
+            </div>);});
+        })()}
+      </div>
+    </div>
+  );
+}
+
+function App(){
+  var _d=useState(null),data=_d[0],setData=_d[1];
+  var _l=useState(false),loading=_l[0],setLoading=_l[1];
+  var _s=useState(""),status=_s[0],setStatus=_s[1];
+  var _e=useState(null),error=_e[0],setError=_e[1];
+  var _v=useState("dashboard"),view=_v[0],setView=_v[1];
+  var _st=useState(null),selTourn=_st[0],setSelTourn=_st[1];
+  var _sp=useState(null),selPlayer=_sp[0],setSelPlayer=_sp[1];
+  var _se=useState(""),search=_se[0],setSearch=_se[1];
+  var _cf=useState("all"),countryF=_cf[0],setCountryF=_cf[1];
+  var _gf=useState("all"),genderF=_gf[0],setGenderF=_gf[1];
+  var _sb=useState("tournaments"),sortBy=_sb[0],setSortBy=_sb[1];
+  var _ts=useState(""),tSearch=_ts[0],setTSearch=_ts[1];
+  var _ty=useState("all"),tYearF=_ty[0],setTYearF=_ty[1];
+  var fileRef=useRef(null);
+
+  var handleFile=useCallback(function(e){
+    var file=e.target.files&&e.target.files[0];if(!file)return;
+    setLoading(true);setError(null);setStatus("A ler ficheiro...");
+    file.text().then(function(text){
+      setStatus("A processar JSON...");
+      setTimeout(function(){
+        try{var raw=JSON.parse(text);setStatus("A indexar...");setTimeout(function(){var result=processData(raw);setData(result);setSelTourn(null);setSelPlayer(null);setView("dashboard");setLoading(false);setStatus("");},50);}catch(err){setError("Erro: "+err.message);setLoading(false);setStatus("");}
+      },50);
+    });
+  },[]);
+
+  var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||a.name.localeCompare(b.name);});},[data,tYearF,tSearch]);
+
+  var filteredPlayers=useMemo(function(){if(!data)return[];var list=data.players;if(search){var q=search.toLowerCase();list=list.filter(function(p){return p.name.toLowerCase().indexOf(q)>=0||p.place.toLowerCase().indexOf(q)>=0||countryName(p.country).toLowerCase().indexOf(q)>=0||p.country.toLowerCase().indexOf(q)>=0;});}if(countryF!=="all")list=list.filter(function(p){return p.country===countryF;});if(genderF!=="all")list=list.filter(function(p){return p.gender===genderF;});if(sortBy==="name")return list.slice().sort(function(a,b){return a.name.localeCompare(b.name);});if(sortBy==="country")return list.slice().sort(function(a,b){return countryName(a.country).localeCompare(countryName(b.country));});if(sortBy==="recent")return list.slice().sort(function(a,b){return b.years[b.years.length-1]-a.years[a.years.length-1];});return list;},[data,search,countryF,genderF,sortBy]);
+
+  var findPlayer=useCallback(function(name,country,gender){if(!data)return;var p=data.players.find(function(pl){return pl.name===name&&pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender;});if(p){setSelPlayer(p.id);setView("players");setSearch("");setCountryF("all");setGenderF("all");}},[data]);
+  var goToTourn=useCallback(function(tKey){setSelTourn(tKey);setView("tournaments");},[]);
+  var navigate=useCallback(function(v,id){setView(v);if(v==="players"&&id!=null)setSelPlayer(id);},[]);
+
+  var selTournData=useMemo(function(){return data&&data.tournaments.find(function(t){return t.key===selTourn;});},[data,selTourn]);
+  var selPlayerData=useMemo(function(){return data&&data.players.find(function(p){return p.id===selPlayer;});},[data,selPlayer]);
+
+  if(!data)return(
+    <React.Fragment><link href={FL} rel="stylesheet"/>
+    <div style={{fontFamily:F,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(160deg, "+T.bg+" 0%, #0d2137 40%, #0a3026 100%)",color:"#fff",padding:24}}>
+      <div style={{textAlign:"center",maxWidth:480}}>
+        <div style={{width:80,height:80,borderRadius:24,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:38,marginBottom:16,boxShadow:"0 8px 32px "+T.accent+"30"}}>{"\u26f3"}</div>
+        <h1 style={{fontSize:32,fontWeight:900,margin:"0 0 4px",letterSpacing:-0.5}}>USKids Golf</h1>
+        <p style={{fontSize:14,color:T.textMuted,margin:"0 0 32px"}}>Analytics \u00b7 Torneios \u00b7 Jogadores \u00b7 Scorecards</p>
+        {error&&<div style={{background:"#7f1d1d90",color:"#fca5a5",padding:"12px 18px",borderRadius:12,marginBottom:16,fontSize:12,border:"1px solid #991b1b"}}>{error}</div>}
+        {status&&<div style={{color:T.accent,fontSize:13,marginBottom:12,fontWeight:500}}>{status}</div>}
+        <button onClick={function(){fileRef.current&&fileRef.current.click();}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A processar...":"Carregar JSON"}</button>
+        <input ref={fileRef} type="file" accept=".json" onChange={handleFile} style={{display:"none"}}/>
+        <p style={{fontSize:11,color:"#4a6070",marginTop:16}}>uskids_complete_v2.json</p>
+      </div>
+    </div></React.Fragment>
+  );
+
+  var navItems=[{key:"dashboard",icon:"\ud83d\udcca",label:"Dashboard"},{key:"tournaments",icon:"\ud83c\udfc6",label:"Torneios"},{key:"players",icon:"\ud83d\udc64",label:"Jogadores"},{key:"rankings",icon:"\ud83e\udd47",label:"Rankings"}];
+
+  return(<React.Fragment><link href={FL} rel="stylesheet"/><div style={{fontFamily:F,height:"100vh",display:"flex",background:T.surface}}>
+    <div style={{width:64,background:T.bg,display:"flex",flexDirection:"column",alignItems:"center",padding:"12px 0",flexShrink:0,gap:2}}>
+      <div style={{width:38,height:38,borderRadius:12,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,marginBottom:16,boxShadow:"0 2px 12px "+T.accent+"30"}}>{"\u26f3"}</div>
+      {navItems.map(function(n){return(<button key={n.key} onClick={function(){setView(n.key);}} style={{width:48,height:48,borderRadius:12,border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:2,background:view===n.key?T.card:"transparent",color:view===n.key?T.accent:T.textMuted,fontSize:16}} title={n.label}><span>{n.icon}</span><span style={{fontSize:8,fontWeight:700,letterSpacing:0.5}}>{n.label.substring(0,4)}</span></button>);})}
+      <div style={{flex:1}}/>
+      <button onClick={function(){setData(null);}} style={{width:38,height:38,borderRadius:10,border:"none",cursor:"pointer",background:"transparent",color:T.textMuted,fontSize:14,display:"flex",alignItems:"center",justifyContent:"center"}} title="Fechar">&times;</button>
+    </div>
+    <div style={{flex:1,display:"flex",overflow:"hidden"}}>
+      {view==="dashboard"&&<Dashboard data={data} onNavigate={navigate}/>}
+      {view==="tournaments"&&<React.Fragment>
+        <div style={{width:320,minWidth:260,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
+          <div style={{padding:"12px 12px 8px",borderBottom:"1px solid "+T.borderLight}}>
+            <input value={tSearch} onChange={function(e){setTSearch(e.target.value);}} placeholder="Pesquisar torneio..." style={inpS}/>
+            <div style={{display:"flex",gap:3,marginTop:8,flexWrap:"wrap"}}>
+              <button onClick={function(){setTYearF("all");}} style={Object.assign({},pillSm,{background:tYearF==="all"?T.accent:T.surfaceAlt,color:tYearF==="all"?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>Todos</button>
+              {data.years.slice().reverse().slice(0,14).map(function(y){return<button key={y} onClick={function(){setTYearF(String(y));}} style={Object.assign({},pillSm,{background:tYearF===String(y)?T.accent:T.surfaceAlt,color:tYearF===String(y)?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>{y}</button>;})}
+            </div>
+            <div style={{fontSize:10,color:T.textMuted,marginTop:6,fontWeight:600}}>{filteredTourns.length} torneios</div>
+          </div>
+          <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{fontWeight:700,fontSize:12,color:T.textDark}}>{t.name}</div><div style={{fontSize:10,color:T.textMuted,marginTop:3}}>{t.date} \u00b7 {t.categories.length} cats \u00b7 {t.categories.reduce(function(s,c){return s+c.players.length;},0)} jog</div></button>);})}</div>
+        </div>
+        <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selTournData?<TournDetail key={selTournData.key} tourn={selTournData} onPlayerClick={findPlayer}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:14}}>Seleciona um torneio</div>}</div>
+      </React.Fragment>}
+      {view==="players"&&<React.Fragment>
+        <div style={{width:320,minWidth:260,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
+          <div style={{padding:"12px 12px 8px",borderBottom:"1px solid "+T.borderLight}}>
+            <input value={search} onChange={function(e){setSearch(e.target.value);setSelPlayer(null);}} placeholder="Pesquisar jogador ou pa\u00eds..." style={inpS}/>
+            <div style={{display:"flex",gap:4,marginTop:8,flexWrap:"wrap"}}>
+              <select value={countryF} onChange={function(e){setCountryF(e.target.value);setSelPlayer(null);}} style={Object.assign({},inpS,{width:"auto",padding:"5px 8px",fontSize:11,maxWidth:180})}><option value="all">Todos os pa\u00edses ({data.allCountries.length})</option>{data.allCountries.map(function(c){return<option key={c} value={c}>{flag(c)} {countryName(c)} ({data.countryStats[c]})</option>;})}</select>
+              <select value={genderF} onChange={function(e){setGenderF(e.target.value);setSelPlayer(null);}} style={Object.assign({},inpS,{width:"auto",padding:"5px 8px",fontSize:11})}><option value="all">Todos</option><option value="M">Boys</option><option value="F">Girls</option></select>
+              <select value={sortBy} onChange={function(e){setSortBy(e.target.value);}} style={Object.assign({},inpS,{width:"auto",padding:"5px 8px",fontSize:11})}><option value="tournaments">+Torneios</option><option value="name">A-Z</option><option value="country">Pa\u00eds</option><option value="recent">Recente</option></select>
+            </div>
+            <div style={{fontSize:10,color:T.textMuted,marginTop:6,fontWeight:600}}>{filteredPlayers.length} jogadores</div>
+          </div>
+          <div style={{flex:1,overflowY:"auto"}}>
+            {filteredPlayers.slice(0,500).map(function(p){return(<button key={p.id} onClick={function(){setSelPlayer(p.id);}} style={{display:"block",width:"100%",textAlign:"left",padding:"9px 14px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selPlayer===p.id?T.accentSoft:"transparent",borderLeft:selPlayer===p.id?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}><div style={{display:"flex",alignItems:"center",gap:6}}><span style={{fontSize:14}}>{flag(p.country)||p.country}</span><span style={{fontWeight:700,fontSize:12,color:T.textDark}}>{p.name}</span>{p.gender==="F"&&<span style={Object.assign({},pillSm,{background:"#fce7f3",color:"#9d174d"})}>{"\u2640"}</span>}<span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark,marginLeft:"auto"})}>{p.numT}T</span></div><div style={{fontSize:10,color:T.textMuted,marginTop:3,display:"flex",gap:6,flexWrap:"wrap"}}>{p.birth&&<span style={{color:"#7c3aed",fontWeight:600}}>~{p.birth}</span>}<span>{p.years[0]}\u2013{p.years[p.years.length-1]}</span>{p.place&&<span>{p.place}</span>}</div></button>);})}
+            {filteredPlayers.length>500&&<div style={{padding:14,textAlign:"center",fontSize:11,color:T.textMuted}}>A mostrar 500 de {filteredPlayers.length}</div>}
+          </div>
+        </div>
+        <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selPlayerData?<PDetail key={selPlayerData.id} player={selPlayerData} onTournClick={goToTourn}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:14}}>Seleciona um jogador</div>}</div>
+      </React.Fragment>}
+    </div>
+  </div></React.Fragment>);
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>

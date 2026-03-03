@@ -1,0 +1,140 @@
+=============================================================
+USKids Golf - Guia Completo de Scraping
+=============================================================
+
+OBJECTIVO: Descarregar todos os resultados de torneios USKids
+International, todas as categorias, todos os anos, com scores 
+hole-by-hole, para JSON.
+
+=============================================================
+PASSO 1: Recolher lista de torneios (5 minutos)
+=============================================================
+
+1. Abrir: https://tournaments.uskidsgolf.com/tournaments/international/past-results
+2. Abrir a consola do browser (F12 → Console)
+3. Copiar e colar TODO o conteúdo do ficheiro:
+   → passo1_lista_torneios.js
+4. Pressionar Enter
+5. Esperar (demora ~30 segundos por ano, percorre todos os anos)
+6. No final aparece: "✅ COMPLETO! JSON copiado para o clipboard!"
+7. Abrir um editor de texto (Notepad, VS Code, etc.)
+8. Colar (Ctrl+V) e guardar como: torneios_lista.json
+9. Este ficheiro contém todos os torneios com os URLs dos iframes
+
+=============================================================
+PASSO 2: Capturar dados de cada torneio (o mais demorado)
+=============================================================
+
+Para CADA torneio na lista:
+
+1. Copiar o "iframe_url" do torneio no ficheiro torneios_lista.json
+   Exemplo: https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18438
+   
+2. Abrir esse URL numa nova tab do browser
+
+3. Abrir a consola (F12 → Console)
+
+4. Copiar e colar TODO o conteúdo do ficheiro:
+   → passo2_capturar_torneio.js
+
+5. Pressionar Enter
+
+6. O script vai automaticamente:
+   - Encontrar todos os tabs de categorias
+   - Clicar em cada um
+   - Capturar as respostas AJAX
+   - Exportar tudo para o clipboard
+
+7. Esperar até ver: "✅ EXPORTAÇÃO COMPLETA!"
+
+8. Colar num ficheiro com o nome do torneio, exemplo:
+   → marco_simone_invitational_2025.json
+
+9. Repetir para cada torneio
+
+NOTA: Se o script automático não funcionar (algumas páginas 
+podem ter estrutura diferente), usa o ficheiro:
+   → passo2_manual.js
+que te dá instruções para clicar manualmente nos tabs.
+
+=============================================================
+PASSO 3: Combinar tudo (1 minuto)
+=============================================================
+
+1. Colocar todos os ficheiros JSON numa pasta, por exemplo:
+   → C:\uskids_data\
+
+2. Abrir a consola/terminal
+
+3. Correr:
+   python passo3_combinar.py C:\uskids_data\
+
+4. Isto gera um ficheiro: uskids_complete.json
+   com TODOS os torneios, categorias e scores.
+
+=============================================================
+ESTRUTURA DO JSON FINAL
+=============================================================
+
+{
+  "metadata": {
+    "total_tournaments": 150,
+    "total_players": 5000,
+    "years": [2015, 2016, ..., 2025],
+    "generated_at": "2025-03-03T..."
+  },
+  "tournaments": [
+    {
+      "name": "Marco Simone Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514135",
+      "date": "Mar 15",
+      "categories": [
+        {
+          "name": "Boys 7 & Under",
+          "flight_id": "236703",
+          "players": [
+            {
+              "name": "Pietro Salvati",
+              "first": "Pietro",
+              "last": "Salvati",
+              "place": "Bologna, BO",
+              "country": "IT",
+              "tee": "Tee 1",
+              "tee_color": "Blue",
+              "total_strokes": 69,
+              "score": -3,
+              "status": "OK",
+              "rounds": [
+                {
+                  "round": 1,
+                  "total": 32,
+                  "holes": 9,
+                  "start_hole": 10,
+                  "strokes": [3,4,4,3,4,3,3,4,4]
+                },
+                {
+                  "round": 2,
+                  "total": 37,
+                  "holes": 9,
+                  "start_hole": 10,
+                  "strokes": [4,4,6,4,5,4,3,2,5]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+=============================================================
+DICAS
+=============================================================
+
+- Começa por 2024 e 2025 para testar. Depois expande para outros anos.
+- Se algum torneio não tiver resultados (futuro), o script ignora-o.
+- Os torneios mais antigos (2002-2010) podem ter estrutura diferente.
+- Guarda cada JSON individual como backup antes de combinar.
+- O JSON final pode ser grande (50-100MB com todos os anos).

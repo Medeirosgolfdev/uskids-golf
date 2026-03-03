@@ -1,0 +1,3795 @@
+{
+  "file": "uskids_complete.json",
+  "fileSize": 28039265,
+  "timestamp": "2026-03-03T11:18:56.916Z",
+  "total": 177,
+  "ok": 26,
+  "problemCount": 151,
+  "problems": [
+    {
+      "idx": 12,
+      "name": "Van Horn Cup 2015",
+      "year": 2015,
+      "tournament_id": "495155",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=1199",
+      "nFlights": 10,
+      "nExpected": 10,
+      "nPlayers": 313,
+      "issues": [
+        "CROSS_DUP: flight 13207 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13208 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13209 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13211 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13213 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13214 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13215 has same players as tournament #11 (European Championship 2015)",
+        "CROSS_DUP: flight 13216 has same players as tournament #11 (European Championship 2015)"
+      ]
+    },
+    {
+      "idx": 25,
+      "name": "Guadalajara Open 2017",
+      "year": 2017,
+      "tournament_id": "497863",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=3785",
+      "nFlights": 9,
+      "nExpected": 17,
+      "nPlayers": 133,
+      "issues": [
+        "PARTIAL: 9/17 cats"
+      ]
+    },
+    {
+      "idx": 26,
+      "name": "Latin American Championship 2017",
+      "year": 2017,
+      "tournament_id": "497808",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=3733",
+      "nFlights": 6,
+      "nExpected": 15,
+      "nPlayers": 63,
+      "issues": [
+        "PARTIAL: 6/15 cats"
+      ]
+    },
+    {
+      "idx": 29,
+      "name": "Australian Open 2018",
+      "year": 2018,
+      "tournament_id": "498757",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=4591",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 115,
+      "issues": [
+        "CROSS_DUP: flight 48442 has same players as tournament #28 (Venice Open 2017)",
+        "CROSS_DUP: flight 48443 has same players as tournament #28 (Venice Open 2017)",
+        "CROSS_DUP: flight 48444 has same players as tournament #28 (Venice Open 2017)",
+        "CROSS_DUP: flight 48445 has same players as tournament #28 (Venice Open 2017)",
+        "CROSS_DUP: flight 48446 has same players as tournament #28 (Venice Open 2017)"
+      ]
+    },
+    {
+      "idx": 30,
+      "name": "Baja Open 2018",
+      "year": 2018,
+      "tournament_id": "500047",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5662",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 139,
+      "issues": [
+        "CROSS_DUP: flight 48450 has same players as tournament #29 (Australian Open 2018)",
+        "CROSS_DUP: flight 48451 has same players as tournament #29 (Australian Open 2018)",
+        "CROSS_DUP: flight 48452 has same players as tournament #29 (Australian Open 2018)",
+        "CROSS_DUP: flight 48453 has same players as tournament #29 (Australian Open 2018)",
+        "CROSS_DUP: flight 48454 has same players as tournament #29 (Australian Open 2018)"
+      ]
+    },
+    {
+      "idx": 31,
+      "name": "British Kids Championship 2018",
+      "year": 2018,
+      "tournament_id": "500019",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5643",
+      "nFlights": 11,
+      "nExpected": 11,
+      "nPlayers": 98,
+      "issues": [
+        "CROSS_DUP: flight 48462 has same players as tournament #30 (Baja Open 2018)",
+        "CROSS_DUP: flight 48463 has same players as tournament #30 (Baja Open 2018)",
+        "CROSS_DUP: flight 48464 has same players as tournament #30 (Baja Open 2018)",
+        "CROSS_DUP: flight 48465 has same players as tournament #30 (Baja Open 2018)",
+        "CROSS_DUP: flight 48466 has same players as tournament #30 (Baja Open 2018)"
+      ]
+    },
+    {
+      "idx": 32,
+      "name": "Cancun Challenge 2018",
+      "year": 2018,
+      "tournament_id": "500495",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6066",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 153,
+      "issues": [
+        "CROSS_DUP: flight 48468 has same players as tournament #31 (British Kids Championship 2018)",
+        "CROSS_DUP: flight 48469 has same players as tournament #31 (British Kids Championship 2018)",
+        "CROSS_DUP: flight 48470 has same players as tournament #31 (British Kids Championship 2018)",
+        "CROSS_DUP: flight 48471 has same players as tournament #31 (British Kids Championship 2018)",
+        "CROSS_DUP: flight 48472 has same players as tournament #31 (British Kids Championship 2018)"
+      ]
+    },
+    {
+      "idx": 33,
+      "name": "Caribbean Championship at Punta Cana 2018",
+      "year": 2018,
+      "tournament_id": "499823",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5468",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 134,
+      "issues": [
+        "CROSS_DUP: flight 48480 has same players as tournament #32 (Cancun Challenge 2018)",
+        "CROSS_DUP: flight 48481 has same players as tournament #32 (Cancun Challenge 2018)",
+        "CROSS_DUP: flight 48482 has same players as tournament #32 (Cancun Challenge 2018)",
+        "CROSS_DUP: flight 48483 has same players as tournament #32 (Cancun Challenge 2018)",
+        "CROSS_DUP: flight 48484 has same players as tournament #32 (Cancun Challenge 2018)"
+      ]
+    },
+    {
+      "idx": 34,
+      "name": "European Championship 2018",
+      "year": 2018,
+      "tournament_id": "499400",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5095",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 135,
+      "issues": [
+        "CROSS_DUP: flight 48490 has same players as tournament #33 (Caribbean Championship at Punta Cana 2018)",
+        "CROSS_DUP: flight 48491 has same players as tournament #33 (Caribbean Championship at Punta Cana 2018)",
+        "CROSS_DUP: flight 48492 has same players as tournament #33 (Caribbean Championship at Punta Cana 2018)",
+        "CROSS_DUP: flight 48493 has same players as tournament #33 (Caribbean Championship at Punta Cana 2018)",
+        "CROSS_DUP: flight 48494 has same players as tournament #33 (Caribbean Championship at Punta Cana 2018)"
+      ]
+    },
+    {
+      "idx": 35,
+      "name": "European Van Horn Cup 2018",
+      "year": 2018,
+      "tournament_id": "499412",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5104",
+      "nFlights": 10,
+      "nExpected": 10,
+      "nPlayers": 97,
+      "issues": [
+        "CROSS_DUP: flight 48501 has same players as tournament #34 (European Championship 2018)",
+        "CROSS_DUP: flight 48502 has same players as tournament #34 (European Championship 2018)",
+        "CROSS_DUP: flight 48503 has same players as tournament #34 (European Championship 2018)",
+        "CROSS_DUP: flight 48504 has same players as tournament #34 (European Championship 2018)",
+        "CROSS_DUP: flight 48505 has same players as tournament #34 (European Championship 2018)"
+      ]
+    },
+    {
+      "idx": 36,
+      "name": "Latin American Championship 2018",
+      "year": 2018,
+      "tournament_id": "499824",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5469",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 168,
+      "issues": [
+        "CROSS_DUP: flight 48506 has same players as tournament #35 (European Van Horn Cup 2018)",
+        "CROSS_DUP: flight 48507 has same players as tournament #35 (European Van Horn Cup 2018)",
+        "CROSS_DUP: flight 48508 has same players as tournament #35 (European Van Horn Cup 2018)",
+        "CROSS_DUP: flight 48509 has same players as tournament #35 (European Van Horn Cup 2018)",
+        "CROSS_DUP: flight 48510 has same players as tournament #35 (European Van Horn Cup 2018)"
+      ]
+    },
+    {
+      "idx": 37,
+      "name": "Mexico City Championship 2018",
+      "year": 2018,
+      "tournament_id": "501068",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6600",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 187,
+      "issues": [
+        "CROSS_DUP: flight 48516 has same players as tournament #36 (Latin American Championship 2018)",
+        "CROSS_DUP: flight 48517 has same players as tournament #36 (Latin American Championship 2018)",
+        "CROSS_DUP: flight 48518 has same players as tournament #36 (Latin American Championship 2018)",
+        "CROSS_DUP: flight 48519 has same players as tournament #36 (Latin American Championship 2018)",
+        "CROSS_DUP: flight 48520 has same players as tournament #36 (Latin American Championship 2018)"
+      ]
+    },
+    {
+      "idx": 38,
+      "name": "Venice Open 2018",
+      "year": 2018,
+      "tournament_id": "500020",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5663",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 156,
+      "issues": [
+        "CROSS_DUP: flight 48528 has same players as tournament #37 (Mexico City Championship 2018)",
+        "CROSS_DUP: flight 48529 has same players as tournament #37 (Mexico City Championship 2018)",
+        "CROSS_DUP: flight 48530 has same players as tournament #37 (Mexico City Championship 2018)",
+        "CROSS_DUP: flight 48531 has same players as tournament #37 (Mexico City Championship 2018)",
+        "CROSS_DUP: flight 48532 has same players as tournament #37 (Mexico City Championship 2018)"
+      ]
+    },
+    {
+      "idx": 39,
+      "name": "Venice Open 2018",
+      "year": 2018,
+      "tournament_id": "500053",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5663",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 123,
+      "issues": [
+        "CROSS_DUP: flight 48539 has same players as tournament #38 (Venice Open 2018)",
+        "CROSS_DUP: flight 48540 has same players as tournament #38 (Venice Open 2018)",
+        "CROSS_DUP: flight 48541 has same players as tournament #38 (Venice Open 2018)",
+        "CROSS_DUP: flight 48542 has same players as tournament #38 (Venice Open 2018)",
+        "CROSS_DUP: flight 48543 has same players as tournament #38 (Venice Open 2018)"
+      ]
+    },
+    {
+      "idx": 40,
+      "name": "2018 Mexico City Championship",
+      "year": 2019,
+      "tournament_id": "502941",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8219",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 101,
+      "issues": [
+        "CROSS_DUP: flight 48550 has same players as tournament #39 (Venice Open 2018)",
+        "CROSS_DUP: flight 48551 has same players as tournament #39 (Venice Open 2018)",
+        "CROSS_DUP: flight 48552 has same players as tournament #39 (Venice Open 2018)",
+        "CROSS_DUP: flight 48553 has same players as tournament #39 (Venice Open 2018)",
+        "CROSS_DUP: flight 48554 has same players as tournament #39 (Venice Open 2018)"
+      ]
+    },
+    {
+      "idx": 41,
+      "name": "Australian Open 2019",
+      "year": 2019,
+      "tournament_id": "501206",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6705",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 79,
+      "issues": [
+        "CROSS_DUP: flight 48564 has same players as tournament #40 (2018 Mexico City Championship)",
+        "CROSS_DUP: flight 48565 has same players as tournament #40 (2018 Mexico City Championship)",
+        "CROSS_DUP: flight 48566 has same players as tournament #40 (2018 Mexico City Championship)",
+        "CROSS_DUP: flight 48568 has same players as tournament #40 (2018 Mexico City Championship)"
+      ]
+    },
+    {
+      "idx": 42,
+      "name": "Bajio Cup 2019",
+      "year": 2019,
+      "tournament_id": "501596",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7056",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 110,
+      "issues": [
+        "CROSS_DUP: flight 48573 has same players as tournament #41 (Australian Open 2019)",
+        "CROSS_DUP: flight 48574 has same players as tournament #41 (Australian Open 2019)",
+        "CROSS_DUP: flight 48575 has same players as tournament #41 (Australian Open 2019)",
+        "CROSS_DUP: flight 48576 has same players as tournament #41 (Australian Open 2019)",
+        "CROSS_DUP: flight 48577 has same players as tournament #41 (Australian Open 2019)"
+      ]
+    },
+    {
+      "idx": 43,
+      "name": "British Kids Championship",
+      "year": 2019,
+      "tournament_id": "501905",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7314",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 93,
+      "issues": [
+        "CROSS_DUP: flight 48585 has same players as tournament #42 (Bajio Cup 2019)",
+        "CROSS_DUP: flight 48586 has same players as tournament #42 (Bajio Cup 2019)",
+        "CROSS_DUP: flight 48587 has same players as tournament #42 (Bajio Cup 2019)",
+        "CROSS_DUP: flight 48588 has same players as tournament #42 (Bajio Cup 2019)",
+        "CROSS_DUP: flight 48589 has same players as tournament #42 (Bajio Cup 2019)"
+      ]
+    },
+    {
+      "idx": 44,
+      "name": "Caribbean Championship at Punta Cana 2019",
+      "year": 2019,
+      "tournament_id": "502301",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7641",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 106,
+      "issues": [
+        "CROSS_DUP: flight 48593 has same players as tournament #43 (British Kids Championship)",
+        "CROSS_DUP: flight 48594 has same players as tournament #43 (British Kids Championship)",
+        "CROSS_DUP: flight 48595 has same players as tournament #43 (British Kids Championship)",
+        "CROSS_DUP: flight 48596 has same players as tournament #43 (British Kids Championship)",
+        "CROSS_DUP: flight 48597 has same players as tournament #43 (British Kids Championship)",
+        "CROSS_DUP: flight 48600 has same players as tournament #40 (2018 Mexico City Championship)"
+      ]
+    },
+    {
+      "idx": 45,
+      "name": "European Championship 2019",
+      "year": 2019,
+      "tournament_id": "501215",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6713",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 105,
+      "issues": [
+        "CROSS_DUP: flight 48604 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48605 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48606 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48607 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48608 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48616 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48618 has same players as tournament #40 (2018 Mexico City Championship)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 46,
+      "name": "European Van Horn Cup 2019",
+      "year": 2019,
+      "tournament_id": "501234",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6732",
+      "nFlights": 10,
+      "nExpected": 10,
+      "nPlayers": 67,
+      "issues": [
+        "CROSS_DUP: flight 48616 has same players as tournament #44 (Caribbean Championship at Punta Cana 2019)",
+        "CROSS_DUP: flight 48617 has same players as tournament #45 (European Championship 2019)",
+        "CROSS_DUP: flight 48618 has same players as tournament #40 (2018 Mexico City Championship)",
+        "CROSS_DUP: flight 48619 has same players as tournament #45 (European Championship 2019)",
+        "CROSS_DUP: flight 48620 has same players as tournament #45 (European Championship 2019)"
+      ]
+    },
+    {
+      "idx": 47,
+      "name": "Mayan Challenge 2019",
+      "year": 2019,
+      "tournament_id": "501879",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7291",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 123,
+      "issues": [
+        "CROSS_DUP: flight 48621 has same players as tournament #46 (European Van Horn Cup 2019)",
+        "CROSS_DUP: flight 48622 has same players as tournament #46 (European Van Horn Cup 2019)",
+        "CROSS_DUP: flight 48623 has same players as tournament #46 (European Van Horn Cup 2019)",
+        "CROSS_DUP: flight 48624 has same players as tournament #46 (European Van Horn Cup 2019)",
+        "CROSS_DUP: flight 48625 has same players as tournament #46 (European Van Horn Cup 2019)"
+      ]
+    },
+    {
+      "idx": 48,
+      "name": "Mexico City Championship",
+      "year": 2019,
+      "tournament_id": "502942",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8219",
+      "nFlights": 17,
+      "nExpected": 17,
+      "nPlayers": 97,
+      "issues": [
+        "CROSS_DUP: flight 48633 has same players as tournament #47 (Mayan Challenge 2019)",
+        "CROSS_DUP: flight 48634 has same players as tournament #47 (Mayan Challenge 2019)",
+        "CROSS_DUP: flight 48635 has same players as tournament #47 (Mayan Challenge 2019)",
+        "CROSS_DUP: flight 48636 has same players as tournament #47 (Mayan Challenge 2019)",
+        "CROSS_DUP: flight 48637 has same players as tournament #47 (Mayan Challenge 2019)"
+      ]
+    },
+    {
+      "idx": 49,
+      "name": "New Zealand Open 2019",
+      "year": 2019,
+      "tournament_id": "502529",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7819",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 39,
+      "issues": [
+        "CROSS_DUP: flight 48646 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48647 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48649 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48650 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48662 has same players as tournament #48 (Mexico City Championship)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 50,
+      "name": "South American Championship 2019",
+      "year": 2019,
+      "tournament_id": "501877",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7284",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 45,
+      "issues": [
+        "CROSS_DUP: flight 48660 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48661 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48662 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48663 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48665 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48668 has same players as tournament #49 (New Zealand Open 2019)"
+      ]
+    },
+    {
+      "idx": 51,
+      "name": "Venice Open 2019",
+      "year": 2019,
+      "tournament_id": "501906",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7315",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 45,
+      "issues": [
+        "CROSS_DUP: flight 48670 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48671 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48672 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48673 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48674 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48680 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48686 has same players as tournament #48 (Mexico City Championship)"
+      ]
+    },
+    {
+      "idx": 52,
+      "name": "Australian Open 2020",
+      "year": 2020,
+      "tournament_id": "502989",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8243",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 36,
+      "issues": [
+        "CROSS_DUP: flight 48682 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48684 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48685 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48686 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48689 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48692 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48693 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48694 has same players as tournament #51 (Venice Open 2019)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 53,
+      "name": "Brazil Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503074",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8389",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 39,
+      "issues": [
+        "CROSS_DUP: flight 48693 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48694 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48696 has same players as tournament #52 (Australian Open 2020)",
+        "CROSS_DUP: flight 48697 has same players as tournament #52 (Australian Open 2020)",
+        "CROSS_DUP: flight 48698 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48704 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48707 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48708 has same players as tournament #50 (South American Championship 2019)"
+      ]
+    },
+    {
+      "idx": 54,
+      "name": "Canadian Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503699",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8878",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 34,
+      "issues": [
+        "CROSS_DUP: flight 48704 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48705 has same players as tournament #53 (Brazil Invitational 2020)",
+        "CROSS_DUP: flight 48706 has same players as tournament #53 (Brazil Invitational 2020)",
+        "CROSS_DUP: flight 48707 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48708 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48710 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48713 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48716 has same players as tournament #49 (New Zealand Open 2019)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 55,
+      "name": "Caribbean Championship at Punta Cana 2020",
+      "year": 2020,
+      "tournament_id": "503570",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8769",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 49,
+      "issues": [
+        "CROSS_DUP: flight 48713 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48714 has same players as tournament #54 (Canadian Invitational 2020)",
+        "CROSS_DUP: flight 48715 has same players as tournament #54 (Canadian Invitational 2020)",
+        "CROSS_DUP: flight 48716 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48717 has same players as tournament #54 (Canadian Invitational 2020)",
+        "CROSS_DUP: flight 48718 has same players as tournament #53 (Brazil Invitational 2020)",
+        "CROSS_DUP: flight 48720 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48722 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48728 has same players as tournament #49 (New Zealand Open 2019)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 56,
+      "name": "Indian Championship 2020",
+      "year": 2020,
+      "tournament_id": "503061",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8295",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 49,
+      "issues": [
+        "CROSS_DUP: flight 48724 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48726 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48727 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48728 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48729 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48730 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48731 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48732 has same players as tournament #50 (South American Championship 2019)",
+        "CROSS_DUP: flight 48734 has same players as tournament #48 (Mexico City Championship)",
+        "CROSS_DUP: flight 48735 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48736 has same players as tournament #53 (Brazil Invitational 2020)"
+      ]
+    },
+    {
+      "idx": 57,
+      "name": "Panama Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503009",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8271",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 45,
+      "issues": [
+        "CROSS_DUP: flight 48735 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)",
+        "CROSS_DUP: flight 48736 has same players as tournament #53 (Brazil Invitational 2020)",
+        "CROSS_DUP: flight 48737 has same players as tournament #56 (Indian Championship 2020)",
+        "CROSS_DUP: flight 48738 has same players as tournament #56 (Indian Championship 2020)",
+        "CROSS_DUP: flight 48739 has same players as tournament #56 (Indian Championship 2020)",
+        "CROSS_DUP: flight 48740 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48741 has same players as tournament #49 (New Zealand Open 2019)",
+        "CROSS_DUP: flight 48742 has same players as tournament #51 (Venice Open 2019)",
+        "CROSS_DUP: flight 48743 has same players as tournament #55 (Caribbean Championship at Punta Cana 2020)"
+      ]
+    },
+    {
+      "idx": 58,
+      "name": "South American Championship 2020",
+      "year": 2020,
+      "tournament_id": "504089",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9125",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 66,
+      "issues": [
+        "CROSS_DUP: flight 48744 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48745 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48746 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48747 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48748 has same players as tournament #57 (Panama Invitational 2020)"
+      ]
+    },
+    {
+      "idx": 59,
+      "name": "The Big 5 South African Open 2020",
+      "year": 2020,
+      "tournament_id": "502963",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8229",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 59,
+      "issues": [
+        "CROSS_DUP: flight 48754 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48755 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48756 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48757 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48758 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48764 has same players as tournament #58 (South American Championship 2020)"
+      ]
+    },
+    {
+      "idx": 60,
+      "name": "Venice Open 2020",
+      "year": 2020,
+      "tournament_id": "503976",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9086",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 71,
+      "issues": [
+        "CROSS_DUP: flight 48764 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48765 has same players as tournament #59 (The Big 5 South African Open 2020)",
+        "CROSS_DUP: flight 48766 has same players as tournament #59 (The Big 5 South African Open 2020)",
+        "CROSS_DUP: flight 48768 has same players as tournament #59 (The Big 5 South African Open 2020)",
+        "CROSS_DUP: flight 48776 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48777 has same players as tournament #59 (The Big 5 South African Open 2020)",
+        "CROSS_DUP: flight 48780 has same players as tournament #57 (Panama Invitational 2020)",
+        "DUP_INTERNAL: 2 flights with identical players"
+      ]
+    },
+    {
+      "idx": 61,
+      "name": "Australian Challenge at Moonah Links 2021",
+      "year": 2021,
+      "tournament_id": "506285",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11115",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 57,
+      "issues": [
+        "CROSS_DUP: flight 48776 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48777 has same players as tournament #59 (The Big 5 South African Open 2020)",
+        "CROSS_DUP: flight 48778 has same players as tournament #60 (Venice Open 2020)",
+        "CROSS_DUP: flight 48779 has same players as tournament #60 (Venice Open 2020)",
+        "CROSS_DUP: flight 48780 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48781 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48788 has same players as tournament #58 (South American Championship 2020)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 62,
+      "name": "Australian Masters 2021",
+      "year": 2021,
+      "tournament_id": "504738",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9730",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 62,
+      "issues": [
+        "CROSS_DUP: flight 48785 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)",
+        "CROSS_DUP: flight 48786 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)",
+        "CROSS_DUP: flight 48787 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)",
+        "CROSS_DUP: flight 48788 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48789 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)"
+      ]
+    },
+    {
+      "idx": 63,
+      "name": "Bajio Cup 2021",
+      "year": 2021,
+      "tournament_id": "504080",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9142",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 76,
+      "issues": [
+        "CROSS_DUP: flight 48794 has same players as tournament #62 (Australian Masters 2021)",
+        "CROSS_DUP: flight 48795 has same players as tournament #62 (Australian Masters 2021)",
+        "CROSS_DUP: flight 48796 has same players as tournament #62 (Australian Masters 2021)",
+        "CROSS_DUP: flight 48797 has same players as tournament #62 (Australian Masters 2021)",
+        "CROSS_DUP: flight 48798 has same players as tournament #62 (Australian Masters 2021)",
+        "CROSS_DUP: flight 48800 has same players as tournament #58 (South American Championship 2020)",
+        "CROSS_DUP: flight 48802 has same players as tournament #59 (The Big 5 South African Open 2020)"
+      ]
+    },
+    {
+      "idx": 64,
+      "name": "Brazil Invitational 2021",
+      "year": 2021,
+      "tournament_id": "505330",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=10163",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 69,
+      "issues": [
+        "CROSS_DUP: flight 48806 has same players as tournament #63 (Bajio Cup 2021)",
+        "CROSS_DUP: flight 48807 has same players as tournament #63 (Bajio Cup 2021)",
+        "CROSS_DUP: flight 48808 has same players as tournament #63 (Bajio Cup 2021)",
+        "CROSS_DUP: flight 48809 has same players as tournament #63 (Bajio Cup 2021)",
+        "CROSS_DUP: flight 48810 has same players as tournament #63 (Bajio Cup 2021)",
+        "CROSS_DUP: flight 48817 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48818 has same players as tournament #57 (Panama Invitational 2020)"
+      ]
+    },
+    {
+      "idx": 65,
+      "name": "British Kids Championship 2021",
+      "year": 2021,
+      "tournament_id": "504783",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9776",
+      "nFlights": 11,
+      "nExpected": 11,
+      "nPlayers": 58,
+      "issues": [
+        "CROSS_DUP: flight 48816 has same players as tournament #64 (Brazil Invitational 2021)",
+        "CROSS_DUP: flight 48817 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48818 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48819 has same players as tournament #64 (Brazil Invitational 2021)",
+        "CROSS_DUP: flight 48820 has same players as tournament #64 (Brazil Invitational 2021)",
+        "CROSS_DUP: flight 48824 has same players as tournament #64 (Brazil Invitational 2021)",
+        "CROSS_DUP: flight 48825 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)"
+      ]
+    },
+    {
+      "idx": 66,
+      "name": "Canadian Invitational 2021",
+      "year": 2021,
+      "tournament_id": "504888",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9869",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 88,
+      "issues": [
+        "CROSS_DUP: flight 48822 has same players as tournament #65 (British Kids Championship 2021)",
+        "CROSS_DUP: flight 48823 has same players as tournament #65 (British Kids Championship 2021)",
+        "CROSS_DUP: flight 48824 has same players as tournament #64 (Brazil Invitational 2021)",
+        "CROSS_DUP: flight 48825 has same players as tournament #61 (Australian Challenge at Moonah Links 2021)",
+        "CROSS_DUP: flight 48826 has same players as tournament #65 (British Kids Championship 2021)",
+        "CROSS_DUP: flight 48829 has same players as tournament #57 (Panama Invitational 2020)",
+        "CROSS_DUP: flight 48830 has same players as tournament #63 (Bajio Cup 2021)"
+      ]
+    },
+    {
+      "idx": 67,
+      "name": "Caribbean Championship at Punta Cana 2021",
+      "year": 2021,
+      "tournament_id": "505826",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=10692",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 72,
+      "issues": [
+        "CROSS_DUP: flight 48831 has same players as tournament #66 (Canadian Invitational 2021)",
+        "CROSS_DUP: flight 48832 has same players as tournament #66 (Canadian Invitational 2021)",
+        "CROSS_DUP: flight 48833 has same players as tournament #66 (Canadian Invitational 2021)",
+        "CROSS_DUP: flight 48834 has same players as tournament #66 (Canadian Invitational 2021)",
+        "CROSS_DUP: flight 48835 has same players as tournament #66 (Canadian Invitational 2021)",
+        "CROSS_DUP: flight 48836 has same players as tournament #64 (Brazil Invitational 2021)"
+      ]
+    },
+    {
+      "idx": 68,
+      "name": "European Van Horn Cup 2020",
+      "year": 2021,
+      "tournament_id": "503170",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8316",
+      "nFlights": 32,
+      "nExpected": 32,
+      "nPlayers": 148,
+      "issues": [
+        "CROSS_DUP: flight 48840 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)",
+        "CROSS_DUP: flight 48841 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)",
+        "CROSS_DUP: flight 48843 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)",
+        "CROSS_DUP: flight 48844 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)",
+        "DUP_INTERNAL: 2 flights with identical players"
+      ]
+    },
+    {
+      "idx": 69,
+      "name": "Irish Open 2021",
+      "year": 2021,
+      "tournament_id": "503440",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8660",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 64,
+      "issues": [
+        "CROSS_DUP: flight 48871 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48872 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48874 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48875 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48884 has same players as tournament #68 (European Van Horn Cup 2020)"
+      ]
+    },
+    {
+      "idx": 70,
+      "name": "Mexico City Championship 2021",
+      "year": 2021,
+      "tournament_id": "506553",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11366",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 67,
+      "issues": [
+        "CROSS_DUP: flight 48881 has same players as tournament #69 (Irish Open 2021)",
+        "CROSS_DUP: flight 48882 has same players as tournament #69 (Irish Open 2021)",
+        "CROSS_DUP: flight 48883 has same players as tournament #69 (Irish Open 2021)",
+        "CROSS_DUP: flight 48884 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48885 has same players as tournament #69 (Irish Open 2021)",
+        "CROSS_DUP: flight 48888 has same players as tournament #69 (Irish Open 2021)"
+      ]
+    },
+    {
+      "idx": 71,
+      "name": "NCBA Junior Series Invitational",
+      "year": 2021,
+      "tournament_id": "506705",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11457",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 56,
+      "issues": [
+        "CROSS_DUP: flight 48890 has same players as tournament #70 (Mexico City Championship 2021)",
+        "CROSS_DUP: flight 48891 has same players as tournament #70 (Mexico City Championship 2021)",
+        "CROSS_DUP: flight 48892 has same players as tournament #70 (Mexico City Championship 2021)",
+        "CROSS_DUP: flight 48893 has same players as tournament #70 (Mexico City Championship 2021)",
+        "CROSS_DUP: flight 48894 has same players as tournament #70 (Mexico City Championship 2021)",
+        "CROSS_DUP: flight 48900 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48903 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)"
+      ]
+    },
+    {
+      "idx": 72,
+      "name": "Rome Classic 2021",
+      "year": 2021,
+      "tournament_id": "504394",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9386",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 57,
+      "issues": [
+        "CROSS_DUP: flight 48899 has same players as tournament #71 (NCBA Junior Series Invitational)",
+        "CROSS_DUP: flight 48900 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48901 has same players as tournament #71 (NCBA Junior Series Invitational)",
+        "CROSS_DUP: flight 48902 has same players as tournament #71 (NCBA Junior Series Invitational)",
+        "CROSS_DUP: flight 48903 has same players as tournament #67 (Caribbean Championship at Punta Cana 2021)",
+        "CROSS_DUP: flight 48912 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 73,
+      "name": "South American Championship 2021",
+      "year": 2021,
+      "tournament_id": "506258",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11095",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 65,
+      "issues": [
+        "CROSS_DUP: flight 48911 has same players as tournament #72 (Rome Classic 2021)",
+        "CROSS_DUP: flight 48912 has same players as tournament #68 (European Van Horn Cup 2020)",
+        "CROSS_DUP: flight 48913 has same players as tournament #72 (Rome Classic 2021)",
+        "CROSS_DUP: flight 48914 has same players as tournament #72 (Rome Classic 2021)",
+        "CROSS_DUP: flight 48915 has same players as tournament #72 (Rome Classic 2021)",
+        "CROSS_DUP: flight 48920 has same players as tournament #68 (European Van Horn Cup 2020)"
+      ]
+    },
+    {
+      "idx": 74,
+      "name": "The Big 5 South African Open 2021",
+      "year": 2021,
+      "tournament_id": "504763",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9653",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 69,
+      "issues": [
+        "CROSS_DUP: flight 48921 has same players as tournament #73 (South American Championship 2021)",
+        "CROSS_DUP: flight 48922 has same players as tournament #73 (South American Championship 2021)",
+        "CROSS_DUP: flight 48923 has same players as tournament #73 (South American Championship 2021)",
+        "CROSS_DUP: flight 48924 has same players as tournament #73 (South American Championship 2021)",
+        "CROSS_DUP: flight 48925 has same players as tournament #73 (South American Championship 2021)",
+        "CROSS_DUP: flight 48927 has same players as tournament #72 (Rome Classic 2021)"
+      ]
+    },
+    {
+      "idx": 75,
+      "name": "Vallarta Open 2021",
+      "year": 2021,
+      "tournament_id": "505852",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=10693",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 69,
+      "issues": [
+        "CROSS_DUP: flight 48930 has same players as tournament #74 (The Big 5 South African Open 2021)",
+        "CROSS_DUP: flight 48931 has same players as tournament #74 (The Big 5 South African Open 2021)",
+        "CROSS_DUP: flight 48932 has same players as tournament #74 (The Big 5 South African Open 2021)",
+        "CROSS_DUP: flight 48933 has same players as tournament #74 (The Big 5 South African Open 2021)",
+        "CROSS_DUP: flight 48934 has same players as tournament #74 (The Big 5 South African Open 2021)"
+      ]
+    },
+    {
+      "idx": 76,
+      "name": "Venice Open 2021",
+      "year": 2021,
+      "tournament_id": "505345",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=10240",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 50,
+      "issues": [
+        "CROSS_DUP: flight 48941 has same players as tournament #75 (Vallarta Open 2021)",
+        "CROSS_DUP: flight 48942 has same players as tournament #75 (Vallarta Open 2021)",
+        "CROSS_DUP: flight 48943 has same players as tournament #75 (Vallarta Open 2021)",
+        "CROSS_DUP: flight 48945 has same players as tournament #75 (Vallarta Open 2021)"
+      ]
+    },
+    {
+      "idx": 77,
+      "name": "Australian Challenge at Moonah Links 2022",
+      "year": 2022,
+      "tournament_id": "508475",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13048",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 38,
+      "issues": [
+        "CROSS_DUP: flight 48953 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48954 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48955 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48956 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48957 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48962 has same players as tournament #76 (Venice Open 2021)"
+      ]
+    },
+    {
+      "idx": 78,
+      "name": "Australian Masters 2022",
+      "year": 2022,
+      "tournament_id": "506906",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11566",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 43,
+      "issues": [
+        "CROSS_DUP: flight 48964 has same players as tournament #77 (Australian Challenge at Moonah Links 2022)",
+        "CROSS_DUP: flight 48966 has same players as tournament #77 (Australian Challenge at Moonah Links 2022)",
+        "CROSS_DUP: flight 48968 has same players as tournament #77 (Australian Challenge at Moonah Links 2022)"
+      ]
+    },
+    {
+      "idx": 79,
+      "name": "Australian Open 2022",
+      "year": 2022,
+      "tournament_id": "507900",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11756",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 49,
+      "issues": [
+        "CROSS_DUP: flight 48976 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 48977 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 48978 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 48979 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 48980 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 48989 has same players as tournament #76 (Venice Open 2021)"
+      ]
+    },
+    {
+      "idx": 80,
+      "name": "Bajio Cup 2022",
+      "year": 2022,
+      "tournament_id": "508087",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12314",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 44,
+      "issues": [
+        "CROSS_DUP: flight 48985 has same players as tournament #79 (Australian Open 2022)",
+        "CROSS_DUP: flight 48986 has same players as tournament #79 (Australian Open 2022)",
+        "CROSS_DUP: flight 48987 has same players as tournament #79 (Australian Open 2022)",
+        "CROSS_DUP: flight 48988 has same players as tournament #79 (Australian Open 2022)",
+        "CROSS_DUP: flight 48989 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 48994 has same players as tournament #79 (Australian Open 2022)"
+      ]
+    },
+    {
+      "idx": 81,
+      "name": "Brazil Invitational 2022",
+      "year": 2022,
+      "tournament_id": "508967",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13498",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 29,
+      "issues": [
+        "CROSS_DUP: flight 48996 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 48997 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 48998 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 48999 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 49000 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 49004 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 49006 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 49007 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 49009 has same players as tournament #75 (Vallarta Open 2021)"
+      ]
+    },
+    {
+      "idx": 82,
+      "name": "British Kids Championship 2022",
+      "year": 2022,
+      "tournament_id": "507539",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12191",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 38,
+      "issues": [
+        "CROSS_DUP: flight 49005 has same players as tournament #81 (Brazil Invitational 2022)",
+        "CROSS_DUP: flight 49006 has same players as tournament #78 (Australian Masters 2022)",
+        "CROSS_DUP: flight 49007 has same players as tournament #80 (Bajio Cup 2022)",
+        "CROSS_DUP: flight 49008 has same players as tournament #81 (Brazil Invitational 2022)",
+        "CROSS_DUP: flight 49009 has same players as tournament #75 (Vallarta Open 2021)",
+        "CROSS_DUP: flight 49011 has same players as tournament #80 (Bajio Cup 2022)"
+      ]
+    },
+    {
+      "idx": 83,
+      "name": "Canadian Invitational 2022",
+      "year": 2022,
+      "tournament_id": "506905",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11416",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 45,
+      "issues": [
+        "CROSS_DUP: flight 49014 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49015 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49017 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49018 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49021 has same players as tournament #75 (Vallarta Open 2021)",
+        "CROSS_DUP: flight 49025 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49028 has same players as tournament #76 (Venice Open 2021)"
+      ]
+    },
+    {
+      "idx": 84,
+      "name": "Caribbean Championship at Punta Cana 2022",
+      "year": 2022,
+      "tournament_id": "508075",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12470",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 42,
+      "issues": [
+        "CROSS_DUP: flight 49024 has same players as tournament #83 (Canadian Invitational 2022)",
+        "CROSS_DUP: flight 49025 has same players as tournament #82 (British Kids Championship 2022)",
+        "CROSS_DUP: flight 49026 has same players as tournament #83 (Canadian Invitational 2022)",
+        "CROSS_DUP: flight 49027 has same players as tournament #83 (Canadian Invitational 2022)",
+        "CROSS_DUP: flight 49028 has same players as tournament #76 (Venice Open 2021)",
+        "CROSS_DUP: flight 49030 has same players as tournament #78 (Australian Masters 2022)"
+      ]
+    },
+    {
+      "idx": 85,
+      "name": "European Championship 2022",
+      "year": 2022,
+      "tournament_id": "503169",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8300",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 46,
+      "issues": [
+        "CROSS_DUP: flight 49032 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49033 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49034 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49035 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49036 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49045 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 86,
+      "name": "European Van Horn Cup 2022",
+      "year": 2022,
+      "tournament_id": "507098",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=11642",
+      "nFlights": 7,
+      "nExpected": 7,
+      "nPlayers": 24,
+      "issues": [
+        "CROSS_DUP: flight 49044 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49045 has same players as tournament #84 (Caribbean Championship at Punta Cana 2022)",
+        "CROSS_DUP: flight 49046 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49047 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49048 has same players as tournament #85 (European Championship 2022)"
+      ]
+    },
+    {
+      "idx": 87,
+      "name": "Indian Championship 2022",
+      "year": 2022,
+      "tournament_id": "508420",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12985",
+      "nFlights": 13,
+      "nExpected": 13,
+      "nPlayers": 44,
+      "issues": [
+        "CROSS_DUP: flight 49046 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49047 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49048 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49049 has same players as tournament #86 (European Van Horn Cup 2022)",
+        "CROSS_DUP: flight 49050 has same players as tournament #86 (European Van Horn Cup 2022)",
+        "CROSS_DUP: flight 49058 has same players as tournament #85 (European Championship 2022)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 88,
+      "name": "Irish Open 2022",
+      "year": 2022,
+      "tournament_id": "506600",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11307",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 46,
+      "issues": [
+        "CROSS_DUP: flight 49055 has same players as tournament #87 (Indian Championship 2022)",
+        "CROSS_DUP: flight 49056 has same players as tournament #87 (Indian Championship 2022)",
+        "CROSS_DUP: flight 49057 has same players as tournament #87 (Indian Championship 2022)",
+        "CROSS_DUP: flight 49058 has same players as tournament #85 (European Championship 2022)",
+        "CROSS_DUP: flight 49059 has same players as tournament #87 (Indian Championship 2022)"
+      ]
+    },
+    {
+      "idx": 89,
+      "name": "Mexico City Championship 2022",
+      "year": 2022,
+      "tournament_id": "509005",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13537",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 46,
+      "issues": [
+        "CROSS_DUP: flight 49066 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49068 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49069 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49070 has same players as tournament #88 (Irish Open 2022)"
+      ]
+    },
+    {
+      "idx": 90,
+      "name": "Rome Classic 2022",
+      "year": 2022,
+      "tournament_id": "508006",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12578",
+      "nFlights": 16,
+      "nExpected": 16,
+      "nPlayers": 64,
+      "issues": [
+        "CROSS_DUP: flight 49078 has same players as tournament #89 (Mexico City Championship 2022)",
+        "CROSS_DUP: flight 49080 has same players as tournament #89 (Mexico City Championship 2022)",
+        "CROSS_DUP: flight 49081 has same players as tournament #89 (Mexico City Championship 2022)",
+        "CROSS_DUP: flight 49082 has same players as tournament #89 (Mexico City Championship 2022)"
+      ]
+    },
+    {
+      "idx": 91,
+      "name": "South American Championship 2022",
+      "year": 2022,
+      "tournament_id": "507826",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12445",
+      "nFlights": 15,
+      "nExpected": 15,
+      "nPlayers": 54,
+      "issues": [
+        "CROSS_DUP: flight 49091 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49092 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49093 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49094 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49095 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49098 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49103 has same players as tournament #90 (Rome Classic 2022)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 92,
+      "name": "The Big 5 South African Open 2022",
+      "year": 2022,
+      "tournament_id": "506875",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11547",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 46,
+      "issues": [
+        "CROSS_DUP: flight 49102 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49103 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49104 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49105 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49106 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49110 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49111 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49112 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49115 has same players as tournament #90 (Rome Classic 2022)",
+        "DUP_INTERNAL: 1 flights with identical players"
+      ]
+    },
+    {
+      "idx": 93,
+      "name": "Vallarta Open 2022",
+      "year": 2022,
+      "tournament_id": "507456",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11977",
+      "nFlights": 14,
+      "nExpected": 14,
+      "nPlayers": 48,
+      "issues": [
+        "CROSS_DUP: flight 49111 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49112 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49113 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49114 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49115 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49116 has same players as tournament #87 (Indian Championship 2022)",
+        "CROSS_DUP: flight 49117 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49122 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "DUP_INTERNAL: 2 flights with identical players"
+      ]
+    },
+    {
+      "idx": 94,
+      "name": "Venice Open 2022",
+      "year": 2022,
+      "tournament_id": "507579",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12229",
+      "nFlights": 8,
+      "nExpected": 16,
+      "nPlayers": 30,
+      "issues": [
+        "CROSS_DUP: flight 49120 has same players as tournament #93 (Vallarta Open 2022)",
+        "CROSS_DUP: flight 49121 has same players as tournament #93 (Vallarta Open 2022)",
+        "CROSS_DUP: flight 49122 has same players as tournament #88 (Irish Open 2022)",
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "PARTIAL: 8/16 cats"
+      ]
+    },
+    {
+      "idx": 95,
+      "name": "Antalya Turkish Open 2023",
+      "year": 2023,
+      "tournament_id": "509004",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13536",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 96,
+      "name": "Australian Challenge at Moonah Links 2023",
+      "year": 2023,
+      "tournament_id": "510706",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15097",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 97,
+      "name": "Australian Masters 2023",
+      "year": 2023,
+      "tournament_id": "508929",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13465",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 98,
+      "name": "Australian Open 2023",
+      "year": 2023,
+      "tournament_id": "510417",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14825",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 99,
+      "name": "Bajio Cup 2023",
+      "year": 2023,
+      "tournament_id": "510418",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14826",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 100,
+      "name": "British Kids Championship 2023",
+      "year": 2023,
+      "tournament_id": "509348",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13826",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 101,
+      "name": "Canadian Invitational 2023",
+      "year": 2023,
+      "tournament_id": "508994",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13527",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 102,
+      "name": "Caribbean Championship at Punta Cana 2023",
+      "year": 2023,
+      "tournament_id": "510111",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14538",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 103,
+      "name": "Colombian Championship 2023",
+      "year": 2023,
+      "tournament_id": "509926",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14364",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 104,
+      "name": "European Championship 2023",
+      "year": 2023,
+      "tournament_id": "509040",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13568",
+      "nFlights": 5,
+      "nExpected": 16,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/16 cats"
+      ]
+    },
+    {
+      "idx": 105,
+      "name": "European Van Horn Cup 2023",
+      "year": 2023,
+      "tournament_id": "509893",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14003",
+      "nFlights": 5,
+      "nExpected": 6,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/6 cats"
+      ]
+    },
+    {
+      "idx": 106,
+      "name": "German Championship 2023",
+      "year": 2023,
+      "tournament_id": "510403",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14810",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 107,
+      "name": "Indian Championship 2023",
+      "year": 2023,
+      "tournament_id": "510789",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15176",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 108,
+      "name": "Irish Open 2023",
+      "year": 2023,
+      "tournament_id": "508934",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13470",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 109,
+      "name": "Mexico Invitational 2023",
+      "year": 2023,
+      "tournament_id": "511218",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15591",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 110,
+      "name": "NCBA Kenya Invitational 2023",
+      "year": 2023,
+      "tournament_id": "510445",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14856",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 111,
+      "name": "NCBA Uganda Open 2023",
+      "year": 2023,
+      "tournament_id": "509010",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13541",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 112,
+      "name": "New Zealand Championship 2023",
+      "year": 2023,
+      "tournament_id": "510486",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14891",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 113,
+      "name": "Panama Invitational 2023",
+      "year": 2023,
+      "tournament_id": "508932",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13468",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 114,
+      "name": "Rome Classic 2023",
+      "year": 2023,
+      "tournament_id": "510249",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14670",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 115,
+      "name": "South American Championship 2023",
+      "year": 2023,
+      "tournament_id": "510070",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14502",
+      "nFlights": 5,
+      "nExpected": 15,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/15 cats"
+      ]
+    },
+    {
+      "idx": 116,
+      "name": "The Big 5 South African Open 2023",
+      "year": 2023,
+      "tournament_id": "508928",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13464",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 117,
+      "name": "United Arab Emirates Championship 2023",
+      "year": 2023,
+      "tournament_id": "510625",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15015",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 118,
+      "name": "Vallarta Open 2023",
+      "year": 2023,
+      "tournament_id": "509787",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14226",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 119,
+      "name": "Venice Open 2023",
+      "year": 2023,
+      "tournament_id": "509865",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14302",
+      "nFlights": 5,
+      "nExpected": 16,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/16 cats"
+      ]
+    },
+    {
+      "idx": 120,
+      "name": "Antalya Turkish Open 2024",
+      "year": 2024,
+      "tournament_id": "511301",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15666",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 121,
+      "name": "Australian Challenge 2024",
+      "year": 2024,
+      "tournament_id": "513046",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17351",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 122,
+      "name": "Australian Masters 2024",
+      "year": 2024,
+      "tournament_id": "511363",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15719",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 123,
+      "name": "Australian Open 2024",
+      "year": 2024,
+      "tournament_id": "512921",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17227",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 124,
+      "name": "British Kids Championship 2024",
+      "year": 2024,
+      "tournament_id": "512510",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16794",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 125,
+      "name": "Canadian Invitational 2024",
+      "year": 2024,
+      "tournament_id": "511734",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16058",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 126,
+      "name": "Caribbean Championship at Punta Cana 2024",
+      "year": 2024,
+      "tournament_id": "513389",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17691",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 127,
+      "name": "Colombian Championship 2024",
+      "year": 2024,
+      "tournament_id": "512137",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16453",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 128,
+      "name": "European Championship 2024",
+      "year": 2024,
+      "tournament_id": "511347",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15704",
+      "nFlights": 5,
+      "nExpected": 17,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/17 cats"
+      ]
+    },
+    {
+      "idx": 129,
+      "name": "European Van Horn Cup 2024",
+      "year": 2024,
+      "tournament_id": "511485",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15830",
+      "nFlights": 5,
+      "nExpected": 8,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/8 cats"
+      ]
+    },
+    {
+      "idx": 130,
+      "name": "German Masters 2024",
+      "year": 2024,
+      "tournament_id": "512466",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16749",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 131,
+      "name": "Indian Championship 2024",
+      "year": 2024,
+      "tournament_id": "513593",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17894",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 132,
+      "name": "Irish Open 2024",
+      "year": 2024,
+      "tournament_id": "511694",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16020",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 133,
+      "name": "Malaysian Championship 2024",
+      "year": 2024,
+      "tournament_id": "511692",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16018",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 134,
+      "name": "Mexico Invitational 2024",
+      "year": 2024,
+      "tournament_id": "513640",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17942",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 135,
+      "name": "NCBA Uganda Open 2024",
+      "year": 2024,
+      "tournament_id": "511644",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15981",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 136,
+      "name": "New Zealand Championship 2024",
+      "year": 2024,
+      "tournament_id": "513045",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17349",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 137,
+      "name": "Panama Invitational 2024",
+      "year": 2024,
+      "tournament_id": "511446",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15796",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 138,
+      "name": "Rome Classic 2024",
+      "year": 2024,
+      "tournament_id": "512511",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16795",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 139,
+      "name": "South American Championship 2024",
+      "year": 2024,
+      "tournament_id": "512747",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17024",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 140,
+      "name": "Thailand Championship 2024",
+      "year": 2024,
+      "tournament_id": "511693",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16019",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 141,
+      "name": "The Big 5 South African Open 2024",
+      "year": 2024,
+      "tournament_id": "511325",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15682",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 142,
+      "name": "United Arab Emirates Championship 2024",
+      "year": 2024,
+      "tournament_id": "513549",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17854",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 143,
+      "name": "Vallarta Open 2024",
+      "year": 2024,
+      "tournament_id": "512136",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16452",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 144,
+      "name": "Venice Open 2024",
+      "year": 2024,
+      "tournament_id": "512117",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16428",
+      "nFlights": 5,
+      "nExpected": 16,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/16 cats"
+      ]
+    },
+    {
+      "idx": 145,
+      "name": "Antalya Turkish Open 2025",
+      "year": 2025,
+      "tournament_id": "513755",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18045",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 146,
+      "name": "Australian Challenge 2025",
+      "year": 2025,
+      "tournament_id": "515728",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19886",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 147,
+      "name": "Australian Masters 2025",
+      "year": 2025,
+      "tournament_id": "514178",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18485",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 148,
+      "name": "Australian Open 2025",
+      "year": 2025,
+      "tournament_id": "515559",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19735",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 149,
+      "name": "Canadian Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514715",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18976",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 150,
+      "name": "Caribbean Championship at Punta Cana 2025",
+      "year": 2025,
+      "tournament_id": "515738",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19897",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 151,
+      "name": "China Championship 2025",
+      "year": 2025,
+      "tournament_id": "514983",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19224",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 152,
+      "name": "Colombian Championship 2025",
+      "year": 2025,
+      "tournament_id": "515025",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19261",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 153,
+      "name": "European Championship 2025",
+      "year": 2025,
+      "tournament_id": "514056",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18242",
+      "nFlights": 5,
+      "nExpected": 16,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/16 cats"
+      ]
+    },
+    {
+      "idx": 154,
+      "name": "European Van Horn Cup 2025",
+      "year": 2025,
+      "tournament_id": "514085",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18368",
+      "nFlights": 5,
+      "nExpected": 7,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/7 cats"
+      ]
+    },
+    {
+      "idx": 155,
+      "name": "German Masters 2025",
+      "year": 2025,
+      "tournament_id": "515807",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19974",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 156,
+      "name": "Indian Championship 2025",
+      "year": 2025,
+      "tournament_id": "516579",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20676",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 157,
+      "name": "Indonesia Championship 2025",
+      "year": 2025,
+      "tournament_id": "516580",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20677",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 158,
+      "name": "Irish Open 2025",
+      "year": 2025,
+      "tournament_id": "514717",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18978",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 159,
+      "name": "Malaysian Championship 2025",
+      "year": 2025,
+      "tournament_id": "515065",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19295",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 160,
+      "name": "Marco Simone Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514135",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18438",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 161,
+      "name": "Mexico Invitational 2025",
+      "year": 2025,
+      "tournament_id": "516538",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20633",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 162,
+      "name": "NCBA Kenya Invitational 2025",
+      "year": 2025,
+      "tournament_id": "513893",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18177",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 163,
+      "name": "NCBA Kenya Invitational 2025",
+      "year": 2025,
+      "tournament_id": "516883",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20972",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 164,
+      "name": "New Zealand Championship 2025",
+      "year": 2025,
+      "tournament_id": "516552",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20651",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 165,
+      "name": "Panama Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514168",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18477",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 166,
+      "name": "Paris Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514782",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18975",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 167,
+      "name": "Rome Classic 2025",
+      "year": 2025,
+      "tournament_id": "516026",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20175",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 168,
+      "name": "South American Championship 2025",
+      "year": 2025,
+      "tournament_id": "516297",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20428",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 169,
+      "name": "Spanish Open 2025",
+      "year": 2025,
+      "tournament_id": "516299",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20429",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 170,
+      "name": "Thailand Championship 2025",
+      "year": 2025,
+      "tournament_id": "514475",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18676",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    },
+    {
+      "idx": 171,
+      "name": "The Big 5 South African Open 2025",
+      "year": 2025,
+      "tournament_id": "514059",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18341",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 172,
+      "name": "United Arab Emirates Championship 2025",
+      "year": 2025,
+      "tournament_id": "516556",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20653",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 173,
+      "name": "Vallarta Open 2025",
+      "year": 2025,
+      "tournament_id": "514659",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18675",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 174,
+      "name": "Venice Open 2025",
+      "year": 2025,
+      "tournament_id": "515206",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19418",
+      "nFlights": 5,
+      "nExpected": 16,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/16 cats"
+      ]
+    },
+    {
+      "idx": 175,
+      "name": "Antalya Turkish Open 2026",
+      "year": 2026,
+      "tournament_id": "516685",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20780",
+      "nFlights": 5,
+      "nExpected": 14,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/14 cats"
+      ]
+    },
+    {
+      "idx": 176,
+      "name": "China Championship 2026",
+      "year": 2026,
+      "tournament_id": "516952",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=21036",
+      "nFlights": 5,
+      "nExpected": 13,
+      "nPlayers": 15,
+      "issues": [
+        "CROSS_DUP: flight 49123 has same players as tournament #91 (South American Championship 2022)",
+        "CROSS_DUP: flight 49124 has same players as tournament #90 (Rome Classic 2022)",
+        "CROSS_DUP: flight 49125 has same players as tournament #92 (The Big 5 South African Open 2022)",
+        "CROSS_DUP: flight 49126 has same players as tournament #94 (Venice Open 2022)",
+        "CROSS_DUP: flight 49127 has same players as tournament #94 (Venice Open 2022)",
+        "PARTIAL: 5/13 cats"
+      ]
+    }
+  ],
+  "rescrapeList": [
+    {
+      "idx": 12,
+      "name": "Van Horn Cup 2015",
+      "year": 2015,
+      "tournament_id": "495155",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=1199"
+    },
+    {
+      "idx": 25,
+      "name": "Guadalajara Open 2017",
+      "year": 2017,
+      "tournament_id": "497863",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=3785"
+    },
+    {
+      "idx": 26,
+      "name": "Latin American Championship 2017",
+      "year": 2017,
+      "tournament_id": "497808",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=3733"
+    },
+    {
+      "idx": 29,
+      "name": "Australian Open 2018",
+      "year": 2018,
+      "tournament_id": "498757",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=4591"
+    },
+    {
+      "idx": 30,
+      "name": "Baja Open 2018",
+      "year": 2018,
+      "tournament_id": "500047",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5662"
+    },
+    {
+      "idx": 31,
+      "name": "British Kids Championship 2018",
+      "year": 2018,
+      "tournament_id": "500019",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5643"
+    },
+    {
+      "idx": 32,
+      "name": "Cancun Challenge 2018",
+      "year": 2018,
+      "tournament_id": "500495",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6066"
+    },
+    {
+      "idx": 33,
+      "name": "Caribbean Championship at Punta Cana 2018",
+      "year": 2018,
+      "tournament_id": "499823",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5468"
+    },
+    {
+      "idx": 34,
+      "name": "European Championship 2018",
+      "year": 2018,
+      "tournament_id": "499400",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5095"
+    },
+    {
+      "idx": 35,
+      "name": "European Van Horn Cup 2018",
+      "year": 2018,
+      "tournament_id": "499412",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5104"
+    },
+    {
+      "idx": 36,
+      "name": "Latin American Championship 2018",
+      "year": 2018,
+      "tournament_id": "499824",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5469"
+    },
+    {
+      "idx": 37,
+      "name": "Mexico City Championship 2018",
+      "year": 2018,
+      "tournament_id": "501068",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6600"
+    },
+    {
+      "idx": 38,
+      "name": "Venice Open 2018",
+      "year": 2018,
+      "tournament_id": "500020",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5663"
+    },
+    {
+      "idx": 39,
+      "name": "Venice Open 2018",
+      "year": 2018,
+      "tournament_id": "500053",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=5663"
+    },
+    {
+      "idx": 40,
+      "name": "2018 Mexico City Championship",
+      "year": 2019,
+      "tournament_id": "502941",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8219"
+    },
+    {
+      "idx": 41,
+      "name": "Australian Open 2019",
+      "year": 2019,
+      "tournament_id": "501206",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6705"
+    },
+    {
+      "idx": 42,
+      "name": "Bajio Cup 2019",
+      "year": 2019,
+      "tournament_id": "501596",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7056"
+    },
+    {
+      "idx": 43,
+      "name": "British Kids Championship",
+      "year": 2019,
+      "tournament_id": "501905",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7314"
+    },
+    {
+      "idx": 44,
+      "name": "Caribbean Championship at Punta Cana 2019",
+      "year": 2019,
+      "tournament_id": "502301",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7641"
+    },
+    {
+      "idx": 45,
+      "name": "European Championship 2019",
+      "year": 2019,
+      "tournament_id": "501215",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6713"
+    },
+    {
+      "idx": 46,
+      "name": "European Van Horn Cup 2019",
+      "year": 2019,
+      "tournament_id": "501234",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=6732"
+    },
+    {
+      "idx": 47,
+      "name": "Mayan Challenge 2019",
+      "year": 2019,
+      "tournament_id": "501879",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7291"
+    },
+    {
+      "idx": 48,
+      "name": "Mexico City Championship",
+      "year": 2019,
+      "tournament_id": "502942",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8219"
+    },
+    {
+      "idx": 49,
+      "name": "New Zealand Open 2019",
+      "year": 2019,
+      "tournament_id": "502529",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7819"
+    },
+    {
+      "idx": 50,
+      "name": "South American Championship 2019",
+      "year": 2019,
+      "tournament_id": "501877",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7284"
+    },
+    {
+      "idx": 51,
+      "name": "Venice Open 2019",
+      "year": 2019,
+      "tournament_id": "501906",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=7315"
+    },
+    {
+      "idx": 52,
+      "name": "Australian Open 2020",
+      "year": 2020,
+      "tournament_id": "502989",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8243"
+    },
+    {
+      "idx": 53,
+      "name": "Brazil Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503074",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8389"
+    },
+    {
+      "idx": 54,
+      "name": "Canadian Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503699",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8878"
+    },
+    {
+      "idx": 55,
+      "name": "Caribbean Championship at Punta Cana 2020",
+      "year": 2020,
+      "tournament_id": "503570",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8769"
+    },
+    {
+      "idx": 56,
+      "name": "Indian Championship 2020",
+      "year": 2020,
+      "tournament_id": "503061",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8295"
+    },
+    {
+      "idx": 57,
+      "name": "Panama Invitational 2020",
+      "year": 2020,
+      "tournament_id": "503009",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8271"
+    },
+    {
+      "idx": 58,
+      "name": "South American Championship 2020",
+      "year": 2020,
+      "tournament_id": "504089",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9125"
+    },
+    {
+      "idx": 59,
+      "name": "The Big 5 South African Open 2020",
+      "year": 2020,
+      "tournament_id": "502963",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8229"
+    },
+    {
+      "idx": 60,
+      "name": "Venice Open 2020",
+      "year": 2020,
+      "tournament_id": "503976",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9086"
+    },
+    {
+      "idx": 61,
+      "name": "Australian Challenge at Moonah Links 2021",
+      "year": 2021,
+      "tournament_id": "506285",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11115"
+    },
+    {
+      "idx": 62,
+      "name": "Australian Masters 2021",
+      "year": 2021,
+      "tournament_id": "504738",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9730"
+    },
+    {
+      "idx": 63,
+      "name": "Bajio Cup 2021",
+      "year": 2021,
+      "tournament_id": "504080",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=9142"
+    },
+    {
+      "idx": 64,
+      "name": "Brazil Invitational 2021",
+      "year": 2021,
+      "tournament_id": "505330",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=10163"
+    },
+    {
+      "idx": 65,
+      "name": "British Kids Championship 2021",
+      "year": 2021,
+      "tournament_id": "504783",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9776"
+    },
+    {
+      "idx": 66,
+      "name": "Canadian Invitational 2021",
+      "year": 2021,
+      "tournament_id": "504888",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9869"
+    },
+    {
+      "idx": 67,
+      "name": "Caribbean Championship at Punta Cana 2021",
+      "year": 2021,
+      "tournament_id": "505826",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=10692"
+    },
+    {
+      "idx": 68,
+      "name": "European Van Horn Cup 2020",
+      "year": 2021,
+      "tournament_id": "503170",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8316"
+    },
+    {
+      "idx": 69,
+      "name": "Irish Open 2021",
+      "year": 2021,
+      "tournament_id": "503440",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=8660"
+    },
+    {
+      "idx": 70,
+      "name": "Mexico City Championship 2021",
+      "year": 2021,
+      "tournament_id": "506553",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11366"
+    },
+    {
+      "idx": 71,
+      "name": "NCBA Junior Series Invitational",
+      "year": 2021,
+      "tournament_id": "506705",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11457"
+    },
+    {
+      "idx": 72,
+      "name": "Rome Classic 2021",
+      "year": 2021,
+      "tournament_id": "504394",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9386"
+    },
+    {
+      "idx": 73,
+      "name": "South American Championship 2021",
+      "year": 2021,
+      "tournament_id": "506258",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11095"
+    },
+    {
+      "idx": 74,
+      "name": "The Big 5 South African Open 2021",
+      "year": 2021,
+      "tournament_id": "504763",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=9653"
+    },
+    {
+      "idx": 75,
+      "name": "Vallarta Open 2021",
+      "year": 2021,
+      "tournament_id": "505852",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=10693"
+    },
+    {
+      "idx": 76,
+      "name": "Venice Open 2021",
+      "year": 2021,
+      "tournament_id": "505345",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=10240"
+    },
+    {
+      "idx": 77,
+      "name": "Australian Challenge at Moonah Links 2022",
+      "year": 2022,
+      "tournament_id": "508475",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13048"
+    },
+    {
+      "idx": 78,
+      "name": "Australian Masters 2022",
+      "year": 2022,
+      "tournament_id": "506906",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11566"
+    },
+    {
+      "idx": 79,
+      "name": "Australian Open 2022",
+      "year": 2022,
+      "tournament_id": "507900",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11756"
+    },
+    {
+      "idx": 80,
+      "name": "Bajio Cup 2022",
+      "year": 2022,
+      "tournament_id": "508087",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12314"
+    },
+    {
+      "idx": 81,
+      "name": "Brazil Invitational 2022",
+      "year": 2022,
+      "tournament_id": "508967",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13498"
+    },
+    {
+      "idx": 82,
+      "name": "British Kids Championship 2022",
+      "year": 2022,
+      "tournament_id": "507539",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12191"
+    },
+    {
+      "idx": 83,
+      "name": "Canadian Invitational 2022",
+      "year": 2022,
+      "tournament_id": "506905",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11416"
+    },
+    {
+      "idx": 84,
+      "name": "Caribbean Championship at Punta Cana 2022",
+      "year": 2022,
+      "tournament_id": "508075",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12470"
+    },
+    {
+      "idx": 85,
+      "name": "European Championship 2022",
+      "year": 2022,
+      "tournament_id": "503169",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=8300"
+    },
+    {
+      "idx": 86,
+      "name": "European Van Horn Cup 2022",
+      "year": 2022,
+      "tournament_id": "507098",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t=11642"
+    },
+    {
+      "idx": 87,
+      "name": "Indian Championship 2022",
+      "year": 2022,
+      "tournament_id": "508420",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12985"
+    },
+    {
+      "idx": 88,
+      "name": "Irish Open 2022",
+      "year": 2022,
+      "tournament_id": "506600",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11307"
+    },
+    {
+      "idx": 89,
+      "name": "Mexico City Championship 2022",
+      "year": 2022,
+      "tournament_id": "509005",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13537"
+    },
+    {
+      "idx": 90,
+      "name": "Rome Classic 2022",
+      "year": 2022,
+      "tournament_id": "508006",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12578"
+    },
+    {
+      "idx": 91,
+      "name": "South American Championship 2022",
+      "year": 2022,
+      "tournament_id": "507826",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12445"
+    },
+    {
+      "idx": 92,
+      "name": "The Big 5 South African Open 2022",
+      "year": 2022,
+      "tournament_id": "506875",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11547"
+    },
+    {
+      "idx": 93,
+      "name": "Vallarta Open 2022",
+      "year": 2022,
+      "tournament_id": "507456",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=11977"
+    },
+    {
+      "idx": 94,
+      "name": "Venice Open 2022",
+      "year": 2022,
+      "tournament_id": "507579",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=12229"
+    },
+    {
+      "idx": 95,
+      "name": "Antalya Turkish Open 2023",
+      "year": 2023,
+      "tournament_id": "509004",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13536"
+    },
+    {
+      "idx": 96,
+      "name": "Australian Challenge at Moonah Links 2023",
+      "year": 2023,
+      "tournament_id": "510706",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15097"
+    },
+    {
+      "idx": 97,
+      "name": "Australian Masters 2023",
+      "year": 2023,
+      "tournament_id": "508929",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13465"
+    },
+    {
+      "idx": 98,
+      "name": "Australian Open 2023",
+      "year": 2023,
+      "tournament_id": "510417",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14825"
+    },
+    {
+      "idx": 99,
+      "name": "Bajio Cup 2023",
+      "year": 2023,
+      "tournament_id": "510418",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14826"
+    },
+    {
+      "idx": 100,
+      "name": "British Kids Championship 2023",
+      "year": 2023,
+      "tournament_id": "509348",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13826"
+    },
+    {
+      "idx": 101,
+      "name": "Canadian Invitational 2023",
+      "year": 2023,
+      "tournament_id": "508994",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13527"
+    },
+    {
+      "idx": 102,
+      "name": "Caribbean Championship at Punta Cana 2023",
+      "year": 2023,
+      "tournament_id": "510111",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14538"
+    },
+    {
+      "idx": 103,
+      "name": "Colombian Championship 2023",
+      "year": 2023,
+      "tournament_id": "509926",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14364"
+    },
+    {
+      "idx": 104,
+      "name": "European Championship 2023",
+      "year": 2023,
+      "tournament_id": "509040",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13568"
+    },
+    {
+      "idx": 105,
+      "name": "European Van Horn Cup 2023",
+      "year": 2023,
+      "tournament_id": "509893",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14003"
+    },
+    {
+      "idx": 106,
+      "name": "German Championship 2023",
+      "year": 2023,
+      "tournament_id": "510403",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14810"
+    },
+    {
+      "idx": 107,
+      "name": "Indian Championship 2023",
+      "year": 2023,
+      "tournament_id": "510789",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15176"
+    },
+    {
+      "idx": 108,
+      "name": "Irish Open 2023",
+      "year": 2023,
+      "tournament_id": "508934",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13470"
+    },
+    {
+      "idx": 109,
+      "name": "Mexico Invitational 2023",
+      "year": 2023,
+      "tournament_id": "511218",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15591"
+    },
+    {
+      "idx": 110,
+      "name": "NCBA Kenya Invitational 2023",
+      "year": 2023,
+      "tournament_id": "510445",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14856"
+    },
+    {
+      "idx": 111,
+      "name": "NCBA Uganda Open 2023",
+      "year": 2023,
+      "tournament_id": "509010",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13541"
+    },
+    {
+      "idx": 112,
+      "name": "New Zealand Championship 2023",
+      "year": 2023,
+      "tournament_id": "510486",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14891"
+    },
+    {
+      "idx": 113,
+      "name": "Panama Invitational 2023",
+      "year": 2023,
+      "tournament_id": "508932",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13468"
+    },
+    {
+      "idx": 114,
+      "name": "Rome Classic 2023",
+      "year": 2023,
+      "tournament_id": "510249",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14670"
+    },
+    {
+      "idx": 115,
+      "name": "South American Championship 2023",
+      "year": 2023,
+      "tournament_id": "510070",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14502"
+    },
+    {
+      "idx": 116,
+      "name": "The Big 5 South African Open 2023",
+      "year": 2023,
+      "tournament_id": "508928",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=13464"
+    },
+    {
+      "idx": 117,
+      "name": "United Arab Emirates Championship 2023",
+      "year": 2023,
+      "tournament_id": "510625",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15015"
+    },
+    {
+      "idx": 118,
+      "name": "Vallarta Open 2023",
+      "year": 2023,
+      "tournament_id": "509787",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14226"
+    },
+    {
+      "idx": 119,
+      "name": "Venice Open 2023",
+      "year": 2023,
+      "tournament_id": "509865",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=14302"
+    },
+    {
+      "idx": 120,
+      "name": "Antalya Turkish Open 2024",
+      "year": 2024,
+      "tournament_id": "511301",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15666"
+    },
+    {
+      "idx": 121,
+      "name": "Australian Challenge 2024",
+      "year": 2024,
+      "tournament_id": "513046",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17351"
+    },
+    {
+      "idx": 122,
+      "name": "Australian Masters 2024",
+      "year": 2024,
+      "tournament_id": "511363",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15719"
+    },
+    {
+      "idx": 123,
+      "name": "Australian Open 2024",
+      "year": 2024,
+      "tournament_id": "512921",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17227"
+    },
+    {
+      "idx": 124,
+      "name": "British Kids Championship 2024",
+      "year": 2024,
+      "tournament_id": "512510",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16794"
+    },
+    {
+      "idx": 125,
+      "name": "Canadian Invitational 2024",
+      "year": 2024,
+      "tournament_id": "511734",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16058"
+    },
+    {
+      "idx": 126,
+      "name": "Caribbean Championship at Punta Cana 2024",
+      "year": 2024,
+      "tournament_id": "513389",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17691"
+    },
+    {
+      "idx": 127,
+      "name": "Colombian Championship 2024",
+      "year": 2024,
+      "tournament_id": "512137",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16453"
+    },
+    {
+      "idx": 128,
+      "name": "European Championship 2024",
+      "year": 2024,
+      "tournament_id": "511347",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15704"
+    },
+    {
+      "idx": 129,
+      "name": "European Van Horn Cup 2024",
+      "year": 2024,
+      "tournament_id": "511485",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15830"
+    },
+    {
+      "idx": 130,
+      "name": "German Masters 2024",
+      "year": 2024,
+      "tournament_id": "512466",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16749"
+    },
+    {
+      "idx": 131,
+      "name": "Indian Championship 2024",
+      "year": 2024,
+      "tournament_id": "513593",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17894"
+    },
+    {
+      "idx": 132,
+      "name": "Irish Open 2024",
+      "year": 2024,
+      "tournament_id": "511694",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16020"
+    },
+    {
+      "idx": 133,
+      "name": "Malaysian Championship 2024",
+      "year": 2024,
+      "tournament_id": "511692",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16018"
+    },
+    {
+      "idx": 134,
+      "name": "Mexico Invitational 2024",
+      "year": 2024,
+      "tournament_id": "513640",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17942"
+    },
+    {
+      "idx": 135,
+      "name": "NCBA Uganda Open 2024",
+      "year": 2024,
+      "tournament_id": "511644",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15981"
+    },
+    {
+      "idx": 136,
+      "name": "New Zealand Championship 2024",
+      "year": 2024,
+      "tournament_id": "513045",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17349"
+    },
+    {
+      "idx": 137,
+      "name": "Panama Invitational 2024",
+      "year": 2024,
+      "tournament_id": "511446",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15796"
+    },
+    {
+      "idx": 138,
+      "name": "Rome Classic 2024",
+      "year": 2024,
+      "tournament_id": "512511",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16795"
+    },
+    {
+      "idx": 139,
+      "name": "South American Championship 2024",
+      "year": 2024,
+      "tournament_id": "512747",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17024"
+    },
+    {
+      "idx": 140,
+      "name": "Thailand Championship 2024",
+      "year": 2024,
+      "tournament_id": "511693",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16019"
+    },
+    {
+      "idx": 141,
+      "name": "The Big 5 South African Open 2024",
+      "year": 2024,
+      "tournament_id": "511325",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=15682"
+    },
+    {
+      "idx": 142,
+      "name": "United Arab Emirates Championship 2024",
+      "year": 2024,
+      "tournament_id": "513549",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=17854"
+    },
+    {
+      "idx": 143,
+      "name": "Vallarta Open 2024",
+      "year": 2024,
+      "tournament_id": "512136",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16452"
+    },
+    {
+      "idx": 144,
+      "name": "Venice Open 2024",
+      "year": 2024,
+      "tournament_id": "512117",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=16428"
+    },
+    {
+      "idx": 145,
+      "name": "Antalya Turkish Open 2025",
+      "year": 2025,
+      "tournament_id": "513755",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18045"
+    },
+    {
+      "idx": 146,
+      "name": "Australian Challenge 2025",
+      "year": 2025,
+      "tournament_id": "515728",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19886"
+    },
+    {
+      "idx": 147,
+      "name": "Australian Masters 2025",
+      "year": 2025,
+      "tournament_id": "514178",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18485"
+    },
+    {
+      "idx": 148,
+      "name": "Australian Open 2025",
+      "year": 2025,
+      "tournament_id": "515559",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19735"
+    },
+    {
+      "idx": 149,
+      "name": "Canadian Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514715",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18976"
+    },
+    {
+      "idx": 150,
+      "name": "Caribbean Championship at Punta Cana 2025",
+      "year": 2025,
+      "tournament_id": "515738",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19897"
+    },
+    {
+      "idx": 151,
+      "name": "China Championship 2025",
+      "year": 2025,
+      "tournament_id": "514983",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19224"
+    },
+    {
+      "idx": 152,
+      "name": "Colombian Championship 2025",
+      "year": 2025,
+      "tournament_id": "515025",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19261"
+    },
+    {
+      "idx": 153,
+      "name": "European Championship 2025",
+      "year": 2025,
+      "tournament_id": "514056",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18242"
+    },
+    {
+      "idx": 154,
+      "name": "European Van Horn Cup 2025",
+      "year": 2025,
+      "tournament_id": "514085",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18368"
+    },
+    {
+      "idx": 155,
+      "name": "German Masters 2025",
+      "year": 2025,
+      "tournament_id": "515807",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19974"
+    },
+    {
+      "idx": 156,
+      "name": "Indian Championship 2025",
+      "year": 2025,
+      "tournament_id": "516579",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20676"
+    },
+    {
+      "idx": 157,
+      "name": "Indonesia Championship 2025",
+      "year": 2025,
+      "tournament_id": "516580",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20677"
+    },
+    {
+      "idx": 158,
+      "name": "Irish Open 2025",
+      "year": 2025,
+      "tournament_id": "514717",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18978"
+    },
+    {
+      "idx": 159,
+      "name": "Malaysian Championship 2025",
+      "year": 2025,
+      "tournament_id": "515065",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19295"
+    },
+    {
+      "idx": 160,
+      "name": "Marco Simone Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514135",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18438"
+    },
+    {
+      "idx": 161,
+      "name": "Mexico Invitational 2025",
+      "year": 2025,
+      "tournament_id": "516538",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20633"
+    },
+    {
+      "idx": 162,
+      "name": "NCBA Kenya Invitational 2025",
+      "year": 2025,
+      "tournament_id": "513893",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18177"
+    },
+    {
+      "idx": 163,
+      "name": "NCBA Kenya Invitational 2025",
+      "year": 2025,
+      "tournament_id": "516883",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20972"
+    },
+    {
+      "idx": 164,
+      "name": "New Zealand Championship 2025",
+      "year": 2025,
+      "tournament_id": "516552",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20651"
+    },
+    {
+      "idx": 165,
+      "name": "Panama Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514168",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18477"
+    },
+    {
+      "idx": 166,
+      "name": "Paris Invitational 2025",
+      "year": 2025,
+      "tournament_id": "514782",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18975"
+    },
+    {
+      "idx": 167,
+      "name": "Rome Classic 2025",
+      "year": 2025,
+      "tournament_id": "516026",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20175"
+    },
+    {
+      "idx": 168,
+      "name": "South American Championship 2025",
+      "year": 2025,
+      "tournament_id": "516297",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20428"
+    },
+    {
+      "idx": 169,
+      "name": "Spanish Open 2025",
+      "year": 2025,
+      "tournament_id": "516299",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20429"
+    },
+    {
+      "idx": 170,
+      "name": "Thailand Championship 2025",
+      "year": 2025,
+      "tournament_id": "514475",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18676"
+    },
+    {
+      "idx": 171,
+      "name": "The Big 5 South African Open 2025",
+      "year": 2025,
+      "tournament_id": "514059",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18341"
+    },
+    {
+      "idx": 172,
+      "name": "United Arab Emirates Championship 2025",
+      "year": 2025,
+      "tournament_id": "516556",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20653"
+    },
+    {
+      "idx": 173,
+      "name": "Vallarta Open 2025",
+      "year": 2025,
+      "tournament_id": "514659",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=18675"
+    },
+    {
+      "idx": 174,
+      "name": "Venice Open 2025",
+      "year": 2025,
+      "tournament_id": "515206",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=19418"
+    },
+    {
+      "idx": 175,
+      "name": "Antalya Turkish Open 2026",
+      "year": 2026,
+      "tournament_id": "516685",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=20780"
+    },
+    {
+      "idx": 176,
+      "name": "China Championship 2026",
+      "year": 2026,
+      "tournament_id": "516952",
+      "iframe_url": "https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=2739&t=21036"
+    }
+  ]
+}
