@@ -37,7 +37,7 @@ function extractGender(cat){if(!cat)return"?";if(/Girls/i.test(cat))return"F";if
 function estimateBirth(apps){var e=[];for(var i=0;i<apps.length;i++){var a=apps[i];var r=extractAgeRange(a.category);if(r&&a.year){e.push(a.year-r.max);e.push(a.year-r.min);}}if(!e.length)return null;return Math.round(e.reduce(function(a,b){return a+b;},0)/e.length);}
 function canMerge(person,app){if(person.gender!=="?"&&app.gender!=="?"&&person.gender!==app.gender)return false;for(var i=0;i<person.appearances.length;i++){if(person.appearances[i].tournKey===app.tournKey&&person.appearances[i].category!==app.category)return false;}var appRange=extractAgeRange(app.category);if(appRange){for(var j=0;j<person.appearances.length;j++){var prev=person.appearances[j];var prevRange=extractAgeRange(prev.category);if(!prevRange)continue;var yd=app.year-prev.year;if(yd>0){if(appRange.max<prevRange.min-1)return false;if(appRange.min>prevRange.max+yd+1)return false;}else if(yd<0){if(prevRange.max<appRange.min-1)return false;if(prevRange.min>appRange.max+Math.abs(yd)+1)return false;}else{if(appRange.min>prevRange.max+1||appRange.max<prevRange.min-1)return false;}var pBmin=prev.year-prevRange.max,pBmax=prev.year-prevRange.min;var aBmin=app.year-appRange.max,aBmax=app.year-appRange.min;if(aBmin>pBmax+1||aBmax<pBmin-1)return false;}}return true;}
 function calcPar(hpr,n){return hpr*((hpr&&hpr<=9)?3:4)*n;}
-function dateSort(d){if(!d)return"";if(/^\d{4}-/.test(d))return d;var m=d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);if(m)return m[3]+"-"+("0"+m[1]).slice(-2)+"-"+("0"+m[2]).slice(-2);return d;}
+function dateSort(d){if(!d)return"";if(/^\d{4}-/.test(d))return d;var m=d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);if(m)return m[3]+"-"+("0"+m[1]).slice(-2)+"-"+("0"+m[2]).slice(-2);var months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};var m2=d.match(/^([A-Za-z]{3})\w*\s+(\d{1,2})/);if(m2){var mo=months[m2[1].toLowerCase()];if(mo)return"9999-"+mo+"-"+("0"+m2[2]).slice(-2);}return d;}
 
 function adaptFormat(raw){
   if(raw&&raw.tournaments&&raw.tournaments.length>0&&raw.tournaments[0].flights&&!Array.isArray(raw.tournaments[0].flights))return raw;
@@ -76,6 +76,7 @@ function processData(raw){
     var saT=t.signupanytime_t||t.tournament_id||null;
     var saLink=saT?("https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t="+saT):null;
     var rawDate=tm.start_date||meta.start_date||t.date||"";
+    if(!rawDate){var dm=t.name.match(/\(([A-Za-z]{3,9}\s+\d{1,2})\)/);if(dm)rawDate=dm[1];}
     var tInfo={key:tKey,name:t.name,year:t.year,date:rawDate,dateISO:dateSort(rawDate),courses:coursesStr,coursesShort:shortCourse(coursesStr),rounds:tm.rounds||meta.rounds||null,numPlayers:parseInt(tm.players_9||0)+parseInt(tm.players_18||0)||0,saLink:saLink,saT:saT,category:t.category||null,categories:[]};
     if(t.category)allCats[t.category]=(allCats[t.category]||0)+1;
     var fKeys=Object.keys(flights);fKeys.sort(function(a,b){var na=parseInt(a),nb=parseInt(b);if(!isNaN(na)&&!isNaN(nb))return na-nb;return a.localeCompare(b);});
@@ -732,10 +733,10 @@ function App(){
       if(loaded.length>0){console.log("Auto-loaded "+loaded.length+" files: "+names.join(", "));mergeAndProcess(loaded,names);}
       else{setLoading(false);
         var isFile=window.location.protocol==="file:";
-        setStatus(isFile?"ATEN\u00c7\u00c3O: Est\u00e1s a abrir via file://. O auto-load n\u00e3o funciona assim. Abre um terminal na pasta dos ficheiros e corre: python -m http.server 8000 \u2014 depois abre http://localhost:8000/USKidsGolf.html. Ou usa o bot\u00e3o abaixo.":"Nenhum ficheiro encontrado. Coloca os JSON na mesma pasta do HTML e usa o bot\u00e3o abaixo.");}
+        setStatus(isFile?"ATEN\u00c7\u00c3O: Est\u00e1s a abrir via file://. O auto-load n\u00e3o funciona assim. Abre um terminal na pasta dos ficheiros e corre: python -m http.server 8000 \u2014 depois abre http://localhost:8000/USKidsGolf.html. Ou usa o bot\u00e3o abaixo.":"Nenhum ficheiro encontrado. Coloca os JSON na mesma pasta, ou em ./public/, ./data/ ou ./json/. Ou usa o bot\u00e3o abaixo.");}
     }
     async function tryFetch(f){
-      var paths=["./"+f,"./data/"+f,"./json/"+f];
+      var paths=["./"+f,"./public/"+f,"./data/"+f,"./json/"+f];
       for(var i=0;i<paths.length;i++){
         try{
           var r=await fetch(paths[i]);
@@ -774,7 +775,7 @@ function App(){
   };
   var handleDragOver=function(e){e.preventDefault();e.stopPropagation();};
 
-  var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tCatF!=="all")list=list.filter(function(t){return t.category===tCatF;});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0||(t.courses||"").toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||a.name.localeCompare(b.name);});},[data,tYearF,tCatF,tSearch]);
+  var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tCatF!=="all")list=list.filter(function(t){return t.category===tCatF;});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0||(t.courses||"").toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||(a.dateISO||"").localeCompare(b.dateISO||"")||a.name.localeCompare(b.name);});},[data,tYearF,tCatF,tSearch]);
 
   var filteredPlayers=useMemo(function(){if(!data)return[];var list=data.players;if(search){var q=search.toLowerCase();list=list.filter(function(p){return p.name.toLowerCase().indexOf(q)>=0||p.place.toLowerCase().indexOf(q)>=0||countryName(p.country).toLowerCase().indexOf(q)>=0;});}if(countryF!=="all")list=list.filter(function(p){return p.country===countryF;});if(genderF!=="all")list=list.filter(function(p){return p.gender===genderF;});if(catF!=="all")list=list.filter(function(p){return p.lastCategory===catF;});if(sortBy==="name")return list.slice().sort(function(a,b){return a.name.localeCompare(b.name);});if(sortBy==="country")return list.slice().sort(function(a,b){return countryName(a.country).localeCompare(countryName(b.country));});if(sortBy==="recent")return list.slice().sort(function(a,b){return b.years[b.years.length-1]-a.years[a.years.length-1];});return list;},[data,search,countryF,genderF,catF,sortBy]);
 
@@ -837,8 +838,10 @@ function App(){
       {view==="rankings"&&<Rankings data={data} onNavigate={navigate}/>}
         {view==="series"&&selSeries&&<SeriesDetail seriesName={selSeries} data={data} onNavigate={navigate}/>}
       {view==="tournaments"&&<React.Fragment>
-        <div style={{width:340,minWidth:280,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
+        {selTournData?<React.Fragment>
+          <div style={{width:340,minWidth:280,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
           <div style={{padding:"14px 14px 10px",borderBottom:"1px solid "+T.borderLight}}>
+            <button onClick={function(){setSelTourn(null);}} style={{padding:"6px 14px",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,background:T.surfaceAlt,color:T.textBody,borderRadius:8,fontFamily:F,marginBottom:8}}>{"\u2190 Lista de torneios"}</button>
             <input value={tSearch} onChange={function(e){setTSearch(e.target.value);}} placeholder="Pesquisar torneio ou campo..." style={inpS}/>
             <div style={{display:"flex",gap:4,marginTop:8,flexWrap:"wrap"}}>
               <button onClick={function(){setTCatF("all");}} style={Object.assign({},pillSm,{background:tCatF==="all"?T.accent:T.surfaceAlt,color:tCatF==="all"?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>Todos</button>
@@ -852,11 +855,44 @@ function App(){
           </div>
           <div style={{flex:1,overflowY:"auto"}}>{filteredTourns.map(function(t){var nP=t.categories.reduce(function(s,c){return s+c.players.length;},0);return(<button key={t.key} onClick={function(){setSelTourn(t.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"11px 16px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selTourn===t.key?T.accentSoft:"transparent",borderLeft:selTourn===t.key?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}>
             <div style={{fontWeight:700,fontSize:13,color:T.textDark}}>{t.name}{t.category&&<span style={{marginLeft:6,fontSize:10,padding:"2px 7px",borderRadius:8,background:T.accentSoft,color:T.accentDark,fontWeight:600}}>{catLabel(t.category)}</span>}</div>
-            {t.coursesShort&&<div style={{fontSize:11,color:T.accentDark,fontWeight:500,marginTop:3,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{"\u26f3 "+t.coursesShort}</div>}
             <div style={{fontSize:11,color:T.textMuted,marginTop:3}}>{t.date}{" \u00b7 "}{t.categories.length+" cats \u00b7 "}{nP+" jog"}</div>
           </button>);})}</div>
         </div>
-        <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selTournData?<TournDetail key={selTournData.key} tourn={selTournData} onPlayerClick={findPlayer}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:15}}>Seleciona um torneio</div>}</div>
+        <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}><TournDetail key={selTournData.key} tourn={selTournData} onPlayerClick={findPlayer}/></div>
+        </React.Fragment>
+        :<div style={{flex:1,overflowY:"auto",background:T.surface,padding:"28px 32px"}}>
+          <div style={{maxWidth:1100,margin:"0 auto"}}>
+            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:6}}>
+              <span style={{fontSize:22}}>{"\ud83d\udcc5"}</span>
+              <h1 style={{margin:0,fontSize:28,fontWeight:900,color:T.textDark,fontFamily:F}}>{tYearF!=="all"?("Torneios "+tYearF):"Calend\u00e1rio de Torneios"}</h1>
+            </div>
+            <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap",alignItems:"center"}}>
+              {data.years.slice().reverse().map(function(y){return<button key={y} onClick={function(){setTYearF(tYearF===String(y)?"all":String(y));}} style={{padding:"6px 14px",border:"none",cursor:"pointer",fontSize:12,fontWeight:700,background:tYearF===String(y)?T.accent:T.surfaceAlt,color:tYearF===String(y)?"#fff":T.textBody,borderRadius:10,fontFamily:F}}>{y}</button>;})}
+            </div>
+            <div style={{display:"flex",gap:6,marginBottom:10,flexWrap:"wrap",alignItems:"center"}}>
+              <input value={tSearch} onChange={function(e){setTSearch(e.target.value);}} placeholder="Pesquisar torneio ou campo..." style={Object.assign({},inpS,{maxWidth:300})}/>
+              <button onClick={function(){setTCatF("all");}} style={Object.assign({},pillSm,{background:tCatF==="all"?T.accent:T.surfaceAlt,color:tCatF==="all"?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>Todos</button>
+              {tcKeys.map(function(c){return<button key={c} onClick={function(){setTCatF(c);}} style={Object.assign({},pillSm,{background:tCatF===c?T.accent:T.surfaceAlt,color:tCatF===c?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>{catLabel(c)}</button>;})}
+            </div>
+            <div style={{fontSize:12,color:T.textMuted,marginBottom:14,fontWeight:600}}>{filteredTourns.length+(" torneios"+(tYearF!=="all"?" em "+tYearF:""))}</div>
+            <table style={{width:"100%",borderCollapse:"collapse",background:"#fff",borderRadius:12,overflow:"hidden",boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
+              <thead><tr style={{borderBottom:"2px solid "+T.borderLight}}>
+                <th style={Object.assign({},thS,{width:70,textAlign:"left"})}>DATA</th>
+                <th style={Object.assign({},thS,{textAlign:"left"})}>TORNEIO</th>
+                <th style={Object.assign({},thS,{width:110,textAlign:"center"})}>CAT.</th>
+                <th style={Object.assign({},thS,{width:50,textAlign:"center"})}>CATS</th>
+                <th style={Object.assign({},thS,{width:60,textAlign:"right"})}>JOG.</th>
+              </tr></thead>
+              <tbody>{filteredTourns.map(function(t,i){var nP=t.categories.reduce(function(s,c){return s+c.players.length;},0);return(<tr key={t.key} onClick={function(){setSelTourn(t.key);}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer",borderLeft:"3px solid transparent"}} onMouseOver={function(e){e.currentTarget.style.background=T.accentSoft;}} onMouseOut={function(e){e.currentTarget.style.background=i%2?T.surfaceAlt:"#fff";}}>
+                <td style={Object.assign({},tdS,{color:T.textMuted,fontSize:12})}>{t.date||"\u2013"}</td>
+                <td style={Object.assign({},tdS,{fontWeight:700,fontSize:13})}>{t.name}</td>
+                <td style={Object.assign({},tdS,{textAlign:"center"})}>{t.category&&<span style={{fontSize:10,padding:"2px 8px",borderRadius:8,background:T.accentSoft,color:T.accentDark,fontWeight:600}}>{catLabel(t.category)}</span>}</td>
+                <td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{t.categories.length}</td>
+                <td style={Object.assign({},tdS,{textAlign:"right",fontWeight:700})}>{nP}</td>
+              </tr>);})}</tbody>
+            </table>
+          </div>
+        </div>}
       </React.Fragment>}
       {view==="players"&&<React.Fragment>
         <div style={{width:340,minWidth:280,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
