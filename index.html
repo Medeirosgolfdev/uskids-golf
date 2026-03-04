@@ -279,7 +279,7 @@ function Rankings({data,onNavigate}){
     if(mode==="country"){return Object.entries(data.countryStats).filter(function(e){return e[0]&&e[0].length===2&&/^[A-Z]{2}$/.test(e[0].toUpperCase());}).sort(function(a,b){return b[1]-a[1];}).map(function(e,i){var c=e[0],n=e[1];var pls=data.players.filter(function(p){return p.country===c;});var avg=pls.length?(pls.reduce(function(s,p){return s+p.numT;},0)/pls.length).toFixed(1):0;var top=pls.slice().sort(function(a,b){return b.numT-a.numT;})[0];return{rank:i+1,key:c,code:c,label:countryName(c),fl:flag(c),count:n,avgT:avg,top:top?top.name:"",topId:top?top.id:null};});}
     if(mode==="veterans"){return data.players.slice().sort(function(a,b){return b.numT-a.numT;}).slice(0,limit).map(function(p,i){return{rank:i+1,key:p.id,id:p.id,label:p.name,fl:flag(p.country),country:p.country,numT:p.numT,wins:p.wins,years:p.years[0]+"\u2013"+p.years[p.years.length-1],bestScore:p.bestScore};});}
     if(mode==="scores"){return data.players.filter(function(p){return p.bestScore!=null;}).sort(function(a,b){return a.bestScore-b.bestScore;}).slice(0,limit).map(function(p,i){return{rank:i+1,key:p.id,id:p.id,label:p.name,fl:flag(p.country),country:p.country,bestScore:p.bestScore,bestYear:p.bestYear,numT:p.numT};});}
-    if(mode==="tournament"){var tg={};data.tournaments.forEach(function(t){var bn=t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim();if(!tg[bn])tg[bn]={name:bn,origNames:[],editions:[],playerCounts:[],categories:new Set()};tg[bn].origNames.push(t.name);tg[bn].editions.push(t.year);var np=t.categories.reduce(function(s,c){return s+c.players.length;},0);tg[bn].playerCounts.push(np);if(t.category)tg[bn].categories.add(t.category);});return Object.values(tg).sort(function(a,b){return b.editions.length-a.editions.length||b.playerCounts.reduce(function(s,v){return s+v;},0)-a.playerCounts.reduce(function(s,v){return s+v;},0);}).slice(0,limit).map(function(g,i){g.editions.sort();g.playerCounts.sort(function(a,b){return a-b;});var minP=g.playerCounts[0],maxP=g.playerCounts[g.playerCounts.length-1];var cats=Array.from(g.categories);return{rank:i+1,key:g.name,label:g.name,editions:g.editions.length,years:g.editions[0]+"\u2013"+g.editions[g.editions.length-1],playerRange:minP===maxP?(""+minP):(minP+"\u2013"+maxP),totalPlayers:g.playerCounts.reduce(function(s,v){return s+v;},0),cat:cats.length?cats.map(function(c){return catLabel(c);}).join(", "):"\u2013",searchName:g.name};});}
+    if(mode==="tournament"){var tg={};data.tournaments.forEach(function(t){var bn=t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim();if(!tg[bn])tg[bn]={name:bn,origNames:[],editions:[],playerCounts:[],categories:new Set(),courses:{}};tg[bn].origNames.push(t.name);tg[bn].editions.push(t.year);var np=t.categories.reduce(function(s,c){return s+c.players.length;},0);tg[bn].playerCounts.push(np);if(t.category)tg[bn].categories.add(t.category);if(t.courses)tg[bn].courses[t.year]=t.courses;});return Object.values(tg).sort(function(a,b){var tpA=a.playerCounts.reduce(function(s,v){return s+v;},0);var tpB=b.playerCounts.reduce(function(s,v){return s+v;},0);return tpB-tpA;}).slice(0,limit).map(function(g,i){g.editions.sort();g.playerCounts.sort(function(a,b){return a-b;});var minP=g.playerCounts[0],maxP=g.playerCounts[g.playerCounts.length-1];var cats=Array.from(g.categories);var tp=g.playerCounts.reduce(function(s,v){return s+v;},0);return{rank:i+1,key:g.name,label:g.name,editions:g.editions.length,years:g.editions[0]+"\u2013"+g.editions[g.editions.length-1],playerRange:minP===maxP?(""+minP):(minP+"\u2013"+maxP),totalPlayers:tp,cat:cats.length?cats.map(function(c){return catLabel(c);}).join(", "):"\u2013",searchName:g.name};});}
     if(mode==="series"){var sg={};data.tournaments.forEach(function(t){var sn=t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim();if(!sg[sn])sg[sn]={name:sn,editions:[],players:0,categories:new Set()};sg[sn].editions.push(t.year);sg[sn].players+=t.categories.reduce(function(s,c){return s+c.players.length;},0);if(t.category)sg[sn].categories.add(t.category);});return Object.values(sg).filter(function(s){return s.editions.length>=2;}).sort(function(a,b){return b.editions.length-a.editions.length;}).slice(0,limit).map(function(s,i){s.editions.sort();var cats=Array.from(s.categories);return{rank:i+1,key:s.name,label:s.name,editions:s.editions.length,years:s.editions[0]+"\u2013"+s.editions[s.editions.length-1],players:s.players,cat:cats.length?cats.map(function(c){return catLabel(c);}).join(", "):"\u2013",searchName:s.name};});}
     return[];
   },[data,mode,limit]);
@@ -296,8 +296,8 @@ function Rankings({data,onNavigate}){
           {mode==="country"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>{"Pa\u00eds"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>Jogadores</th><th style={Object.assign({},thS,{textAlign:"right"})}>{"M\u00e9dia T/J"}</th><th style={Object.assign({},thS,{textAlign:"left"})}>Top jogador</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("players",{country:r.code});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.fl}{" "}{r.label}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.count}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{r.avgT}</td><td style={Object.assign({},tdS)}>{r.topId!=null?<span style={{color:T.blue,cursor:"pointer",fontWeight:600}} onClick={function(e){e.stopPropagation();onNavigate("players",{id:r.topId});}}>{r.top}</span>:<span style={{color:T.textMuted}}>{r.top}</span>}</td></tr>);})}</tbody></table>}
           {mode==="veterans"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"right"})}>Torneios</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Vit\u00f3rias"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>Anos</th><th style={Object.assign({},thS,{textAlign:"right"})}>Melhor</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("players",{id:r.id});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.fl}{" "}{r.label}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.numT}</td><td style={Object.assign({},tdS,{textAlign:"center",color:r.wins>0?T.gold:T.textMuted})}>{r.wins||"\u2013"}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right"},sClr(r.bestScore))}>{fmtS(r.bestScore)}</td></tr>);})}</tbody></table>}
           {mode==="scores"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"right"})}>Melhor</th><th style={Object.assign({},thS,{textAlign:"right"})}>Ano</th><th style={Object.assign({},thS,{textAlign:"right"})}>Torneios</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("players",{id:r.id});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.fl}{" "}{r.label}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:800},sClr(r.bestScore))}>{fmtS(r.bestScore)}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{r.bestYear}</td><td style={Object.assign({},tdS,{textAlign:"right"})}>{r.numT}</td></tr>);})}</tbody></table>}
-          {mode==="tournament"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>Jogadores</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("tournaments",{search:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,fontSize:16,color:T.accent})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.playerRange}</td></tr>);})}</tbody></table>}
-          {mode==="series"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>{"S\u00e9rie"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>Jogadores</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("tournaments",{search:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,fontSize:16,color:T.accent})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.players}</td></tr>);})}</tbody></table>}
+          {mode==="tournament"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"right"})}>{"Total jog."}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>{"Jog./ed."}</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("series",{name:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:800,fontSize:15,color:T.accent})}>{r.totalPlayers.toLocaleString()}</td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,color:T.textDark})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{r.playerRange}</td></tr>);})}</tbody></table>}
+          {mode==="series"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>{"S\u00e9rie"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>Jogadores</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("series",{name:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,fontSize:16,color:T.accent})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.players}</td></tr>);})}</tbody></table>}
         </div>
       </div>
     </div>
@@ -417,6 +417,153 @@ function PDetail({player,onTournClick}){
 }
 
 /* ===== MAIN APP ===== */
+/* ===== SERIES DETAIL ===== */
+function SeriesDetail({seriesName,data,onNavigate}){
+  var info=useMemo(function(){
+    var bn=seriesName;
+    var tourns=data.tournaments.filter(function(t){
+      var tn=t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim();
+      return tn===bn;
+    }).sort(function(a,b){return b.year-a.year;});
+    if(!tourns.length)return null;
+    /* Venues */
+    var venues={};tourns.forEach(function(t){if(t.courses){var c=t.courses.split(",")[0].trim();if(c)venues[c]=(venues[c]||0)+1;}});
+    var venueList=Object.entries(venues).sort(function(a,b){return b[1]-a[1];});
+    var sameVenue=venueList.length===1;
+    /* Per-edition stats */
+    var editions=tourns.map(function(t){
+      var np=t.categories.reduce(function(s,c){return s+c.players.length;},0);
+      var nc=t.categories.length;
+      return{year:t.year,name:t.name,key:t.key,date:t.date,players:np,cats:nc,courses:t.coursesShort,saLink:t.saLink,category:t.category};
+    });
+    /* Best scores by age category across all editions */
+    var catBests={};tourns.forEach(function(t){
+      t.categories.forEach(function(cat){
+        cat.players.forEach(function(pl){
+          if(pl.status!=="OK"||pl.vsPar==null)return;
+          var k=cat.name;
+          if(!catBests[k]||pl.vsPar<catBests[k].vsPar){
+            catBests[k]={cat:k,name:pl.name,country:pl.country,vsPar:pl.vsPar,year:t.year,gender:extractGender(k)};
+          }
+        });
+      });
+    });
+    var cbList=Object.values(catBests).sort(function(a,b){
+      var ga=a.gender==="F"?1:0,gb=b.gender==="F"?1:0;
+      if(ga!==gb)return ga-gb;
+      var ra=extractAgeRange(a.cat),rb=extractAgeRange(b.cat);
+      return(ra?ra.min:99)-(rb?rb.min:99);
+    });
+    /* Difficulty: avg vsPar by category across editions */
+    var catDiff={};tourns.forEach(function(t){
+      t.categories.forEach(function(cat){
+        var ok=cat.players.filter(function(p){return p.status==="OK"&&p.vsPar!=null;});
+        if(!ok.length)return;
+        var avg=ok.reduce(function(s,p){return s+p.vsPar;},0)/ok.length;
+        if(!catDiff[cat.name])catDiff[cat.name]={cat:cat.name,sums:[],counts:[]};
+        catDiff[cat.name].sums.push(avg);catDiff[cat.name].counts.push(ok.length);
+      });
+    });
+    var diffList=Object.values(catDiff).map(function(d){
+      var total=d.sums.reduce(function(a,b){return a+b;},0);
+      return{cat:d.cat,avg:+(total/d.sums.length).toFixed(1),gender:extractGender(d.cat)};
+    }).sort(function(a,b){return b.avg-a.avg;});
+    /* Categories */
+    var cats=new Set();tourns.forEach(function(t){if(t.category)cats.add(t.category);});
+    var tp=editions.reduce(function(s,e){return s+e.players;},0);
+    return{tourns:tourns,editions:editions,venueList:venueList,sameVenue:sameVenue,catBests:cbList,difficulty:diffList,cats:Array.from(cats),totalPlayers:tp};
+  },[seriesName,data]);
+
+  if(!info)return<div style={{flex:1,padding:40,color:T.textMuted}}>{"S\u00e9rie n\u00e3o encontrada"}</div>;
+
+  return(
+    <div style={{flex:1,overflowY:"auto",background:T.surface,padding:"28px 32px"}}>
+      <div style={{maxWidth:960,margin:"0 auto"}}>
+        <h1 style={{margin:"0 0 4px",fontSize:28,fontWeight:900,color:T.textDark,fontFamily:F}}>{seriesName}</h1>
+        <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:20,flexWrap:"wrap"}}>
+          {info.cats.map(function(c){return<span key={c} style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{catLabel(c)}</span>;})}
+          <span style={{fontSize:13,color:T.textMuted}}>{info.editions.length+(" edi\u00e7\u00f5es \u00b7 ")+info.totalPlayers.toLocaleString()+" jogadores totais"}</span>
+        </div>
+
+        {/* Stats cards */}
+        <div style={{display:"flex",gap:12,marginBottom:24,flexWrap:"wrap"}}>
+          <div style={{background:"#fff",borderRadius:12,padding:"14px 18px",border:"1px solid "+T.borderLight,minWidth:140}}>
+            <div style={{fontSize:11,color:T.textMuted,marginBottom:4}}>{"\ud83d\udcc5 Per\u00edodo"}</div>
+            <div style={{fontSize:18,fontWeight:800,color:T.textDark}}>{info.editions[info.editions.length-1].year+"\u2013"+info.editions[0].year}</div>
+          </div>
+          <div style={{background:"#fff",borderRadius:12,padding:"14px 18px",border:"1px solid "+T.borderLight,minWidth:140}}>
+            <div style={{fontSize:11,color:T.textMuted,marginBottom:4}}>{"\ud83c\udfcc\ufe0f Campo"}</div>
+            <div style={{fontSize:14,fontWeight:700,color:info.sameVenue?T.accent:T.textDark}}>{info.sameVenue?(info.venueList[0][0]+" \u2713"):(info.venueList.length+" campos diferentes")}</div>
+          </div>
+          <div style={{background:"#fff",borderRadius:12,padding:"14px 18px",border:"1px solid "+T.borderLight,minWidth:140}}>
+            <div style={{fontSize:11,color:T.textMuted,marginBottom:4}}>{"\ud83d\udc65 M\u00e9dia/ed."}</div>
+            <div style={{fontSize:18,fontWeight:800,color:T.textDark}}>{Math.round(info.totalPlayers/info.editions.length)}</div>
+          </div>
+        </div>
+
+        {/* Venues breakdown if multiple */}
+        {info.venueList.length>1&&<div style={{background:"#fff",borderRadius:14,padding:"16px 20px",border:"1px solid "+T.borderLight,marginBottom:20}}>
+          <div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:10}}>{"Campos utilizados"}</div>
+          {info.venueList.map(function(v){return<div key={v[0]} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:13}}>
+            <span style={{color:T.textBody}}>{v[0]}</span><span style={{fontWeight:600,color:T.textMuted}}>{v[1]+("x")}</span>
+          </div>;})}
+        </div>}
+
+        {/* Best scores by category */}
+        {info.catBests.length>0&&<div style={{background:"#fff",borderRadius:14,padding:"16px 20px",border:"1px solid "+T.borderLight,marginBottom:20}}>
+          <div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:12}}>{"\u2b50 Melhores scores de sempre nesta s\u00e9rie"}</div>
+          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{info.catBests.map(function(b){var cs=catStyle(b.cat);return<div key={b.cat} style={{background:cs.background+"18",border:"1px solid "+cs.background+"40",borderRadius:10,padding:"8px 12px",minWidth:120,cursor:"pointer"}} onClick={function(){var pl=data.players.find(function(p){return p.name===b.name&&p.country===b.country;});if(pl)onNavigate("players",{id:pl.id});}}>
+            <div style={Object.assign({},pillSm,cs,{marginBottom:4,fontSize:10})}>{b.cat}</div>
+            <div style={Object.assign({fontSize:18,fontWeight:800},sClr(b.vsPar))}>{fmtS(b.vsPar)}</div>
+            <div style={{fontSize:11,color:T.textDark,marginTop:2}}>{flag(b.country)}{" "}{b.name}</div>
+            <div style={{fontSize:10,color:T.textMuted}}>{b.year}</div>
+          </div>;})}
+          </div>
+        </div>}
+
+        {/* Difficulty ranking */}
+        {info.difficulty.length>0&&<div style={{background:"#fff",borderRadius:14,padding:"16px 20px",border:"1px solid "+T.borderLight,marginBottom:20}}>
+          <div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:10}}>{"Dificuldade m\u00e9dia (vs Par por escal\u00e3o)"}</div>
+          <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>{info.difficulty.map(function(d){var cs=catStyle(d.cat);return<div key={d.cat} style={{background:cs.background+"12",borderRadius:8,padding:"6px 10px",minWidth:100}}>
+            <div style={Object.assign({},pillSm,cs,{fontSize:10,marginBottom:3})}>{d.cat}</div>
+            <div style={Object.assign({fontSize:16,fontWeight:800},sClr(d.avg))}>{d.avg>0?"+"+d.avg:""+d.avg}</div>
+          </div>;})}
+          </div>
+        </div>}
+
+        {/* Editions timeline */}
+        <div style={{background:"#fff",borderRadius:14,padding:"16px 20px",border:"1px solid "+T.borderLight}}>
+          <div style={{fontSize:13,fontWeight:700,color:T.textDark,marginBottom:12}}>{"Edi\u00e7\u00f5es"}</div>
+          {info.editions.map(function(e,i){return<div key={e.key} onClick={function(){onNavigate("tournaments",{key:e.key});}} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 0",borderBottom:i<info.editions.length-1?"1px solid "+T.borderLight:"none",cursor:"pointer"}}>
+            <span style={{fontSize:20,fontWeight:900,color:T.accent,minWidth:48}}>{e.year}</span>
+            <div style={{flex:1}}>
+              <div style={{fontSize:13,fontWeight:600,color:T.textDark}}>{e.name}</div>
+              <div style={{fontSize:11,color:T.textMuted}}>{e.date}{e.courses?" \u00b7 "+e.courses:""}</div>
+            </div>
+            <div style={{textAlign:"right"}}>
+              <div style={{fontSize:15,fontWeight:700,color:T.textDark}}>{e.players}</div>
+              <div style={{fontSize:10,color:T.textMuted}}>{e.cats+" cats"}</div>
+            </div>
+            {e.saLink&&<a href={e.saLink} target="_blank" rel="noopener noreferrer" onClick={function(ev){ev.stopPropagation();}} style={{fontSize:11,color:T.blue}}>{"\u2197"}</a>}
+          </div>;})}
+
+          {/* Player count chart */}
+          {info.editions.length>=3&&<div style={{marginTop:16,height:180}}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={info.editions.slice().reverse()} margin={{top:10,right:10,bottom:0,left:0}}>
+                <XAxis dataKey="year" tick={{fontSize:11}} stroke={T.textMuted}/>
+                <YAxis tick={{fontSize:10}} stroke={T.textMuted} width={40}/>
+                <RTooltip/>
+                <Bar dataKey="players" fill={T.accent} radius={[4,4,0,0]} name="Jogadores"/>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App(){
   var _d=useState(null),data=_d[0],setData=_d[1];
   var _l=useState(false),loading=_l[0],setLoading=_l[1];
@@ -424,6 +571,7 @@ function App(){
   var _e=useState(null),error=_e[0],setError=_e[1];
   var _v=useState("dashboard"),view=_v[0],setView=_v[1];
   var _st=useState(null),selTourn=_st[0],setSelTourn=_st[1];
+  var _ss=useState(null),selSeries=_ss[0],setSelSeries=_ss[1];
   var _sp=useState(null),selPlayer=_sp[0],setSelPlayer=_sp[1];
   var _se=useState(""),search=_se[0],setSearch=_se[1];
   var _cf=useState("all"),countryF=_cf[0],setCountryF=_cf[1];
@@ -433,12 +581,12 @@ function App(){
   var _ts=useState(""),tSearch=_ts[0],setTSearch=_ts[1];
   var _ty=useState("all"),tYearF=_ty[0],setTYearF=_ty[1];
   var _tc=useState("all"),tCatF=_tc[0],setTCatF=_tc[1];
-  var fileRef=useRef(null);
+  var fileRef=useRef(null);var folderRef=useRef(null);
   var histRef=useRef([]);
   var navState=useRef({});
-  navState.current={view:view,selTourn:selTourn,selPlayer:selPlayer,search:search,countryF:countryF,genderF:genderF,catF:catF,tSearch:tSearch,tYearF:tYearF,tCatF:tCatF};
+  navState.current={view:view,selTourn:selTourn,selPlayer:selPlayer,selSeries:selSeries,search:search,countryF:countryF,genderF:genderF,catF:catF,tSearch:tSearch,tYearF:tYearF,tCatF:tCatF};
   function pushHist(){histRef.current.push(Object.assign({},navState.current));}
-  function goBack(){if(!histRef.current.length)return;var h=histRef.current.pop();setView(h.view);setSelTourn(h.selTourn);setSelPlayer(h.selPlayer);setSearch(h.search);setCountryF(h.countryF);setGenderF(h.genderF);setCatF(h.catF);setTSearch(h.tSearch);setTYearF(h.tYearF);setTCatF(h.tCatF);}
+  function goBack(){if(!histRef.current.length)return;var h=histRef.current.pop();setView(h.view);setSelTourn(h.selTourn);setSelPlayer(h.selPlayer);setSelSeries(h.selSeries||null);setSearch(h.search);setCountryF(h.countryF);setGenderF(h.genderF);setCatF(h.catF);setTSearch(h.tSearch);setTYearF(h.tYearF);setTCatF(h.tCatF);}
   var canGoBack=histRef.current.length>0;
 
   function mergeAndProcess(texts,fileNames){
@@ -459,23 +607,32 @@ function App(){
     setLoading(true);setError(null);setStatus("A procurar ficheiros...");
     async function autoLoad(){
       var loaded=[],names=[];
-      var single=["uskids_COMPLETO.json","uskids_complete_v2.json","uskids_americanos.json"];
+      /* 1. Try known single files */
+      var single=["uskids_COMPLETO.json","uskids_complete_v2.json","uskids_americanos.json","uskids_backup_30.json","uskids_complete.json","all_tournaments_consolidated.json","uskids_data.json","data.json"];
       for(var si=0;si<single.length;si++){
         var txt=await tryFetch(single[si]);
-        if(txt){loaded.push(txt);names.push(single[si]);setStatus("Encontrados "+loaded.length+" ficheiro(s)...");}
+        if(txt){loaded.push(txt);names.push(single[si]);setStatus("Encontrado: "+single[si]);}
       }
-      var misses=0;
-      for(var bi=1;bi<=99;bi++){
-        var fn="batch_"+("00"+bi).slice(-3)+".json";
-        var txt2=await tryFetch(fn);
-        if(txt2){loaded.push(txt2);names.push(fn);misses=0;setStatus("A carregar... "+loaded.length+" ficheiro(s) ("+fn+")");}
-        else{misses++;if(misses>=3&&bi>3)break;}
+      /* 2. Try batch patterns */
+      var patterns=["scorecards_v2_batch_","batch_","scorecards_batch_","uskids_batch_"];
+      for(var pi2=0;pi2<patterns.length;pi2++){
+        var misses=0;
+        for(var bi=0;bi<=99;bi++){
+          var pad=bi<10?"00"+bi:bi<100?"0"+bi:""+bi;
+          var fn=patterns[pi2]+pad+".json";
+          var txt2=await tryFetch(fn);
+          if(txt2){loaded.push(txt2);names.push(fn);misses=0;setStatus("A carregar... "+loaded.length+" ficheiro(s) ("+fn+")");}
+          else{misses++;if(misses>=3&&bi>3)break;}
+        }
+        if(loaded.length>single.length)break;
       }
       if(loaded.length>0){console.log("Auto-loaded "+loaded.length+" files: "+names.join(", "));mergeAndProcess(loaded,names);}
-      else{setLoading(false);setStatus("Nenhum ficheiro encontrado. Usa o bot\u00e3o para carregar manualmente.");}
+      else{setLoading(false);
+        var isFile=window.location.protocol==="file:";
+        setStatus(isFile?"ATEN\u00c7\u00c3O: Est\u00e1s a abrir via file://. O auto-load n\u00e3o funciona assim. Abre um terminal na pasta dos ficheiros e corre: python -m http.server 8000 \u2014 depois abre http://localhost:8000/USKidsGolf.html. Ou usa o bot\u00e3o abaixo.":"Nenhum ficheiro encontrado. Coloca os JSON na mesma pasta do HTML e usa o bot\u00e3o abaixo.");}
     }
     async function tryFetch(f){
-      var paths=["./"+f,"./data/"+f,"./json/"+f,"./public/"+f,"/"+f,"/data/"+f,"/json/"+f];
+      var paths=["./"+f,"./data/"+f,"./json/"+f];
       for(var i=0;i<paths.length;i++){
         try{
           var r=await fetch(paths[i]);
@@ -496,10 +653,23 @@ function App(){
 
   var handleFile=function(e){
     var fl=e.target.files;if(!fl||!fl.length)return;
-    var arr=[],fn=[];for(var i=0;i<fl.length;i++){arr.push(fl[i]);fn.push(fl[i].name);}
+    var arr=[];for(var i=0;i<fl.length;i++){if(fl[i].name.endsWith(".json"))arr.push(fl[i]);}
+    if(!arr.length){setError("Nenhum ficheiro .json encontrado.");return;}
+    arr.sort(function(a,b){return a.name.localeCompare(b.name);});
+    var fn=arr.map(function(f){return f.name;});
     setLoading(true);setError(null);setStatus("A ler "+arr.length+" ficheiro(s)...");
     Promise.all(arr.map(function(f){return f.text();})).then(function(texts){mergeAndProcess(texts,fn);});
   };
+  var handleDrop=function(e){e.preventDefault();e.stopPropagation();
+    var fl=e.dataTransfer.files;if(!fl||!fl.length)return;
+    var arr=[];for(var i=0;i<fl.length;i++){if(fl[i].name.endsWith(".json"))arr.push(fl[i]);}
+    if(!arr.length){setError("Nenhum ficheiro .json encontrado. Arrasta ficheiros .json.");return;}
+    arr.sort(function(a,b){return a.name.localeCompare(b.name);});
+    var fn=arr.map(function(f){return f.name;});
+    setLoading(true);setError(null);setStatus("A ler "+arr.length+" ficheiro(s)...");
+    Promise.all(arr.map(function(f){return f.text();})).then(function(texts){mergeAndProcess(texts,fn);});
+  };
+  var handleDragOver=function(e){e.preventDefault();e.stopPropagation();};
 
   var filteredTourns=useMemo(function(){if(!data)return[];var list=data.tournaments;if(tYearF!=="all")list=list.filter(function(t){return t.year===parseInt(tYearF);});if(tCatF!=="all")list=list.filter(function(t){return t.category===tCatF;});if(tSearch){var q=tSearch.toLowerCase();list=list.filter(function(t){return t.name.toLowerCase().indexOf(q)>=0||(t.courses||"").toLowerCase().indexOf(q)>=0;});}return list.sort(function(a,b){return b.year-a.year||a.name.localeCompare(b.name);});},[data,tYearF,tCatF,tSearch]);
 
@@ -507,21 +677,36 @@ function App(){
 
   var findPlayer=useCallback(function(name,country,gender){if(!data)return;var p=data.players.find(function(pl){return pl.name===name&&pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender;});if(!p)p=data.players.find(function(pl){return pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender&&pl.appearances.some(function(a){return a.name===name;});});if(p){pushHist();setSelPlayer(p.id);setView("players");}},[data]);
   var goToTourn=useCallback(function(tKey){pushHist();setSelTourn(tKey);setView("tournaments");},[]);
-  var navigate=useCallback(function(v,opts){pushHist();setView(v);if(!opts)return;if(v==="players"){if(opts.id!=null)setSelPlayer(opts.id);if(opts.country){setCountryF(opts.country);setSearch("");setGenderF("all");setCatF("all");}if(opts.search){setSearch(opts.search);setCountryF("all");setGenderF("all");setCatF("all");}}if(v==="tournaments"&&opts.search){setTSearch(opts.search);setTYearF("all");setTCatF("all");}},[]);
+  var navigate=useCallback(function(v,opts){pushHist();setView(v);if(!opts)return;if(v==="players"){if(opts.id!=null)setSelPlayer(opts.id);if(opts.country){setCountryF(opts.country);setSearch("");setGenderF("all");setCatF("all");}if(opts.search){setSearch(opts.search);setCountryF("all");setGenderF("all");setCatF("all");}}if(v==="tournaments"){if(opts.search){setTSearch(opts.search);setTYearF("all");setTCatF("all");}if(opts.key){setSelTourn(opts.key);}}if(v==="series"&&opts.name){setSelSeries(opts.name);setView("series");}},[]);
   var selTournData=useMemo(function(){return data&&data.tournaments.find(function(t){return t.key===selTourn;});},[data,selTourn]);
   var selPlayerData=useMemo(function(){return data&&data.players.find(function(p){return p.id===selPlayer;});},[data,selPlayer]);
 
   if(!data)return(
-    <div style={{fontFamily:F,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(160deg, "+T.bg+" 0%, #0d2137 40%, #0a3026 100%)",color:"#fff",padding:24}}>
-      <div style={{textAlign:"center",maxWidth:480}}>
+    <div onDrop={handleDrop} onDragOver={handleDragOver} style={{fontFamily:F,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(160deg, "+T.bg+" 0%, #0d2137 40%, #0a3026 100%)",color:"#fff",padding:24}}>
+      <div style={{textAlign:"center",maxWidth:520}}>
         <div style={{width:80,height:80,borderRadius:24,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:38,marginBottom:16,boxShadow:"0 8px 32px "+T.accent+"30"}}>{"\u26f3"}</div>
         <h1 style={{fontSize:32,fontWeight:900,margin:"0 0 4px",letterSpacing:-0.5}}>USKids Golf</h1>
-        <p style={{fontSize:15,color:T.textMuted,margin:"0 0 32px"}}>{"Analytics \u00b7 Torneios \u00b7 Jogadores \u00b7 Scorecards"}</p>
+        <p style={{fontSize:15,color:T.textMuted,margin:"0 0 28px"}}>{"Analytics \u00b7 Torneios \u00b7 Jogadores \u00b7 Scorecards"}</p>
         {error&&<div style={{background:"#7f1d1d90",color:"#fca5a5",padding:"14px 18px",borderRadius:12,marginBottom:16,fontSize:13,border:"1px solid #991b1b",textAlign:"left"}}>{error}</div>}
         {status&&<div style={{color:T.accent,fontSize:14,marginBottom:14,fontWeight:500}}>{status}</div>}
-        <button onClick={function(){if(fileRef.current){fileRef.current.value="";fileRef.current.click();}}} disabled={loading} style={{background:loading?"#475569":"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"16px 36px",borderRadius:14,fontSize:16,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"Carregar JSON"}</button>
+        <div style={{border:"2px dashed "+T.accent+"60",borderRadius:18,padding:"32px 24px",marginBottom:20,background:T.accent+"08"}}>
+          <div style={{fontSize:32,marginBottom:8}}>{"\ud83d\udcc2"}</div>
+          <div style={{fontSize:15,fontWeight:600,marginBottom:6}}>Arrasta os ficheiros JSON para aqui</div>
+          <div style={{fontSize:12,color:T.textMuted,marginBottom:18}}>{"batch_001.json a batch_016.json \u2014 ou qualquer ficheiro uskids .json"}</div>
+          <div style={{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}}>
+            <button onClick={function(){if(folderRef.current){folderRef.current.value="";folderRef.current.click();}}} disabled={loading} style={{background:"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"14px 28px",borderRadius:12,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"\ud83d\udcc1 Selecionar pasta"}</button>
+            <button onClick={function(){if(fileRef.current){fileRef.current.value="";fileRef.current.click();}}} disabled={loading} style={{background:"#1e293b",color:"#94a3b8",border:"1px solid #334155",padding:"14px 28px",borderRadius:12,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",fontFamily:F}}>{"\ud83d\udcce Selecionar ficheiros"}</button>
+          </div>
+        </div>
+        <input ref={folderRef} type="file" accept=".json" multiple={true} onChange={handleFile} style={{position:"absolute",width:1,height:1,opacity:0}} {...{"webkitdirectory":"true"}}/>
         <input ref={fileRef} type="file" accept=".json" multiple={true} onChange={handleFile} style={{position:"absolute",width:1,height:1,opacity:0}}/>
-        <p style={{fontSize:12,color:"#4a6070",marginTop:16}}>{"Ctrl+Click para selecionar v\u00e1rios ficheiros"}</p>
+        <div style={{background:"#0f172a",borderRadius:12,padding:"16px 20px",textAlign:"left",fontSize:12,color:"#64748b",lineHeight:1.6,border:"1px solid #1e293b"}}>
+          <div style={{fontWeight:700,color:"#94a3b8",marginBottom:6}}>{"Para auto-load (sem selecionar):"}</div>
+          <div>{"1. Copia o HTML para C:\\uskids-golf\\"}</div>
+          <div>{"2. Abre um terminal nessa pasta e corre:"}</div>
+          <div style={{background:"#1e293b",padding:"6px 10px",borderRadius:6,margin:"6px 0",fontFamily:"monospace",color:T.accent}}>python -m http.server 8000</div>
+          <div>{"3. Abre "}<span style={{color:T.accent}}>http://localhost:8000/USKidsGolf.html</span></div>
+        </div>
       </div>
     </div>
   );
@@ -540,6 +725,7 @@ function App(){
     <div style={{flex:1,display:"flex",overflow:"hidden"}}>
       {view==="dashboard"&&<Dashboard data={data} onNavigate={navigate}/>}
       {view==="rankings"&&<Rankings data={data} onNavigate={navigate}/>}
+        {view==="series"&&selSeries&&<SeriesDetail seriesName={selSeries} data={data} onNavigate={navigate}/>}
       {view==="tournaments"&&<React.Fragment>
         <div style={{width:340,minWidth:280,borderRight:"1px solid "+T.borderLight,display:"flex",flexDirection:"column",flexShrink:0,background:"#fff"}}>
           <div style={{padding:"14px 14px 10px",borderBottom:"1px solid "+T.borderLight}}>
