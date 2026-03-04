@@ -72,7 +72,8 @@ function processData(raw){
     var tKey=(t.signupanytime_t||t.tournament_id||t.name)+"_"+t.year;
     var tm=meta.tournament||{};
     var coursesStr=tm.courses||meta.courses_str||"";
-    if(!coursesStr&&meta.courses&&typeof meta.courses==="object"){var cn=[];Object.values(meta.courses).forEach(function(c){if(c&&c.name)cn.push(c.name);});coursesStr=cn.join(", ");}
+    var coursePars={};/* courseId: {holes:{1:{par,name},...}, totalPar9, totalPar18} */
+    if(meta.courses&&typeof meta.courses==="object"){var cn=[];Object.values(meta.courses).forEach(function(c,ci){if(c&&c.name)cn.push(c.name);if(c&&c.holes&&typeof c.holes==="object"){var cp={holes:{},total9:0,total18:0,names:{}};var hEntries=Object.entries(c.holes);hEntries.sort(function(a,b){return(a[1].number||parseInt(a[0]))-(b[1].number||parseInt(b[0]));});for(var hi=0;hi<hEntries.length;hi++){var hId=hEntries[hi][0],h=hEntries[hi][1],hNum=h.number||parseInt(hId);cp.holes[hNum]={par:h.par||0,name:h.name||""};cp.names[hNum]=h.name||"";if(hNum<=9)cp.total9+=(h.par||0);if(hNum<=18)cp.total18+=(h.par||0);}var cid=Object.keys(meta.courses)[ci];coursePars[cid]=cp;}});if(!coursesStr)coursesStr=cn.join(", ");}
     var saT=t.signupanytime_t||t.tournament_id||null;
     var saLink=saT?("https://www.signupanytime.com/plugins/links/front/linksviews.aspx?v=results&fmt=nohead&ax=1129&t="+saT):null;
     var rawDate=tm.start_date||meta.start_date||t.date||"";
@@ -83,6 +84,11 @@ function processData(raw){
     for(var fi=0;fi<fKeys.length;fi++){
       var fId=fKeys[fi],fl=flights[fId],fp=fl.flight_players||fl.players||{},catName=flightCats[fId]||"Unknown",gender=extractGender(catName);
       var hpr=null,catTee=null;var agVals=Object.values(ageGroups);
+      /* Find flight's course for real par */
+      var flightMeta=(meta.flights||{})[fId]||{};var flCourseId=flightMeta.course_id||flightMeta.course||null;
+      var realPar=null;if(flCourseId&&coursePars[flCourseId])realPar=coursePars[flCourseId];
+      if(!realPar){var cpKeys=Object.keys(coursePars);if(cpKeys.length===1)realPar=coursePars[cpKeys[0]];}
+      var holeNames=realPar?realPar.names:{};
       for(var ai=0;ai<agVals.length;ai++){if(agVals[ai].name===catName){hpr=agVals[ai].holes_per_round;catTee=agVals[ai].tee_marker||null;break;}}
       if(!hpr){var ar=extractAgeRange(catName);var isG=/girl/i.test(catName);if(ar){hpr=isG?(ar.max<=10?9:18):(ar.max<=8?9:18);}else{hpr=18;}}
       /* Auto-detect hpr from actual round data if no meta */
@@ -101,16 +107,19 @@ function processData(raw){
         var teeName=(pd.teeMarkerName||"").trim();
         var rnds=[],totS=0;
         var rEntries=Object.entries(pd.rounds||{});
-        for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);var rHoles=strokes.length>0?strokes.length:(rd.num_holes||0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rHoles});totS+=total;}
+        for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);var rHoles=strokes.length>0?strokes.length:(rd.num_holes||0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rHoles,startHole:rd.start_hole||1});totS+=total;}
         rnds.sort(function(a,b){return a.round-b.round;});
         rnds=rnds.filter(function(r){return r.total>0;});
         var isWD=pd.status!==1||totS===0;
         var numR=rnds.length||1;
-        var agR=extractAgeRange(catName);var isYoung9=agR&&((/girl/i.test(catName))?agR.max<=10:agR.max<=8);
-        var par=0;for(var rpi=0;rpi<rnds.length;rpi++){var rh=rnds[rpi].holes;var rPar=(rh<=9&&isYoung9)?3:4;rnds[rpi].par=rh*rPar;par+=rh*rPar;}
+        var par=0,parExact=false;
+        for(var rpi=0;rpi<rnds.length;rpi++){var rh=rnds[rpi].holes;var rndPar=0;
+          if(realPar&&Object.keys(realPar.holes).length>0){var sH=rnds[rpi].startHole||1;for(var phi=0;phi<rh;phi++){var hN=sH+phi;if(realPar.holes[hN]&&realPar.holes[hN].par)rndPar+=realPar.holes[hN].par;}if(rndPar>0)parExact=true;}
+          if(rndPar===0){rndPar=rh*(rh<=9?3:4);}
+          rnds[rpi].par=rndPar;par+=rndPar;rnds[rpi].holeNames=holeNames;}
         if(par===0)par=calcPar(hpr,numR);
         var vsPar=isWD?null:totS-par;
-        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:tInfo.date,category:catName,hpr:hpr,par:par,numRounds:numR,course:coursesStr,saLink:saLink,totalStrokes:isWD?null:totS,vsPar:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName};
+        var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:tInfo.date,category:catName,hpr:hpr,par:par,parExact:parExact,numRounds:numR,course:coursesStr,saLink:saLink,totalStrokes:isWD?null:totS,vsPar:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName};
         catApps.push(app);allApps.push(app);
         catPlayers.push({name:name,country:country,place:place,gender:gender,totalStrokes:isWD?null:totS,vsPar:vsPar,status:isWD?"WD":"OK",rounds:rnds,par:par,numRounds:numR,teeName:teeName});
       }
@@ -168,7 +177,13 @@ function processData(raw){
       if(okApps.length){var best=okApps.reduce(function(b,a){return a.vsPar<b.vsPar?a:b;});bestVP=best.vsPar;bestY=best.year;}
       p.appearances.forEach(function(a){if(a.pos===1)wins++;if(a.pos>=1&&a.pos<=3)podiums++;});
       var lastCat=p.appearances[p.appearances.length-1].category;
-      players.push({id:pidC++,name:bestName,country:a0.country,place:bestPlace,gender:p.gender,birth:estimateBirth(p.appearances),appearances:p.appearances,categories:cats,lastCategory:lastCat,years:yrs,tournNames:tNames,numT:tNames.length,bestScore:bestVP,bestYear:bestY,wins:wins,podiums:podiums});
+      /* Progression: avg vsPar per year + slope */
+      var yearAvgs={};okApps.forEach(function(a){if(!yearAvgs[a.year])yearAvgs[a.year]={sum:0,n:0};yearAvgs[a.year].sum+=a.vsPar;yearAvgs[a.year].n++;});
+      var yrPts=Object.entries(yearAvgs).map(function(e){return{year:parseInt(e[0]),avg:e[1].sum/e[1].n};}).sort(function(a,b){return a.year-b.year;});
+      var slope=null;
+      if(yrPts.length>=2){var n=yrPts.length,sx=0,sy=0,sxy=0,sx2=0;yrPts.forEach(function(p){sx+=p.year;sy+=p.avg;sxy+=p.year*p.avg;sx2+=p.year*p.year;});slope=Math.round((n*sxy-sx*sy)/(n*sx2-sx*sx)*10)/10;}
+      var avgVsPar=okApps.length?(Math.round(okApps.reduce(function(s,a){return s+a.vsPar;},0)/okApps.length*10)/10):null;
+      players.push({id:pidC++,name:bestName,country:a0.country,place:bestPlace,gender:p.gender,birth:estimateBirth(p.appearances),appearances:p.appearances,categories:cats,lastCategory:lastCat,years:yrs,tournNames:tNames,numT:tNames.length,bestScore:bestVP,bestYear:bestY,wins:wins,podiums:podiums,slope:slope,avgVsPar:avgVsPar,yearAvgs:yrPts});
     }
   });
   players.sort(function(a,b){return b.numT-a.numT||a.name.localeCompare(b.name);});
@@ -176,8 +191,14 @@ function processData(raw){
   var cc={};players.forEach(function(p){var k=p.country.toUpperCase();if(k&&/^[A-Z]{2}$/.test(k))cc[k]=(cc[k]||0)+1;});
   var allCountries=Object.keys(cc).sort(function(a,b){return countryName(a).localeCompare(countryName(b));});
   var allPlayerCats={};players.forEach(function(p){var lc=p.lastCategory;if(lc)allPlayerCats[lc]=(allPlayerCats[lc]||0)+1;});
+  /* Build fast lookup maps */
+  var playerLookup={};players.forEach(function(p){
+    var k=(p.name+"|"+p.country+"|"+p.gender).toLowerCase();playerLookup[k]=p.id;
+    p.appearances.forEach(function(a){var k2=(a.name+"|"+a.country+"|"+p.gender).toLowerCase();if(!playerLookup[k2])playerLookup[k2]=p.id;});
+  });
+  var playersByCountry={};players.forEach(function(p){var c=p.country;if(!playersByCountry[c])playersByCountry[c]=[];playersByCountry[c].push(p);});
   console.timeEnd("processData");
-  return{players:players,tournaments:tournIndex,years:yrs2,allCountries:allCountries,countryStats:cc,tournCats:allCats,playerCats:allPlayerCats};
+  return{players:players,tournaments:tournIndex,years:yrs2,allCountries:allCountries,countryStats:cc,tournCats:allCats,playerCats:allPlayerCats,playerLookup:playerLookup,playersByCountry:playersByCountry};
 }
 
 /* ===== THEME ===== */
@@ -306,7 +327,7 @@ function Rankings({data,onNavigate}){
   var _m=useState("country"),mode=_m[0],setMode=_m[1];
   var _l=useState(20),limit=_l[0],setLimit=_l[1];
   var rankings=useMemo(function(){
-    if(mode==="country"){return Object.entries(data.countryStats).filter(function(e){return e[0]&&e[0].length===2&&/^[A-Z]{2}$/.test(e[0].toUpperCase());}).sort(function(a,b){return b[1]-a[1];}).map(function(e,i){var c=e[0],n=e[1];var pls=data.players.filter(function(p){return p.country===c;});var avg=pls.length?(pls.reduce(function(s,p){return s+p.numT;},0)/pls.length).toFixed(1):0;var top=pls.slice().sort(function(a,b){return b.numT-a.numT;})[0];return{rank:i+1,key:c,code:c,label:countryName(c),fl:flag(c),count:n,avgT:avg,top:top?top.name:"",topId:top?top.id:null};});}
+    if(mode==="country"){return Object.entries(data.countryStats).filter(function(e){return e[0]&&/^[A-Z]{2}$/.test(e[0]);}).sort(function(a,b){return b[1]-a[1];}).map(function(e,i){var c=e[0],n=e[1];var pls=data.playersByCountry[c]||[];var avg=pls.length?(pls.reduce(function(s,p){return s+p.numT;},0)/pls.length).toFixed(1):0;var top=pls.slice().sort(function(a,b){return b.numT-a.numT;})[0];return{rank:i+1,key:c,code:c,label:countryName(c),fl:flag(c),count:n,avgT:avg,top:top?top.name:"",topId:top?top.id:null};});}
     if(mode==="veterans"){return data.players.slice().sort(function(a,b){return b.numT-a.numT;}).slice(0,limit).map(function(p,i){return{rank:i+1,key:p.id,id:p.id,label:p.name,fl:flag(p.country),country:p.country,numT:p.numT,wins:p.wins,years:p.years[0]+"\u2013"+p.years[p.years.length-1],bestScore:p.bestScore};});}
     if(mode==="scores"){return data.players.filter(function(p){return p.bestScore!=null;}).sort(function(a,b){return a.bestScore-b.bestScore;}).slice(0,limit).map(function(p,i){return{rank:i+1,key:p.id,id:p.id,label:p.name,fl:flag(p.country),country:p.country,bestScore:p.bestScore,bestYear:p.bestYear,numT:p.numT};});}
     if(mode==="tournament"){var tg={};data.tournaments.forEach(function(t){var bn=t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim();if(!tg[bn])tg[bn]={name:bn,origNames:[],editions:[],playerCounts:[],categories:new Set(),courses:{}};tg[bn].origNames.push(t.name);tg[bn].editions.push(t.year);var np=t.categories.reduce(function(s,c){return s+c.players.length;},0);tg[bn].playerCounts.push(np);if(t.category)tg[bn].categories.add(t.category);if(t.courses)tg[bn].courses[t.year]=t.courses;});return Object.values(tg).sort(function(a,b){var tpA=a.playerCounts.reduce(function(s,v){return s+v;},0);var tpB=b.playerCounts.reduce(function(s,v){return s+v;},0);return tpB-tpA;}).slice(0,limit).map(function(g,i){g.editions.sort();g.playerCounts.sort(function(a,b){return a-b;});var minP=g.playerCounts[0],maxP=g.playerCounts[g.playerCounts.length-1];var cats=Array.from(g.categories);var tp=g.playerCounts.reduce(function(s,v){return s+v;},0);return{rank:i+1,key:g.name,label:g.name,editions:g.editions.length,years:g.editions[0]+"\u2013"+g.editions[g.editions.length-1],playerRange:minP===maxP?(""+minP):(minP+"\u2013"+maxP),totalPlayers:tp,cat:cats.length?cats.map(function(c){return catLabel(c);}).join(", "):"\u2013",searchName:g.name};});}
@@ -347,11 +368,12 @@ function Palmares({data,onNavigate}){
         var pls=cat.players.filter(function(p){return p.status==="OK"&&p.totalStrokes!=null;});
         if(pls.length===0)return;
         var w1=pls[0]||null,w2=pls[1]||null,w3=pls[2]||null;
-        function findPid(name,country,gender){var pl=data.players.find(function(p){return(p.name===name||p.appearances.some(function(a){return a.name===name;}))&&p.country===country&&(p.gender===gender||p.gender==="?"||gender==="?");});return pl?pl.id:null;}
+        var lu=data.playerLookup;var cg=extractGender(cat.name);
+        function fpid(n,c){var k1=(n+"|"+c+"|"+cg).toLowerCase();if(lu[k1]!=null)return lu[k1];var k2=(n+"|"+c+"|?").toLowerCase();return lu[k2]!=null?lu[k2]:null;}
         rows.push({tournName:t.name,tournDate:t.date,dateISO:t.dateISO,category:t.category,catName:cat.name,hpr:cat.hpr,
-          w1:w1?{name:w1.name,country:w1.country,vsPar:w1.vsPar,total:w1.totalStrokes,par:w1.par,pid:findPid(w1.name,w1.country,extractGender(cat.name))}:null,
-          w2:w2?{name:w2.name,country:w2.country,vsPar:w2.vsPar,total:w2.totalStrokes,par:w2.par,pid:findPid(w2.name,w2.country,extractGender(cat.name))}:null,
-          w3:w3?{name:w3.name,country:w3.country,vsPar:w3.vsPar,total:w3.totalStrokes,par:w3.par,pid:findPid(w3.name,w3.country,extractGender(cat.name))}:null
+          w1:w1?{name:w1.name,country:w1.country,vsPar:w1.vsPar,total:w1.totalStrokes,par:w1.par,pid:fpid(w1.name,w1.country)}:null,
+          w2:w2?{name:w2.name,country:w2.country,vsPar:w2.vsPar,total:w2.totalStrokes,par:w2.par,pid:fpid(w2.name,w2.country)}:null,
+          w3:w3?{name:w3.name,country:w3.country,vsPar:w3.vsPar,total:w3.totalStrokes,par:w3.par,pid:fpid(w3.name,w3.country)}:null
         });
       });
     });
@@ -456,6 +478,7 @@ function PDetail({player,onTournClick}){
           <div style={{textAlign:"center",minWidth:50}}><div style={{fontSize:20,fontWeight:800,color:T.bronze}}>{player.podiums}</div><div style={{fontSize:10,color:T.textMuted,fontWeight:600}}>{"\ud83c\udfc5 P\u00f3dios"}</div></div>
           {player.bestScore!=null&&<div style={{textAlign:"center",minWidth:50}}><div style={Object.assign({fontSize:20,fontWeight:800},sClr(player.bestScore))}>{fmtS(player.bestScore)}</div><div style={{fontSize:10,color:T.textMuted,fontWeight:600}}>{"Melhor ("+player.bestYear+")"}</div></div>}
           {avgVP!=null&&<div style={{textAlign:"center",minWidth:50}}><div style={Object.assign({fontSize:20,fontWeight:800},sClr(avgVP))}>{avgVP>0?"+"+avgVP:avgVP===0?"E":""+avgVP}</div><div style={{fontSize:10,color:T.textMuted,fontWeight:600}}>{"\u00d8 vs Par"}</div></div>}
+          {player.slope!=null&&<div style={{textAlign:"center",minWidth:50}}><div style={{fontSize:20,fontWeight:800,color:player.slope<0?T.green:player.slope>0?"#ef4444":"#6b7280"}}>{player.slope>0?"+"+player.slope:player.slope===0?"0":""+player.slope}</div><div style={{fontSize:10,color:T.textMuted,fontWeight:600}}>Slope/ano</div></div>}
         </div>
         <div style={{display:"flex",gap:4,marginTop:10,flexWrap:"wrap"}}>
           <span style={Object.assign({},pillSm,{background:"#d1fae5",color:"#065f46"})}>{player.years[0]+"\u2013"+player.years[player.years.length-1]}</span>
@@ -652,6 +675,72 @@ function SeriesDetail({seriesName,data,onNavigate}){
   );
 }
 
+/* ===== COMPARE VIEW ===== */
+function CompareView({players,onClose,onPlayerClick}){
+  if(!players||players.length<2)return null;
+  var maxT=Math.max.apply(null,players.map(function(p){return p.numT;}));
+  var allYears={};players.forEach(function(p){(p.yearAvgs||[]).forEach(function(y){allYears[y.year]=1;});});
+  var years=Object.keys(allYears).map(Number).sort();
+  var chartData=years.map(function(yr){var pt={year:yr};players.forEach(function(p,i){var yd=(p.yearAvgs||[]).find(function(y){return y.year===yr;});pt["p"+i]=yd?Math.round(yd.avg*10)/10:null;});return pt;});
+  var CMP_COLORS=["#2563eb","#dc2626","#059669"];
+  return(
+    <div style={{flex:1,overflowY:"auto",background:T.surface,padding:"28px 32px"}}>
+      <div style={{maxWidth:1100,margin:"0 auto"}}>
+        <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:22}}>
+          <button onClick={onClose} style={{background:"none",border:"none",cursor:"pointer",fontSize:22,color:T.textMuted}}>{"\u2190"}</button>
+          <h1 style={{fontSize:24,fontWeight:900,color:T.textDark,fontFamily:F}}>{"Compara\u00e7\u00e3o de Jogadores"}</h1>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat("+players.length+",1fr)",gap:16,marginBottom:24}}>
+          {players.map(function(p,i){return(
+            <div key={p.id} style={{background:"#fff",borderRadius:14,padding:20,border:"3px solid "+CMP_COLORS[i],cursor:"pointer"}} onClick={function(){onPlayerClick(p.id);}}>
+              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+                <div style={{width:8,height:8,borderRadius:4,background:CMP_COLORS[i]}}/>
+                <span style={{fontSize:20}}>{flag(p.country)}</span>
+                <span style={{fontSize:16,fontWeight:800,color:T.textDark}}>{p.name}</span>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8}}>
+                {[
+                  ["Torneios",p.numT+"T"],
+                  ["\ud83c\udfc6",p.wins||0],
+                  ["\ud83c\udfc5",p.podiums||0],
+                  ["Melhor",fmtS(p.bestScore)],
+                  ["\u00d8 vs Par",p.avgVsPar!=null?fmtS(p.avgVsPar):"\u2013"],
+                  ["Slope",p.slope!=null?(p.slope>0?"+":"")+p.slope+"/y":"\u2013"],
+                  ["Nasc.","~"+(p.birth||"?")],
+                  ["Anos",p.years[0]+"\u2013"+p.years[p.years.length-1]],
+                  ["\u00dalt. Cat",p.lastCategory||"\u2013"]
+                ].map(function(e,j){return<div key={j}><div style={{fontSize:10,color:T.textMuted}}>{e[0]}</div><div style={Object.assign({fontSize:15,fontWeight:700},typeof e[1]==="string"&&e[1].match(/^[+-]/)?sClr(parseFloat(e[1])):{})}>{e[1]}</div></div>;})}
+              </div>
+            </div>
+          );})}
+        </div>
+        {chartData.length>=2&&<div style={{background:"#fff",borderRadius:14,padding:20,marginBottom:24,border:"1px solid "+T.borderLight}}>
+          <div style={{fontSize:14,fontWeight:700,color:T.textDark,marginBottom:14}}>{"\u00d8 vs Par por ano"}</div>
+          <ResponsiveContainer width="100%" height={250}>
+            <LineChart data={chartData} margin={{top:5,right:20,bottom:5,left:-15}}>
+              <CartesianGrid strokeDasharray="3 3" stroke={T.borderLight}/>
+              <XAxis dataKey="year" tick={{fontSize:12,fill:T.textMuted}}/>
+              <YAxis tick={{fontSize:12,fill:T.textMuted}}/>
+              <RTooltip contentStyle={{fontSize:12,borderRadius:8,border:"none",boxShadow:"0 4px 20px rgba(0,0,0,0.12)"}}/>
+              {players.map(function(p,i){return<Line key={p.id} type="monotone" dataKey={"p"+i} stroke={CMP_COLORS[i]} strokeWidth={2.5} dot={{r:4,fill:CMP_COLORS[i]}} name={p.name} connectNulls/>;})}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>}
+        <div style={{background:"#fff",borderRadius:14,padding:20,border:"1px solid "+T.borderLight}}>
+          <div style={{fontSize:14,fontWeight:700,color:T.textDark,marginBottom:14}}>Torneios em comum</div>
+          {function(){
+            var tSets=players.map(function(p){var s={};p.appearances.forEach(function(a){s[a.tournKey]=a;});return s;});
+            var allKeys={};tSets.forEach(function(s){Object.keys(s).forEach(function(k){allKeys[k]=(allKeys[k]||0)+1;});});
+            var common=Object.keys(allKeys).filter(function(k){return allKeys[k]===players.length;}).sort(function(a,b){var ya=tSets[0][a],yb=tSets[0][b];return(yb?yb.year:0)-(ya?ya.year:0);});
+            if(!common.length)return<div style={{color:T.textMuted,fontSize:13}}>Sem torneios em comum</div>;
+            return<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={thS}>Torneio</th>{players.map(function(p,i){return<th key={i} style={Object.assign({},thS,{textAlign:"center",color:CMP_COLORS[i]})}>{p.name.split(" ")[0]}</th>;})}</tr></thead><tbody>{common.map(function(k,ci){var a0=tSets[0][k];return<tr key={k} style={{background:ci%2?T.surfaceAlt:"#fff"}}><td style={Object.assign({},tdS,{fontWeight:600,fontSize:13})}>{a0.tournament}</td>{players.map(function(p,i){var a=tSets[i][k];return<td key={i} style={Object.assign({},tdS,{textAlign:"center",fontWeight:700},a?sClr(a.vsPar):{})}>{a?(a.pos?a.pos+"/"+a.catTotal+" ":"")+fmtS(a.vsPar):"\u2013"}</td>;})}</tr>;})}</tbody></table>;
+          }()}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App(){
   var _d=useState(null),data=_d[0],setData=_d[1];
   var _l=useState(false),loading=_l[0],setLoading=_l[1];
@@ -669,6 +758,9 @@ function App(){
   var _ts=useState(""),tSearch=_ts[0],setTSearch=_ts[1];
   var _ty=useState("all"),tYearF=_ty[0],setTYearF=_ty[1];
   var _tc=useState("all"),tCatF=_tc[0],setTCatF=_tc[1];
+  var _cmp=useState([]),compareIds=_cmp[0],setCompareIds=_cmp[1];
+  var _plVis=useState(100),plVisible=_plVis[0],setPlVisible=_plVis[1];
+  var plListRef=useRef(null);
   var fileRef=useRef(null);var folderRef=useRef(null);
   var histRef=useRef([]);
   var navState=useRef({});
@@ -785,7 +877,18 @@ function App(){
   var selTournData=useMemo(function(){return data&&data.tournaments.find(function(t){return t.key===selTourn;});},[data,selTourn]);
   var selPlayerData=useMemo(function(){return data&&data.players.find(function(p){return p.id===selPlayer;});},[data,selPlayer]);
 
-  if(!data)return(
+  if(!data){
+    if(loading)return(
+      <div style={{fontFamily:F,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(160deg, "+T.bg+" 0%, #0d2137 40%, #0a3026 100%)",color:"#fff"}}>
+        <div style={{textAlign:"center"}}>
+          <div style={{width:80,height:80,borderRadius:24,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:38,marginBottom:16,boxShadow:"0 8px 32px "+T.accent+"30",animation:"pulse 1.5s ease-in-out infinite"}}>{"\u26f3"}</div>
+          <h1 style={{fontSize:28,fontWeight:900,margin:"0 0 8px"}}>USKids Golf</h1>
+          {status&&<div style={{color:T.accent,fontSize:14,fontWeight:500}}>{status}</div>}
+          <style>{"@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(.95)}}"}</style>
+        </div>
+      </div>
+    );
+    return(
     <div onDrop={handleDrop} onDragOver={handleDragOver} style={{fontFamily:F,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(160deg, "+T.bg+" 0%, #0d2137 40%, #0a3026 100%)",color:"#fff",padding:24}}>
       <div style={{textAlign:"center",maxWidth:520}}>
         <div style={{width:80,height:80,borderRadius:24,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:38,marginBottom:16,boxShadow:"0 8px 32px "+T.accent+"30"}}>{"\u26f3"}</div>
@@ -820,6 +923,7 @@ function App(){
       </div>
     </div>
   );
+  }
 
   var navItems=[{key:"dashboard",icon:"\ud83d\udcca",label:"Dashboard"},{key:"palmares",icon:"\ud83c\udfc5",label:"Palmar\u00e9s"},{key:"tournaments",icon:"\ud83c\udfc6",label:"Torneios"},{key:"players",icon:"\ud83d\udc64",label:"Jogadores"},{key:"rankings",icon:"\ud83e\udd47",label:"Rankings"}];
   var tcKeys=data.tournCats?Object.keys(data.tournCats).sort():[];
@@ -834,6 +938,7 @@ function App(){
     </div>
     <div style={{flex:1,display:"flex",overflow:"hidden"}}>
       {view==="dashboard"&&<Dashboard data={data} onNavigate={navigate}/>}
+      {view==="compare"&&<CompareView players={compareIds.map(function(id){return data.players.find(function(p){return p.id===id;});}).filter(Boolean)} onClose={function(){setView("players");}} onPlayerClick={function(id){pushHist();setSelPlayer(id);setView("players");}}/>}
       {view==="palmares"&&<Palmares data={data} onNavigate={navigate}/>}
       {view==="rankings"&&<Rankings data={data} onNavigate={navigate}/>}
         {view==="series"&&selSeries&&<SeriesDetail seriesName={selSeries} data={data} onNavigate={navigate}/>}
@@ -908,8 +1013,10 @@ function App(){
             </div>
             <div style={{fontSize:11,color:T.textMuted,marginTop:6,fontWeight:600}}>{filteredPlayers.length+" jogadores"}</div>
           </div>
-          <div style={{flex:1,overflowY:"auto"}}>
-            {filteredPlayers.slice(0,500).map(function(p){return(<button key={p.id} onClick={function(){setSelPlayer(p.id);}} style={{display:"block",width:"100%",textAlign:"left",padding:"10px 16px",border:"none",borderBottom:"1px solid "+T.surfaceAlt,cursor:"pointer",background:selPlayer===p.id?T.accentSoft:"transparent",borderLeft:selPlayer===p.id?"3px solid "+T.accent:"3px solid transparent",fontFamily:F}}>
+          <div ref={plListRef} style={{flex:1,overflowY:"auto"}} onScroll={function(e){var el=e.target;if(el.scrollTop+el.clientHeight>=el.scrollHeight-100&&plVisible<filteredPlayers.length)setPlVisible(function(v){return Math.min(v+100,filteredPlayers.length);});}}>
+            {filteredPlayers.slice(0,plVisible).map(function(p){var isCmp=compareIds.indexOf(p.id)>=0;return(<div key={p.id} style={{display:"flex",alignItems:"stretch",borderBottom:"1px solid "+T.surfaceAlt}}>
+              <button onClick={function(){var cur=compareIds.slice();var idx=cur.indexOf(p.id);if(idx>=0)cur.splice(idx,1);else if(cur.length<3)cur.push(p.id);setCompareIds(cur);}} style={{width:28,flexShrink:0,border:"none",background:isCmp?"#dbeafe":"transparent",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,color:isCmp?"#2563eb":"#d1d5db"}}>{isCmp?"\u2713":"\u25cb"}</button>
+              <button onClick={function(){pushHist();setSelPlayer(p.id);}} style={{display:"block",flex:1,textAlign:"left",padding:"10px 12px",border:"none",borderLeft:"none",cursor:"pointer",background:selPlayer===p.id?T.accentSoft:"transparent",fontFamily:F}}>
               <div style={{display:"flex",alignItems:"center",gap:8}}>
                 <span style={{fontSize:16}}>{flag(p.country)||p.country}</span>
                 <span style={{fontWeight:700,fontSize:13,color:T.textDark}}>{p.name}</span>
@@ -920,15 +1027,22 @@ function App(){
               <div style={{fontSize:11,color:T.textMuted,marginTop:4,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
                 {p.birth&&<span style={{color:"#7c3aed",fontWeight:600}}>{"~"+p.birth}</span>}
                 <span>{p.years[0]+"\u2013"+p.years[p.years.length-1]}</span>
+                {p.slope!=null&&<span style={{fontWeight:700,color:p.slope<0?T.green:p.slope>0?"#ef4444":"#9ca3af"}}>{(p.slope>0?"+":"")+p.slope+"/y"}</span>}
                 <span style={Object.assign({},pillSm,catStyle(p.lastCategory),{fontSize:10})}>{p.lastCategory}</span>
               </div>
-            </button>);})}
-            {filteredPlayers.length>500&&<div style={{padding:14,textAlign:"center",fontSize:12,color:T.textMuted}}>{"A mostrar 500 de "+filteredPlayers.length}</div>}
+            </button></div>);})}
+            {plVisible<filteredPlayers.length&&<div style={{padding:14,textAlign:"center",fontSize:12,color:T.textMuted}}>{"A mostrar "+plVisible+" de "+filteredPlayers.length+" (scroll para mais)"}</div>}
           </div>
         </div>
         <div style={{flex:1,overflow:"hidden",display:"flex",flexDirection:"column",background:T.surface}}>{selPlayerData?<PDetail key={selPlayerData.id} player={selPlayerData} onTournClick={goToTourn}/>:<div style={{display:"flex",alignItems:"center",justifyContent:"center",flex:1,color:T.textMuted,fontSize:15}}>Seleciona um jogador</div>}</div>
       </React.Fragment>}
     </div>
+    {compareIds.length>0&&view!=="compare"&&<div style={{position:"fixed",bottom:20,left:"50%",transform:"translateX(-50%)",background:T.textDark,color:"#fff",borderRadius:14,padding:"10px 20px",display:"flex",alignItems:"center",gap:12,boxShadow:"0 8px 32px rgba(0,0,0,0.25)",zIndex:99,fontFamily:F}}>
+      {compareIds.map(function(id){var p=data.players.find(function(pl){return pl.id===id;});return p?<span key={id} style={{display:"flex",alignItems:"center",gap:4,fontSize:13}}>{flag(p.country)}<b>{p.name.split(" ")[0]}</b><button onClick={function(){setCompareIds(compareIds.filter(function(x){return x!==id;}));}} style={{background:"none",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:16,padding:0}}>{"\u00d7"}</button></span>:null;})}
+      {compareIds.length>=2&&<button onClick={function(){pushHist();setView("compare");}} style={{background:T.accent,color:"#fff",border:"none",borderRadius:8,padding:"6px 14px",cursor:"pointer",fontWeight:700,fontSize:12,fontFamily:F}}>Comparar {compareIds.length}</button>}
+      {compareIds.length<2&&<span style={{fontSize:12,color:"#94a3b8"}}>{"Seleciona "+(2-compareIds.length)+" mais"}</span>}
+      <button onClick={function(){setCompareIds([]);}} style={{background:"none",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:11,textDecoration:"underline"}}>Limpar</button>
+    </div>}
   </div>);
 }
 
