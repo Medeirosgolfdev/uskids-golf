@@ -36,7 +36,7 @@ function extractAgeRange(cat){if(!cat)return null;var c=cat.replace(/\s+/g," ").
 function extractGender(cat){if(!cat)return"?";if(/Girls/i.test(cat))return"F";if(/Boys/i.test(cat))return"M";return"?";}
 function estimateBirth(apps){var e=[];for(var i=0;i<apps.length;i++){var a=apps[i];var r=extractAgeRange(a.category);if(r&&a.year){e.push(a.year-r.max);e.push(a.year-r.min);}}if(!e.length)return null;return Math.round(e.reduce(function(a,b){return a+b;},0)/e.length);}
 function canMerge(person,app){if(person.gender!=="?"&&app.gender!=="?"&&person.gender!==app.gender)return false;for(var i=0;i<person.appearances.length;i++){if(person.appearances[i].tournKey===app.tournKey&&person.appearances[i].category!==app.category)return false;}var appRange=extractAgeRange(app.category);if(appRange){for(var j=0;j<person.appearances.length;j++){var prev=person.appearances[j];var prevRange=extractAgeRange(prev.category);if(!prevRange)continue;var yd=app.year-prev.year;if(yd>0){if(appRange.max<prevRange.min-1)return false;if(appRange.min>prevRange.max+yd+1)return false;}else if(yd<0){if(prevRange.max<appRange.min-1)return false;if(prevRange.min>appRange.max+Math.abs(yd)+1)return false;}else{if(appRange.min>prevRange.max+1||appRange.max<prevRange.min-1)return false;}var pBmin=prev.year-prevRange.max,pBmax=prev.year-prevRange.min;var aBmin=app.year-appRange.max,aBmax=app.year-appRange.min;if(aBmin>pBmax+1||aBmax<pBmin-1)return false;}}return true;}
-function calcPar(hpr,n){return hpr*((hpr&&hpr<=9)?3:4)*n;}
+function calcPar(hpr,n){return hpr*4*n;}
 function dateSort(d){if(!d)return"";if(/^\d{4}-/.test(d))return d;var m=d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);if(m)return m[3]+"-"+("0"+m[1]).slice(-2)+"-"+("0"+m[2]).slice(-2);return d;}
 
 function adaptFormat(raw){
@@ -100,12 +100,13 @@ function processData(raw){
         var teeName=(pd.teeMarkerName||"").trim();
         var rnds=[],totS=0;
         var rEntries=Object.entries(pd.rounds||{});
-        for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rd.num_holes||strokes.length});totS+=total;}
+        for(var ri=0;ri<rEntries.length;ri++){var rn=rEntries[ri][0],rd=rEntries[ri][1];var strokes=(rd.strokes||[]).filter(function(s){return s>0;});var total=rd.num_strokes||strokes.reduce(function(a,b){return a+b;},0);var rHoles=strokes.length>0?strokes.length:(rd.num_holes||0);rnds.push({round:parseInt(rn),total:total,strokes:strokes,holes:rHoles});totS+=total;}
         rnds.sort(function(a,b){return a.round-b.round;});
         rnds=rnds.filter(function(r){return r.total>0;});
         var isWD=pd.status!==1||totS===0;
         var numR=rnds.length||1;
-        var par=0;for(var rpi=0;rpi<rnds.length;rpi++){var rh=rnds[rpi].holes;var rPar=rh<=9?3:4;rnds[rpi].par=rh*rPar;par+=rh*rPar;}
+        var agR=extractAgeRange(catName);var isYoung9=agR&&((/girl/i.test(catName))?agR.max<=10:agR.max<=8);
+        var par=0;for(var rpi=0;rpi<rnds.length;rpi++){var rh=rnds[rpi].holes;var rPar=(rh<=9&&isYoung9)?3:4;rnds[rpi].par=rh*rPar;par+=rh*rPar;}
         if(par===0)par=calcPar(hpr,numR);
         var vsPar=isWD?null:totS-par;
         var app={first:first,last:last,name:name,country:country,place:place,gender:gender,tournKey:tKey,tournament:t.name,year:t.year,date:tInfo.date,category:catName,hpr:hpr,par:par,numRounds:numR,course:coursesStr,saLink:saLink,totalStrokes:isWD?null:totS,vsPar:vsPar,status:isWD?"WD":"OK",rounds:rnds,pos:null,catTotal:0,teeName:teeName};
@@ -213,10 +214,10 @@ function Dashboard({data,onNavigate}){
     var maxY=data.years[data.years.length-1]||2025;
     var recent=data.tournaments.filter(function(t){return t.year>=maxY;}).sort(function(a,b){return(b.dateISO||"").localeCompare(a.dateISO||"");}).slice(0,8);
     var topWinners=data.players.filter(function(p){return p.wins>0;}).sort(function(a,b){return b.wins-a.wins||b.podiums-a.podiums;}).slice(0,10);
-    var ageBests={};data.players.forEach(function(p){p.appearances.forEach(function(a){if(a.status==="OK"&&a.vsPar!=null){var cat=a.category;if(!ageBests[cat])ageBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,year:a.year,playerId:null};if(a.vsPar<ageBests[cat].vsPar||(a.vsPar===ageBests[cat].vsPar&&a.year>ageBests[cat].year)){ageBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,year:a.year,playerId:null};}}});});
+    var ageBests={};data.players.forEach(function(p){p.appearances.forEach(function(a){if(a.status==="OK"&&a.vsPar!=null){var cat=a.category;if(!ageBests[cat])ageBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,year:a.year,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};if(a.vsPar<ageBests[cat].vsPar||(a.vsPar===ageBests[cat].vsPar&&a.year>ageBests[cat].year)){ageBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,year:a.year,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};}}});});
     Object.values(ageBests).forEach(function(b){var match=data.players.find(function(p){return p.name===b.name&&p.country===b.country;});if(match)b.playerId=match.id;});
     var abList=Object.values(ageBests).sort(function(a,b){var ga=extractGender(a.cat)==="F"?1:0,gb=extractGender(b.cat)==="F"?1:0;if(ga!==gb)return ga-gb;var ra=extractAgeRange(a.cat),rb=extractAgeRange(b.cat);return(ra?ra.min:99)-(rb?rb.min:99);});
-    var recentBests={};data.players.forEach(function(p){p.appearances.forEach(function(a){if(a.status==="OK"&&a.vsPar!=null&&a.year===maxY){var cat=a.category;if(!recentBests[cat])recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,playerId:null};if(a.vsPar<recentBests[cat].vsPar){recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,playerId:null};}}});});
+    var recentBests={};data.players.forEach(function(p){p.appearances.forEach(function(a){if(a.status==="OK"&&a.vsPar!=null&&a.year===maxY){var cat=a.category;if(!recentBests[cat])recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};if(a.vsPar<recentBests[cat].vsPar){recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};}}});});
     Object.values(recentBests).forEach(function(b){var match=data.players.find(function(p){return p.name===b.name&&p.country===b.country;});if(match)b.playerId=match.id;});
     var rbList=Object.values(recentBests).sort(function(a,b){var ga=extractGender(a.cat)==="F"?1:0,gb=extractGender(b.cat)==="F"?1:0;if(ga!==gb)return ga-gb;var ra=extractAgeRange(a.cat),rb=extractAgeRange(b.cat);return(ra?ra.min:99)-(rb?rb.min:99);});
     return{yearData:yd,topCountries:topC,gc:gc,veterans:vets,bestScorers:best,recent:recent,topWinners:topWinners,maxY:maxY,ageBests:abList,recentBests:rbList};
@@ -251,6 +252,7 @@ function Dashboard({data,onNavigate}){
             <div style={Object.assign({},pillSm,cs,{marginBottom:6})}>{b.cat}</div>
             <div style={Object.assign({fontSize:20,fontWeight:800},sClr(b.vsPar))}>{fmtS(b.vsPar)}</div>
             <div style={{fontSize:12,fontWeight:600,color:T.textDark,marginTop:3}}>{flag(b.country)}{" "}{b.name}</div>
+            <div style={{fontSize:10,color:T.textMuted,marginTop:2}}>{b.total+"/"+(b.par||"?")+" ("+b.nR+"R)"}</div>
           </div>);})}
           </div>
         </div></div>}
@@ -260,7 +262,7 @@ function Dashboard({data,onNavigate}){
             <div style={Object.assign({},pillSm,cs,{marginBottom:4,fontSize:10})}>{b.cat}</div>
             <div style={Object.assign({fontSize:17,fontWeight:800},sClr(b.vsPar))}>{fmtS(b.vsPar)}</div>
             <div style={{fontSize:11,color:T.textDark,marginTop:2}}>{flag(b.country)}{" "}{b.name}</div>
-            <div style={{fontSize:10,color:T.textMuted}}>{b.year}</div>
+            <div style={{fontSize:10,color:T.textMuted}}>{b.year}{" \u00b7 "}{b.total+"/"+(b.par||"?")+" ("+b.nR+"R)"}</div>
           </div>);})}
           </div>
         </div></div>}
@@ -432,6 +434,12 @@ function App(){
   var _ty=useState("all"),tYearF=_ty[0],setTYearF=_ty[1];
   var _tc=useState("all"),tCatF=_tc[0],setTCatF=_tc[1];
   var fileRef=useRef(null);
+  var histRef=useRef([]);
+  var navState=useRef({});
+  navState.current={view:view,selTourn:selTourn,selPlayer:selPlayer,search:search,countryF:countryF,genderF:genderF,catF:catF,tSearch:tSearch,tYearF:tYearF,tCatF:tCatF};
+  function pushHist(){histRef.current.push(Object.assign({},navState.current));}
+  function goBack(){if(!histRef.current.length)return;var h=histRef.current.pop();setView(h.view);setSelTourn(h.selTourn);setSelPlayer(h.selPlayer);setSearch(h.search);setCountryF(h.countryF);setGenderF(h.genderF);setCatF(h.catF);setTSearch(h.tSearch);setTYearF(h.tYearF);setTCatF(h.tCatF);}
+  var canGoBack=histRef.current.length>0;
 
   function mergeAndProcess(texts,fileNames){
     setStatus("A processar "+texts.length+" ficheiro(s)...");
@@ -497,9 +505,9 @@ function App(){
 
   var filteredPlayers=useMemo(function(){if(!data)return[];var list=data.players;if(search){var q=search.toLowerCase();list=list.filter(function(p){return p.name.toLowerCase().indexOf(q)>=0||p.place.toLowerCase().indexOf(q)>=0||countryName(p.country).toLowerCase().indexOf(q)>=0;});}if(countryF!=="all")list=list.filter(function(p){return p.country===countryF;});if(genderF!=="all")list=list.filter(function(p){return p.gender===genderF;});if(catF!=="all")list=list.filter(function(p){return p.lastCategory===catF;});if(sortBy==="name")return list.slice().sort(function(a,b){return a.name.localeCompare(b.name);});if(sortBy==="country")return list.slice().sort(function(a,b){return countryName(a.country).localeCompare(countryName(b.country));});if(sortBy==="recent")return list.slice().sort(function(a,b){return b.years[b.years.length-1]-a.years[a.years.length-1];});return list;},[data,search,countryF,genderF,catF,sortBy]);
 
-  var findPlayer=useCallback(function(name,country,gender){if(!data)return;var p=data.players.find(function(pl){return pl.name===name&&pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender;});if(!p)p=data.players.find(function(pl){return pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender&&pl.appearances.some(function(a){return a.name===name;});});if(p){setSelPlayer(p.id);setView("players");}},[data]);
-  var goToTourn=useCallback(function(tKey){setSelTourn(tKey);setView("tournaments");},[]);
-  var navigate=useCallback(function(v,opts){setView(v);if(!opts)return;if(v==="players"){if(opts.id!=null)setSelPlayer(opts.id);if(opts.country){setCountryF(opts.country);setSearch("");setGenderF("all");setCatF("all");}if(opts.search){setSearch(opts.search);setCountryF("all");setGenderF("all");setCatF("all");}}if(v==="tournaments"&&opts.search){setTSearch(opts.search);setTYearF("all");setTCatF("all");}},[]);
+  var findPlayer=useCallback(function(name,country,gender){if(!data)return;var p=data.players.find(function(pl){return pl.name===name&&pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender;});if(!p)p=data.players.find(function(pl){return pl.country.toLowerCase()===country.toLowerCase()&&pl.gender===gender&&pl.appearances.some(function(a){return a.name===name;});});if(p){pushHist();setSelPlayer(p.id);setView("players");}},[data]);
+  var goToTourn=useCallback(function(tKey){pushHist();setSelTourn(tKey);setView("tournaments");},[]);
+  var navigate=useCallback(function(v,opts){pushHist();setView(v);if(!opts)return;if(v==="players"){if(opts.id!=null)setSelPlayer(opts.id);if(opts.country){setCountryF(opts.country);setSearch("");setGenderF("all");setCatF("all");}if(opts.search){setSearch(opts.search);setCountryF("all");setGenderF("all");setCatF("all");}}if(v==="tournaments"&&opts.search){setTSearch(opts.search);setTYearF("all");setTCatF("all");}},[]);
   var selTournData=useMemo(function(){return data&&data.tournaments.find(function(t){return t.key===selTourn;});},[data,selTourn]);
   var selPlayerData=useMemo(function(){return data&&data.players.find(function(p){return p.id===selPlayer;});},[data,selPlayer]);
 
@@ -523,7 +531,8 @@ function App(){
 
   return(<div style={{fontFamily:F,height:"100vh",display:"flex",background:T.surface}}>
     <div style={{width:68,background:T.bg,display:"flex",flexDirection:"column",alignItems:"center",padding:"14px 0",flexShrink:0,gap:4}}>
-      <div style={{width:40,height:40,borderRadius:12,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,marginBottom:18,boxShadow:"0 2px 12px "+T.accent+"30"}}>{"\u26f3"}</div>
+      <div style={{width:40,height:40,borderRadius:12,background:"linear-gradient(135deg, "+T.accent+", #16a34a)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,marginBottom:8,boxShadow:"0 2px 12px "+T.accent+"30"}}>{"\u26f3"}</div>
+      {histRef.current.length>0&&<button onClick={goBack} style={{width:52,height:32,borderRadius:8,border:"none",cursor:"pointer",background:T.card,color:T.accent,fontSize:14,fontWeight:700,marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center",gap:2}} title="Voltar">{"\u2190"}<span style={{fontSize:9}}>Back</span></button>}
       {navItems.map(function(n){return(<button key={n.key} onClick={function(){setView(n.key);}} style={{width:52,height:52,borderRadius:12,border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,background:view===n.key?T.card:"transparent",color:view===n.key?T.accent:T.textMuted,fontSize:18}} title={n.label}><span>{n.icon}</span><span style={{fontSize:9,fontWeight:700,letterSpacing:0.5}}>{n.label.substring(0,5)}</span></button>);})}
       <div style={{flex:1}}/>
       <button onClick={function(){setData(null);}} style={{width:40,height:40,borderRadius:10,border:"none",cursor:"pointer",background:"transparent",color:T.textMuted,fontSize:16}}>&times;</button>
