@@ -36,7 +36,7 @@ function extractAgeRange(cat){if(!cat)return null;var c=cat.replace(/\s+/g," ").
 function extractGender(cat){if(!cat)return"?";if(/Girls/i.test(cat))return"F";if(/Boys/i.test(cat))return"M";return"?";}
 function estimateBirth(apps){var e=[];for(var i=0;i<apps.length;i++){var a=apps[i];var r=extractAgeRange(a.category);if(r&&a.year){e.push(a.year-r.max);e.push(a.year-r.min);}}if(!e.length)return null;return Math.round(e.reduce(function(a,b){return a+b;},0)/e.length);}
 function canMerge(person,app){if(person.gender!=="?"&&app.gender!=="?"&&person.gender!==app.gender)return false;for(var i=0;i<person.appearances.length;i++){if(person.appearances[i].tournKey===app.tournKey&&person.appearances[i].category!==app.category)return false;}var appRange=extractAgeRange(app.category);if(appRange){for(var j=0;j<person.appearances.length;j++){var prev=person.appearances[j];var prevRange=extractAgeRange(prev.category);if(!prevRange)continue;var yd=app.year-prev.year;if(yd>0){if(appRange.max<prevRange.min-1)return false;if(appRange.min>prevRange.max+yd+1)return false;}else if(yd<0){if(prevRange.max<appRange.min-1)return false;if(prevRange.min>appRange.max+Math.abs(yd)+1)return false;}else{if(appRange.min>prevRange.max+1||appRange.max<prevRange.min-1)return false;}var pBmin=prev.year-prevRange.max,pBmax=prev.year-prevRange.min;var aBmin=app.year-appRange.max,aBmax=app.year-appRange.min;if(aBmin>pBmax+1||aBmax<pBmin-1)return false;}}return true;}
-function calcPar(hpr,n){return hpr*4*n;}
+function calcPar(hpr,n){return hpr*((hpr&&hpr<=9)?3:4)*n;}
 function dateSort(d){if(!d)return"";if(/^\d{4}-/.test(d))return d;var m=d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);if(m)return m[3]+"-"+("0"+m[1]).slice(-2)+"-"+("0"+m[2]).slice(-2);return d;}
 
 function adaptFormat(raw){
@@ -220,8 +220,13 @@ function Dashboard({data,onNavigate}){
     var recentBests={};data.players.forEach(function(p){p.appearances.forEach(function(a){if(a.status==="OK"&&a.vsPar!=null&&a.year===maxY){var cat=a.category;if(!recentBests[cat])recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};if(a.vsPar<recentBests[cat].vsPar){recentBests[cat]={cat:cat,name:a.name,country:a.country,vsPar:a.vsPar,total:a.totalStrokes,par:a.par,nR:a.numRounds,hpr:a.hpr,tournament:a.tournament,playerId:null};}}});});
     Object.values(recentBests).forEach(function(b){var match=data.players.find(function(p){return p.name===b.name&&p.country===b.country;});if(match)b.playerId=match.id;});
     var rbList=Object.values(recentBests).sort(function(a,b){var ga=extractGender(a.cat)==="F"?1:0,gb=extractGender(b.cat)==="F"?1:0;if(ga!==gb)return ga-gb;var ra=extractAgeRange(a.cat),rb=extractAgeRange(b.cat);return(ra?ra.min:99)-(rb?rb.min:99);});
-    return{yearData:yd,topCountries:topC,gc:gc,veterans:vets,bestScorers:best,recent:recent,topWinners:topWinners,maxY:maxY,ageBests:abList,recentBests:rbList};
+    return{yearData:yd,topCountries:topC,gc:gc,veterans:vets,bestScorers:best,recent:recent,topWinners:topWinners,maxY:maxY,ageBests:abList,recentBests:rbList,tby:tby};
   },[data]);
+  var _dy=useState(stats.maxY),dashYear=_dy[0],setDashYear=_dy[1];
+  var yearTourns=useMemo(function(){
+    var list=(stats.tby[dashYear]||[]).slice().sort(function(a,b){return(a.dateISO||"").localeCompare(b.dateISO||"");});
+    return list;
+  },[stats,dashYear]);
   var CL=[T.accent,T.blue,T.gold,T.pink,"#8b5cf6","#06b6d4","#f97316","#84cc16","#e11d48","#6366f1"];
   function SC(props){return(<div style={{background:"#fff",borderRadius:14,padding:"20px 22px",border:"1px solid "+T.borderLight,flex:1,minWidth:150}}><div style={{fontSize:12,color:T.textMuted,fontWeight:600,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{props.icon}{" "}{props.label}</div><div style={{fontSize:30,fontWeight:800,color:T.textDark,fontFamily:F,lineHeight:1}}>{props.value}</div>{props.sub&&<div style={{fontSize:12,color:T.textBody,marginTop:5}}>{props.sub}</div>}</div>);}
   return(
@@ -245,6 +250,30 @@ function Dashboard({data,onNavigate}){
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:18}}>
           <div style={{background:"#fff",borderRadius:14,padding:"20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:14,fontWeight:700,color:T.textDark,marginBottom:14}}>{"Top pa\u00edses"}</div>{stats.topCountries.map(function(c,i){return(<div key={c.country} style={{display:"flex",alignItems:"center",gap:10,padding:"7px 0",borderBottom:i<stats.topCountries.length-1?"1px solid "+T.borderLight:"none"}}><span style={{fontSize:11,fontWeight:700,color:T.textMuted,width:20,textAlign:"right"}}>{i+1}</span><span style={{fontSize:18}}>{c.fl}</span><span style={{fontSize:13,fontWeight:600,color:T.textDark,flex:1}}>{c.name}</span><div style={{width:120,height:7,background:T.surfaceAlt,borderRadius:3,overflow:"hidden"}}><div style={{width:(c.count/stats.topCountries[0].count*100)+"%",height:"100%",background:CL[i%CL.length],borderRadius:3}}/></div><span style={{fontSize:13,fontWeight:700,color:T.textBody,minWidth:40,textAlign:"right"}}>{c.count}</span></div>);})}</div>
           <div style={{background:"#fff",borderRadius:14,padding:"20px",border:"1px solid "+T.borderLight}}><div style={{fontSize:14,fontWeight:700,color:T.textDark,marginBottom:14}}>Mais torneios disputados</div>{stats.veterans.map(function(p,i){return(<div key={p.id} onClick={function(){onNavigate("players",{id:p.id});}} style={{display:"flex",alignItems:"center",gap:10,padding:"7px 0",borderBottom:i<9?"1px solid "+T.borderLight:"none",cursor:"pointer"}}><span style={{fontSize:15,fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted,width:20,textAlign:"right"}}>{i+1}</span><span style={{fontSize:16}}>{flag(p.country)}</span><span style={{fontSize:13,fontWeight:600,color:T.textDark,flex:1}}>{p.name}</span>{p.wins>0&&<span style={Object.assign({},pillSm,{background:"#fef3c7",color:"#92400e"})}>{"\ud83c\udfc6"}{p.wins}</span>}<span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{p.numT}T</span></div>);})}</div>
+        </div>
+        <div style={{marginTop:28,background:"#fff",borderRadius:14,padding:"20px",border:"1px solid "+T.borderLight}}>
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
+            <div style={{fontSize:14,fontWeight:700,color:T.textDark,flex:1}}>{"\ud83d\udcc5 Calend\u00e1rio de Torneios"}</div>
+            <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>{data.years.slice().reverse().map(function(y){return<button key={y} onClick={function(){setDashYear(y);}} style={{padding:"5px 12px",border:"none",cursor:"pointer",fontSize:12,fontWeight:dashYear===y?700:500,background:dashYear===y?T.accent:"transparent",color:dashYear===y?"#fff":T.textMuted,borderRadius:8,fontFamily:F}}>{y}</button>;})}</div>
+          </div>
+          <div style={{fontSize:13,color:T.textMuted,marginBottom:12}}>{yearTourns.length+" torneios em "+dashYear}</div>
+          <table style={{width:"100%",borderCollapse:"collapse"}}>
+            <thead><tr>
+              <th style={Object.assign({},thS,{textAlign:"left",width:50})}>Data</th>
+              <th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th>
+              <th style={Object.assign({},thS,{textAlign:"center",width:80})}>Cat.</th>
+              <th style={Object.assign({},thS,{textAlign:"center",width:50})}>Cats</th>
+              <th style={Object.assign({},thS,{textAlign:"right",width:60})}>Jog.</th>
+            </tr></thead>
+            <tbody>{yearTourns.map(function(t,i){var nP=t.categories.reduce(function(s,c){return s+c.players.length;},0);var d=t.date||"";return(
+              <tr key={t.key} onClick={function(){onNavigate("tournaments",{search:t.name.replace(/\s*\d{4}\s*/g," ").replace(/\s*\(.*?\)\s*/g,"").trim()});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}>
+                <td style={Object.assign({},tdS,{fontSize:11,color:T.textMuted,whiteSpace:"nowrap"})}>{d.length>5?d.substring(0,d.lastIndexOf(" ")||d.length):d}</td>
+                <td style={Object.assign({},tdS,{fontWeight:600,fontSize:13})}>{t.name}</td>
+                <td style={Object.assign({},tdS,{textAlign:"center"})}>{t.category?<span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark,fontSize:10})}>{catLabel(t.category)}</span>:"\u2013"}</td>
+                <td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{t.categories.length}</td>
+                <td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{nP||"\u2013"}</td>
+              </tr>);})}</tbody>
+          </table>
         </div>
         {stats.recentBests.length>0&&<div style={{marginTop:28}}><div style={{background:"#fff",borderRadius:14,padding:"20px",border:"1px solid "+T.borderLight}}>
           <div style={{fontSize:14,fontWeight:700,color:T.textDark,marginBottom:14}}>{"\u2b50 Melhores scores "+stats.maxY+" (por escal\u00e3o)"}</div>
@@ -298,6 +327,64 @@ function Rankings({data,onNavigate}){
           {mode==="scores"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Jogador</th><th style={Object.assign({},thS,{textAlign:"right"})}>Melhor</th><th style={Object.assign({},thS,{textAlign:"right"})}>Ano</th><th style={Object.assign({},thS,{textAlign:"right"})}>Torneios</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("players",{id:r.id});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.fl}{" "}{r.label}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:800},sClr(r.bestScore))}>{fmtS(r.bestScore)}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{r.bestYear}</td><td style={Object.assign({},tdS,{textAlign:"right"})}>{r.numT}</td></tr>);})}</tbody></table>}
           {mode==="tournament"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>Torneio</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"right"})}>{"Total jog."}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>{"Jog./ed."}</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("series",{name:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:800,fontSize:15,color:T.accent})}>{r.totalPlayers.toLocaleString()}</td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,color:T.textDark})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",color:T.textMuted})}>{r.playerRange}</td></tr>);})}</tbody></table>}
           {mode==="series"&&<table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr><th style={Object.assign({},thS,{width:40,textAlign:"center"})}>#</th><th style={Object.assign({},thS,{textAlign:"left"})}>{"S\u00e9rie"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>Categoria</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Edi\u00e7\u00f5es"}</th><th style={Object.assign({},thS,{textAlign:"center"})}>{"Per\u00edodo"}</th><th style={Object.assign({},thS,{textAlign:"right"})}>Jogadores</th></tr></thead><tbody>{rankings.map(function(r,i){return(<tr key={r.key} onClick={function(){onNavigate("series",{name:r.searchName});}} style={{background:i%2?T.surfaceAlt:"#fff",cursor:"pointer"}}><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:800,color:i<3?[T.gold,T.silver,T.bronze][i]:T.textMuted})}>{r.rank}</td><td style={Object.assign({},tdS,{fontWeight:700,fontSize:14})}>{r.label}</td><td style={Object.assign({},tdS,{textAlign:"center",fontSize:12})}><span style={Object.assign({},pillSm,{background:T.accentSoft,color:T.accentDark})}>{r.cat}</span></td><td style={Object.assign({},tdS,{textAlign:"center",fontWeight:700,fontSize:16,color:T.accent})}>{r.editions}</td><td style={Object.assign({},tdS,{textAlign:"center",color:T.textMuted})}>{r.years}</td><td style={Object.assign({},tdS,{textAlign:"right",fontWeight:600})}>{r.players}</td></tr>);})}</tbody></table>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ===== PALMARES ===== */
+function Palmares({data,onNavigate}){
+  var _y=useState(data.years[data.years.length-1]||2025),hlYear=_y[0],setHlYear=_y[1];
+  var _cf=useState("all"),catF=_cf[0],setCatF=_cf[1];
+  var highlights=useMemo(function(){
+    var rows=[];
+    data.tournaments.forEach(function(t){
+      if(t.year!==hlYear)return;
+      if(catF!=="all"&&t.category!==catF)return;
+      t.categories.forEach(function(cat){
+        var pls=cat.players.filter(function(p){return p.status==="OK"&&p.totalStrokes!=null;});
+        if(pls.length===0)return;
+        var w1=pls[0]||null,w2=pls[1]||null,w3=pls[2]||null;
+        function findPid(name,country,gender){var pl=data.players.find(function(p){return(p.name===name||p.appearances.some(function(a){return a.name===name;}))&&p.country===country&&(p.gender===gender||p.gender==="?"||gender==="?");});return pl?pl.id:null;}
+        rows.push({tournName:t.name,tournDate:t.date,dateISO:t.dateISO,category:t.category,catName:cat.name,hpr:cat.hpr,
+          w1:w1?{name:w1.name,country:w1.country,vsPar:w1.vsPar,total:w1.totalStrokes,par:w1.par,pid:findPid(w1.name,w1.country,extractGender(cat.name))}:null,
+          w2:w2?{name:w2.name,country:w2.country,vsPar:w2.vsPar,total:w2.totalStrokes,par:w2.par,pid:findPid(w2.name,w2.country,extractGender(cat.name))}:null,
+          w3:w3?{name:w3.name,country:w3.country,vsPar:w3.vsPar,total:w3.totalStrokes,par:w3.par,pid:findPid(w3.name,w3.country,extractGender(cat.name))}:null
+        });
+      });
+    });
+    rows.sort(function(a,b){return(b.dateISO||"").localeCompare(a.dateISO||"")||a.tournName.localeCompare(b.tournName)||a.catName.localeCompare(b.catName);});
+    return rows;
+  },[data,hlYear,catF]);
+  var cats=useMemo(function(){var s={};data.tournaments.forEach(function(t){if(t.year===hlYear&&t.category)s[t.category]=1;});return Object.keys(s).sort();},[data,hlYear]);
+  function PCell(props){var w=props.w;if(!w)return<td style={Object.assign({},tdS,{color:T.textMuted})}>-</td>;return<td style={Object.assign({},tdS,{cursor:w.pid!=null?"pointer":"default"})} onClick={function(){if(w.pid!=null)onNavigate("players",{id:w.pid});}}><div style={{display:"flex",alignItems:"center",gap:6}}><span style={{fontSize:14}}>{flag(w.country)}</span><div><div style={{fontSize:12,fontWeight:600,color:w.pid!=null?T.blue:T.textDark}}>{w.name}</div><div style={{fontSize:10,color:T.textMuted}}><span style={Object.assign({fontWeight:700},sClr(w.vsPar))}>{fmtS(w.vsPar)}</span>{" "}{w.total+"/"+(w.par||"?")}</div></div></div></td>;}
+  return(
+    <div style={{flex:1,overflowY:"auto",background:T.surface,padding:"28px 32px"}}>
+      <div style={{maxWidth:1200,margin:"0 auto"}}>
+        <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:8}}>
+          <h1 style={{margin:0,fontSize:28,fontWeight:900,color:T.textDark,fontFamily:F}}>{"Palmar\u00e9s"}</h1>
+          <select value={hlYear} onChange={function(e){setHlYear(parseInt(e.target.value));}} style={{padding:"8px 14px",borderRadius:10,border:"1px solid "+T.borderLight,fontSize:14,fontWeight:700,fontFamily:F,background:"#fff"}}>{data.years.slice().reverse().map(function(y){return<option key={y} value={y}>{y}</option>;})}</select>
+          <span style={{fontSize:14,color:T.textMuted}}>{highlights.length+" resultados"}</span>
+        </div>
+        <div style={{display:"flex",gap:4,marginBottom:18,flexWrap:"wrap"}}>
+          <button onClick={function(){setCatF("all");}} style={Object.assign({},pillSm,{background:catF==="all"?T.accent:T.surfaceAlt,color:catF==="all"?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>Todos</button>
+          {cats.map(function(c){return<button key={c} onClick={function(){setCatF(c);}} style={Object.assign({},pillSm,{background:catF===c?T.accent:T.surfaceAlt,color:catF===c?"#fff":T.textMuted,border:"none",cursor:"pointer",fontFamily:F})}>{catLabel(c)}</button>;})}
+        </div>
+        <div style={{background:"#fff",borderRadius:14,border:"1px solid "+T.borderLight,overflow:"hidden"}}>
+          <table style={{width:"100%",borderCollapse:"collapse"}}><thead><tr>
+            <th style={Object.assign({},thS,{textAlign:"left",minWidth:200})}>Torneio</th>
+            <th style={Object.assign({},thS,{textAlign:"center"})}>{"Escal\u00e3o"}</th>
+            <th style={Object.assign({},thS,{textAlign:"left",minWidth:180})}>{"\ud83e\udd47 Vencedor"}</th>
+            <th style={Object.assign({},thS,{textAlign:"left",minWidth:180})}>{"\ud83e\udd48 2\u00ba"}</th>
+            <th style={Object.assign({},thS,{textAlign:"left",minWidth:180})}>{"\ud83e\udd49 3\u00ba"}</th>
+          </tr></thead><tbody>{highlights.map(function(r,i){return(<tr key={r.tournName+r.catName+i} style={{background:i%2?T.surfaceAlt:"#fff"}}>
+            <td style={Object.assign({},tdS,{fontWeight:600})}><div style={{fontSize:13}}>{r.tournName}</div><div style={{fontSize:10,color:T.textMuted}}>{r.tournDate}{r.category&&<span style={{marginLeft:6,fontSize:9,padding:"1px 5px",borderRadius:4,background:T.accentSoft,color:T.accentDark}}>{catLabel(r.category)}</span>}</div></td>
+            <td style={Object.assign({},tdS,{textAlign:"center"})}>{(function(){var cs=catStyle(r.catName);return<span style={Object.assign({},pillSm,cs,{fontSize:10})}>{r.catName}</span>;})()}</td>
+            <PCell w={r.w1}/>
+            <PCell w={r.w2}/>
+            <PCell w={r.w3}/>
+          </tr>);})}</tbody></table>
         </div>
       </div>
     </div>
@@ -607,6 +694,22 @@ function App(){
     setLoading(true);setError(null);setStatus("A procurar ficheiros...");
     async function autoLoad(){
       var loaded=[],names=[];
+      /* 0. Check ?data=URL parameter */
+      var params=new URLSearchParams(window.location.search);
+      var dataUrl=params.get("data");
+      if(dataUrl){
+        setStatus("A carregar de "+dataUrl+"...");
+        try{
+          var urls=dataUrl.split(",");
+          for(var ui=0;ui<urls.length;ui++){
+            var u=urls[ui].trim();if(!u)continue;
+            setStatus("A carregar "+(ui+1)+"/"+urls.length+"...");
+            var r2=await fetch(u);
+            if(r2.ok){var t2=await r2.text();if(t2&&t2.length>10){loaded.push(t2);names.push(u);}}
+          }
+        }catch(e){console.error("URL load error",e);}
+        if(loaded.length>0){console.log("URL-loaded "+loaded.length+" files");mergeAndProcess(loaded,names);return;}
+      }
       /* 1. Try known single files */
       var single=["uskids_COMPLETO.json","uskids_complete_v2.json","uskids_americanos.json","uskids_backup_30.json","uskids_complete.json","all_tournaments_consolidated.json","uskids_data.json","data.json"];
       for(var si=0;si<single.length;si++){
@@ -706,12 +809,18 @@ function App(){
           <div>{"2. Abre um terminal nessa pasta e corre:"}</div>
           <div style={{background:"#1e293b",padding:"6px 10px",borderRadius:6,margin:"6px 0",fontFamily:"monospace",color:T.accent}}>python -m http.server 8000</div>
           <div>{"3. Abre "}<span style={{color:T.accent}}>http://localhost:8000/USKidsGolf.html</span></div>
+          <div style={{borderTop:"1px solid #1e293b",marginTop:10,paddingTop:10}}>
+            <div style={{fontWeight:700,color:"#94a3b8",marginBottom:6}}>{"Para Vercel/online (com URL):"}</div>
+            <div>{"Aloja o JSON e adiciona ?data=URL"}</div>
+            <div style={{background:"#1e293b",padding:"6px 10px",borderRadius:6,margin:"6px 0",fontFamily:"monospace",color:T.accent,fontSize:11,wordBreak:"break-all"}}>{"USKidsGolf.html?data=https://raw.githubusercontent.com/.../data.json"}</div>
+            <div style={{fontSize:11,color:"#64748b"}}>{"V\u00e1rios ficheiros: ?data=url1.json,url2.json"}</div>
+          </div>
         </div>
       </div>
     </div>
   );
 
-  var navItems=[{key:"dashboard",icon:"\ud83d\udcca",label:"Dashboard"},{key:"tournaments",icon:"\ud83c\udfc6",label:"Torneios"},{key:"players",icon:"\ud83d\udc64",label:"Jogadores"},{key:"rankings",icon:"\ud83e\udd47",label:"Rankings"}];
+  var navItems=[{key:"dashboard",icon:"\ud83d\udcca",label:"Dashboard"},{key:"palmares",icon:"\ud83c\udfc5",label:"Palmar\u00e9s"},{key:"tournaments",icon:"\ud83c\udfc6",label:"Torneios"},{key:"players",icon:"\ud83d\udc64",label:"Jogadores"},{key:"rankings",icon:"\ud83e\udd47",label:"Rankings"}];
   var tcKeys=data.tournCats?Object.keys(data.tournCats).sort():[];
 
   return(<div style={{fontFamily:F,height:"100vh",display:"flex",background:T.surface}}>
@@ -724,6 +833,7 @@ function App(){
     </div>
     <div style={{flex:1,display:"flex",overflow:"hidden"}}>
       {view==="dashboard"&&<Dashboard data={data} onNavigate={navigate}/>}
+      {view==="palmares"&&<Palmares data={data} onNavigate={navigate}/>}
       {view==="rankings"&&<Rankings data={data} onNavigate={navigate}/>}
         {view==="series"&&selSeries&&<SeriesDetail seriesName={selSeries} data={data} onNavigate={navigate}/>}
       {view==="tournaments"&&<React.Fragment>
