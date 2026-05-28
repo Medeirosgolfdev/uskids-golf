@@ -430,7 +430,7 @@
     "category": "regional",
     "year": 2011,
     "tournament_id": "469016",
-    "name": "2011 Ka\u2019anapali Hawaiian Classic (Dec 19)",
+    "name": "2011 Ka’anapali Hawaiian Classic (Dec 19)",
     "signupanytime_t": null
   },
   {
@@ -7913,7 +7913,7 @@
     "category": "international-local",
     "year": null,
     "tournament_id": "517477",
-    "name": "San Sebasti\u00e1n Club de Golf (Mar 1)",
+    "name": "San Sebastián Club de Golf (Mar 1)",
     "signupanytime_t": "21551",
     "region": "Buenos Aires",
     "region_id": "498534",
@@ -8058,5 +8058,109 @@
     "region": "Puerto Rico",
     "region_id": "512734",
     "region_slug": "puerto-rico-pr"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "517061",
+    "name": "Jekyll Island Cup 2026    \n           (Mar 28)",
+    "signupanytime_t": "21133",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "517558",
+    "name": "Texas Open 2026    \n           (May 9)",
+    "signupanytime_t": "21620",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517714",
+    "name": "2026 Arkansas State Invitational    \n           (Apr 18)",
+    "signupanytime_t": "21722",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517776",
+    "name": "2026 Florida - Spring State Invitational    \n           (May 16)",
+    "signupanytime_t": "21845",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517475",
+    "name": "2026 Hawaii State Invitational    \n           (Mar 28)",
+    "signupanytime_t": "21471",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517160",
+    "name": "2026 Mississippi State Invitational    \n           (Mar 9)",
+    "signupanytime_t": "21239",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517628",
+    "name": "2026 Nevada State Invitational    \n           (Apr 18)",
+    "signupanytime_t": "21631",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517786",
+    "name": "2026 North Carolina State Invitational    \n           (May 16)",
+    "signupanytime_t": "21848",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517777",
+    "name": "2026 Northern California State Invitational    \n           (May 24)",
+    "signupanytime_t": "21846",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517159",
+    "name": "2026 South Carolina State Invitational    \n           (Mar 14)",
+    "signupanytime_t": "21237",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517562",
+    "name": "2026 Tennessee - Spring State Invitational    \n           (Apr 25)",
+    "signupanytime_t": "21628",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517563",
+    "name": "2026 Wisconsin State Invitational    \n           (May 2)",
+    "signupanytime_t": "21629",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "girls-invitationals",
+    "year": 2026,
+    "tournament_id": "517669",
+    "name": "2026 Girls Invitational - PGA National (FL)    \n           (May 9)",
+    "signupanytime_t": "21704",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
