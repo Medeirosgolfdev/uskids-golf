@@ -1,0 +1,62 @@
+name: Atualizar dados USKids
+
+# Descobre torneios novos e faz scrape automaticamente, depois faz commit
+# dos dados novos. O push faz o Vercel redeployar sozinho.
+#
+# - Corre à terça-feira de manhã (apanha resultados do fim de semana).
+# - Também pode ser disparado à mão em Actions → "Atualizar dados USKids" → Run workflow.
+# - É incremental: só scrapa torneios que ainda não estão nos batch_*.json,
+#   por isso a maioria das corridas é rápida. Se não houver nada novo, não faz commit.
+
+on:
+  schedule:
+    - cron: "0 6 * * 2" # terças, 06:00 UTC
+  workflow_dispatch: # botão manual
+
+# O GITHUB_TOKEN precisa de poder fazer push do commit de dados.
+permissions:
+  contents: write
+
+# Evita duas corridas em simultâneo a mexer no mesmo branch.
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Descobrir torneios novos
+        run: node scripts/discover-uskids.js
+
+      - name: Scrapar torneios novos
+        run: |
+          YEAR=$(date -u +%Y)
+          node scripts/update-uskids.js --since $((YEAR - 1))
+
+      - name: Commit + push se houver dados novos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Os backups (.bak-*) que o discover gera nunca vão para o repo.
+          rm -f public/arquivo/all_tournaments_consolidated.json.bak-* || true
+
+          git add public/batch_*.json public/arquivo/all_tournaments_consolidated.json
+
+          if git diff --cached --quiet; then
+            echo "Nada novo — sem alterações para commitar."
+          else
+            git commit -m "data: auto-update torneios ($(date -u +%Y-%m-%d))"
+            git push
+            echo "Dados novos commitados — o Vercel vai redeployar."
+          fi
