@@ -56,6 +56,7 @@ const SLUG_MAP = {
   "girls-invitationals": "girls-invitationals",
   "teen-series": "teen-series",
   "local-tours": "local-tours",
+  international: "international",
 };
 
 // ---------- CLI ----------

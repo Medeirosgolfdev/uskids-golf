@@ -8162,5 +8162,637 @@
     "name": "2026 Girls Invitational - PGA National (FL)    \n           (May 9)",
     "signupanytime_t": "21704",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "517996",
+    "name": "Palmer Foundation Kids Invitational 2026    \n           (Jun 12)",
+    "signupanytime_t": "22037",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "girls-invitationals",
+    "year": 2026,
+    "tournament_id": "518068",
+    "name": "2026 Girls Invitational - Baylands (CA)    \n           (Jun 20)",
+    "signupanytime_t": "22098",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517778",
+    "name": "2026 Arizona State Invitational    \n           (May 30)",
+    "signupanytime_t": "21847",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518037",
+    "name": "2026 Georgia State Invitational    \n           (Jun 5)",
+    "signupanytime_t": "22062",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518043",
+    "name": "2026 Missouri State Invitational    \n           (Jun 6)",
+    "signupanytime_t": "22090",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "517647",
+    "name": "2026 Northwest State Invitational    \n           (Jun 25)",
+    "signupanytime_t": "21650",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518039",
+    "name": "2026 Oklahoma State Invitational    \n           (Jun 13)",
+    "signupanytime_t": "22080",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518057",
+    "name": "2026 Texas - Spring State Invitational    \n           (May 30)",
+    "signupanytime_t": "22099",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "516685",
+    "name": "Antalya Turkish Open 2026    \n           (Jan 30)",
+    "signupanytime_t": "20780",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517079",
+    "name": "Australian Masters 2026    \n           (Apr 9)",
+    "signupanytime_t": "21162",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518560",
+    "name": "Bahamas Invitational 2026    \n           (Jun 15)",
+    "signupanytime_t": "22481",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "516952",
+    "name": "China Championship 2026    \n           (Feb 6)",
+    "signupanytime_t": "21036",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517997",
+    "name": "Colombian Championship 2026    \n           (Jun 17)",
+    "signupanytime_t": "22038",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517047",
+    "name": "European Championship 2026    \n           (May 26)",
+    "signupanytime_t": "21131",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517427",
+    "name": "European Van Horn Cup 2026    \n           (May 29)",
+    "signupanytime_t": "21502",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517240",
+    "name": "International Teen Series at The Alto Club (ES)    \n           (Mar 6)",
+    "signupanytime_t": "21319",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517215",
+    "name": "Korean Championship 2026    \n           (Apr 22)",
+    "signupanytime_t": "21293",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517905",
+    "name": "Malaysian Championship 2026    \n           (Apr 14)",
+    "signupanytime_t": "21960",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "516989",
+    "name": "Marco Simone Invitational 2026    \n           (Mar 14)",
+    "signupanytime_t": "21080",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517189",
+    "name": "Panama Invitational 2026    \n           (Apr 2)",
+    "signupanytime_t": "21278",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518042",
+    "name": "Philippines Championship 2026    \n           (May 20)",
+    "signupanytime_t": "22089",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517193",
+    "name": "Thailand Championship 2026    \n           (Apr 3)",
+    "signupanytime_t": "21279",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517123",
+    "name": "The Big 5 South African Open 2026    \n           (Apr 13)",
+    "signupanytime_t": "21206",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517581",
+    "name": "Vallarta Open 2026    \n           (May 30)",
+    "signupanytime_t": "21652",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "513755",
+    "name": "Antalya Turkish Open 2025    \n           (Jan 30)",
+    "signupanytime_t": "18045",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515728",
+    "name": "Australian Challenge 2025    \n           (Oct 25)",
+    "signupanytime_t": "19886",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514178",
+    "name": "Australian Masters 2025    \n           (Apr 23)",
+    "signupanytime_t": "18485",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515559",
+    "name": "Australian Open 2025    \n           (Sep 29)",
+    "signupanytime_t": "19735",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514715",
+    "name": "Canadian Invitational 2025    \n           (Jul 7)",
+    "signupanytime_t": "18976",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515738",
+    "name": "Caribbean Championship at Punta Cana 2025    \n           (Nov 28)",
+    "signupanytime_t": "19897",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514983",
+    "name": "China Championship 2025    \n           (Mar 21)",
+    "signupanytime_t": "19224",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515025",
+    "name": "Colombian Championship 2025    \n           (Jun 25)",
+    "signupanytime_t": "19261",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514056",
+    "name": "European Championship 2025    \n           (May 27)",
+    "signupanytime_t": "18242",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514085",
+    "name": "European Van Horn Cup 2025    \n           (May 30)",
+    "signupanytime_t": "18368",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515807",
+    "name": "German Masters 2025    \n           (Oct 4)",
+    "signupanytime_t": "19974",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516579",
+    "name": "Indian Championship 2025    \n           (Dec 17)",
+    "signupanytime_t": "20676",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516580",
+    "name": "Indonesia Championship 2025    \n           (Oct 24)",
+    "signupanytime_t": "20677",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514717",
+    "name": "Irish Open 2025    \n           (Jul 9)",
+    "signupanytime_t": "18978",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515065",
+    "name": "Malaysian Championship 2025    \n           (Apr 9)",
+    "signupanytime_t": "19295",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514135",
+    "name": "Marco Simone Invitational 2025    \n           (Mar 15)",
+    "signupanytime_t": "18438",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516538",
+    "name": "Mexico Invitational 2025    \n           (Dec 13)",
+    "signupanytime_t": "20633",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "513893",
+    "name": "NCBA Kenya Invitational 2025    \n           (Jan 4)",
+    "signupanytime_t": "18177",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516883",
+    "name": "NCBA Kenya Invitational 2025    \n           (Dec 20)",
+    "signupanytime_t": "20972",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516552",
+    "name": "New Zealand Championship 2025    \n           (Dec 22)",
+    "signupanytime_t": "20651",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514168",
+    "name": "Panama Invitational 2025    \n           (Mar 6)",
+    "signupanytime_t": "18477",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514782",
+    "name": "Paris Invitational 2025    \n           (Jul 6)",
+    "signupanytime_t": "18975",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516026",
+    "name": "Rome Classic 2025    \n           (Oct 18)",
+    "signupanytime_t": "20175",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516297",
+    "name": "South American Championship 2025    \n           (Oct 31)",
+    "signupanytime_t": "20428",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516299",
+    "name": "Spanish Open 2025    \n           (Nov 14)",
+    "signupanytime_t": "20429",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514475",
+    "name": "Thailand Championship 2025    \n           (Apr 4)",
+    "signupanytime_t": "18676",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514059",
+    "name": "The Big 5 South African Open 2025    \n           (Apr 14)",
+    "signupanytime_t": "18341",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "516556",
+    "name": "United Arab Emirates Championship 2025    \n           (Dec 16)",
+    "signupanytime_t": "20653",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "514659",
+    "name": "Vallarta Open 2025    \n           (May 24)",
+    "signupanytime_t": "18675",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2025,
+    "tournament_id": "515206",
+    "name": "Venice Open 2025    \n           (Aug 17)",
+    "signupanytime_t": "19418",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511301",
+    "name": "Antalya Turkish Open 2024    \n           (Jan 27)",
+    "signupanytime_t": "15666",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513046",
+    "name": "Australian Challenge 2024    \n           (Dec 9)",
+    "signupanytime_t": "17351",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511363",
+    "name": "Australian Masters 2024    \n           (Apr 17)",
+    "signupanytime_t": "15719",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512921",
+    "name": "Australian Open 2024    \n           (Sep 24)",
+    "signupanytime_t": "17227",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512510",
+    "name": "British Kids Championship 2024    \n           (Aug 8)",
+    "signupanytime_t": "16794",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511734",
+    "name": "Canadian Invitational 2024    \n           (Jul 8)",
+    "signupanytime_t": "16058",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513389",
+    "name": "Caribbean Championship at Punta Cana 2024    \n           (Nov 29)",
+    "signupanytime_t": "17691",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512137",
+    "name": "Colombian Championship 2024    \n           (Jun 26)",
+    "signupanytime_t": "16453",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511347",
+    "name": "European Championship 2024    \n           (May 28)",
+    "signupanytime_t": "15704",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511485",
+    "name": "European Van Horn Cup 2024    \n           (May 31)",
+    "signupanytime_t": "15830",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512466",
+    "name": "German Masters 2024    \n           (Oct 4)",
+    "signupanytime_t": "16749",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513593",
+    "name": "Indian Championship 2024    \n           (Dec 11)",
+    "signupanytime_t": "17894",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511694",
+    "name": "Irish Open 2024    \n           (Jul 9)",
+    "signupanytime_t": "16020",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511692",
+    "name": "Malaysian Championship 2024    \n           (Mar 5)",
+    "signupanytime_t": "16018",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513640",
+    "name": "Mexico Invitational 2024    \n           (Dec 7)",
+    "signupanytime_t": "17942",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511644",
+    "name": "NCBA Uganda Open 2024    \n           (Mar 31)",
+    "signupanytime_t": "15981",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513045",
+    "name": "New Zealand Championship 2024    \n           (Dec 22)",
+    "signupanytime_t": "17349",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511446",
+    "name": "Panama Invitational 2024    \n           (Feb 15)",
+    "signupanytime_t": "15796",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512511",
+    "name": "Rome Classic 2024    \n           (Oct 19)",
+    "signupanytime_t": "16795",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512747",
+    "name": "South American Championship 2024    \n           (Nov 1)",
+    "signupanytime_t": "17024",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511693",
+    "name": "Thailand Championship 2024    \n           (Apr 6)",
+    "signupanytime_t": "16019",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "511325",
+    "name": "The Big 5 South African Open 2024    \n           (Mar 25)",
+    "signupanytime_t": "15682",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "513549",
+    "name": "United Arab Emirates Championship 2024    \n           (Dec 17)",
+    "signupanytime_t": "17854",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512136",
+    "name": "Vallarta Open 2024    \n           (May 25)",
+    "signupanytime_t": "16452",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2024,
+    "tournament_id": "512117",
+    "name": "Venice Open 2024    \n           (Aug 15)",
+    "signupanytime_t": "16428",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
