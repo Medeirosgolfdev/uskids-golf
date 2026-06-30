@@ -8794,5 +8794,53 @@
     "name": "Venice Open 2024    \n           (Aug 15)",
     "signupanytime_t": "16428",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518025",
+    "name": "2026 Illinois State Invitational    \n           (Jun 27)",
+    "signupanytime_t": "22059",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518204",
+    "name": "2026 New Jersey State Invitational    \n           (Jun 27)",
+    "signupanytime_t": "22221",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518045",
+    "name": "2026 Ohio State Invitational    \n           (Jun 29)",
+    "signupanytime_t": "22088",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518226",
+    "name": "2026 Southern California State Invitational    \n           (Jun 29)",
+    "signupanytime_t": "22235",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518092",
+    "name": "2026 Virginia State Invitational    \n           (Jun 27)",
+    "signupanytime_t": "22122",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518205",
+    "name": "International Teen Series at The National (BE)    \n           (Jun 30)",
+    "signupanytime_t": "22220",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
