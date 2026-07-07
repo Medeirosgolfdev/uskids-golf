@@ -8842,5 +8842,53 @@
     "name": "International Teen Series at The National (BE)    \n           (Jun 30)",
     "signupanytime_t": "22220",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "518171",
+    "name": "Red White & Blue Invitational 2026    \n           (Jul 4)",
+    "signupanytime_t": "22187",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518093",
+    "name": "2026 Washington State Invitational    \n           (Jul 3)",
+    "signupanytime_t": "22121",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518558",
+    "name": "Australian Open 2026    \n           (Jul 2)",
+    "signupanytime_t": "22465",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517375",
+    "name": "Canadian Invitational 2026    \n           (Jul 6)",
+    "signupanytime_t": "21456",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517374",
+    "name": "Irish Open 2026    \n           (Jul 1)",
+    "signupanytime_t": "21455",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "517730",
+    "name": "Paris Invitational 2026    \n           (Jul 4)",
+    "signupanytime_t": "21795",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
