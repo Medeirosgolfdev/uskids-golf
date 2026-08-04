@@ -8898,5 +8898,21 @@
     "name": "Veteran Golfers Association World Championship Qualifier 2026    \n           (Jul 26)",
     "signupanytime_t": "21666",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "world",
+    "year": 2026,
+    "tournament_id": "517536",
+    "name": "World Championship 2026    \n           (Jul 30)",
+    "signupanytime_t": "21610",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "world",
+    "year": 2026,
+    "tournament_id": "517678",
+    "name": "World Van Horn Cup 2026    \n           (Aug 2)",
+    "signupanytime_t": "21747",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
