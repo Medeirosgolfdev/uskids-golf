@@ -8922,5 +8922,21 @@
     "name": "2026 Michigan State Invitational    \n           (Aug 10)",
     "signupanytime_t": "22394",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518465",
+    "name": "2026 Oregon State Invitational    \n           (Aug 12)",
+    "signupanytime_t": "22396",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518230",
+    "name": "Venice Open 2026    \n           (Aug 13)",
+    "signupanytime_t": "22243",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
