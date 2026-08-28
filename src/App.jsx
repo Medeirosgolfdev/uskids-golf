@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, LineChart, Line, CartesianGrid } from "recharts";
+import { Analytics } from "@vercel/analytics/react";
 
 /* COUNTRY NAMES */
 const CC = {
@@ -453,5 +454,7 @@ export default function App() {
         <div style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column", background: T.surface }}>{selPlayerData ? <PDetail key={selPlayerData.id} player={selPlayerData} onTournClick={goToTourn} /> : <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1, color: T.textMuted, fontSize: 14 }}>Seleciona um jogador</div>}</div>
       </>}
     </div>
-  </div></>);
+  </div>
+  <Analytics />
+  </>);
 }
