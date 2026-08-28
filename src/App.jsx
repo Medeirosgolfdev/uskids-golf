@@ -1,3 +1,24 @@
+/*  ATENCAO — ESTE FICHEIRO NAO E USADO.  ------------------------------------
+ *
+ *  A aplicacao que vai para o ar e o index.html na raiz do repositorio: uma
+ *  pagina unica, com o React vindo de CDN e o JSX compilado no browser pelo
+ *  Babel. Nada importa este ficheiro, o build nao o toca (o "npm run build"
+ *  nao produz um unico .js) e o site nunca o carrega.
+ *
+ *  E uma fotografia de Marco de 2026, do primeiro commit, que ficou para tras:
+ *  o index.html tem mais do dobro do codigo e seis meses de desenvolvimento
+ *  que aqui nao existem. Entre outras coisas, falta-lhe todo o carregamento
+ *  automatico dos dados.
+ *
+ *  Guarda-se por opcao, como referencia. Mas se vieste ca parar para corrigir
+ *  ou acrescentar alguma coisa a aplicacao — mexer aqui nao tem efeito nenhum.
+ *  O sitio certo e o index.html.
+ *
+ *  (Um agente automatico ja se enganou por causa disto: instalou o Vercel Web
+ *  Analytics neste ficheiro, convencido de que era a aplicacao. Nao contava
+ *  nada. O Analytics de verdade esta no <head> do index.html.)
+ * -------------------------------------------------------------------------- */
+
 import { useState, useMemo, useCallback, useRef } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, LineChart, Line, CartesianGrid } from "recharts";
 
