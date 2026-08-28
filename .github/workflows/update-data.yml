@@ -43,6 +43,9 @@ jobs:
           YEAR=$(date -u +%Y)
           node scripts/update-uskids.js --since $((YEAR - 1))
 
+      - name: Regenerar o manifesto de dados
+        run: node scripts/build-data-manifest.js
+
       - name: Commit + push se houver dados novos
         run: |
           git config user.name "github-actions[bot]"
@@ -51,7 +54,7 @@ jobs:
           # Os backups (.bak-*) que o discover gera nunca vão para o repo.
           rm -f public/arquivo/all_tournaments_consolidated.json.bak-* || true
 
-          git add public/batch_*.json public/arquivo/all_tournaments_consolidated.json
+          git add public/batch_*.json public/data-manifest.json public/arquivo/all_tournaments_consolidated.json
 
           if git diff --cached --quiet; then
             echo "Nada novo — sem alterações para commitar."

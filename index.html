@@ -771,7 +771,7 @@ function App(){
   var canGoBack=histRef.current.length>0;
 
   function mergeAndProcess(texts,fileNames){
-    setStatus("A processar "+texts.length+" ficheiro(s)...");
+    setStatus("A processar dados...");
     setTimeout(function(){
       try{
         var all=[];
@@ -785,7 +785,11 @@ function App(){
   }
 
   useEffect(function(){
-    setLoading(true);setError(null);setStatus("A procurar ficheiros...");
+    setLoading(true);setError(null);setStatus("A carregar...");
+    // Partilhado entre autoLoad e tryFetch: a pasta onde o tryFetch acertou.
+    // Tem de viver aqui fora — o codigo corre em modo estrito (o Babel compila
+    // isto como modulo) e atribuir a uma variavel de outra funcao rebenta.
+    var lastBase="";
     async function autoLoad(){
       var loaded=[],names=[];
       /* 0. Check ?data=URL parameter */
@@ -804,13 +808,34 @@ function App(){
         }catch(e){console.error("URL load error",e);}
         if(loaded.length>0){console.log("URL-loaded "+loaded.length+" files");mergeAndProcess(loaded,names);return;}
       }
-      /* 1. Try known single files */
+      /* 1. Manifesto: a lista explicita do que existe (public/data-manifest.json,
+         gerado por scripts/build-data-manifest.js). Pede-se so o que ha, e tudo
+         em paralelo. Sem manifesto cai-se na descoberta as cegas la abaixo, que
+         e o que faz falta quando se abre a pagina a partir de uma pasta local. */
+      var mtxt=await tryFetch("data-manifest.json");
+      if(mtxt){
+        var mbase=lastBase,mfiles=[];
+        try{var mj=JSON.parse(mtxt);mfiles=Array.isArray(mj)?mj:(mj.files||[]);}catch(e){}
+        if(mfiles.length){
+          var mtexts=await Promise.all(mfiles.map(function(fn){
+            return fetch(mbase+fn).then(function(r){return r.ok?r.text():null;}).catch(function(){return null;});
+          }));
+          for(var mi=0;mi<mtexts.length;mi++){
+            if(mtexts[mi]&&mtexts[mi].length>10){loaded.push(mtexts[mi]);names.push(mfiles[mi]);}
+          }
+          if(loaded.length>0){
+            console.log("Manifest-loaded "+loaded.length+" files");
+            mergeAndProcess(loaded,names);return;
+          }
+        }
+      }
+      /* 2. Sem manifesto: tentar nomes de ficheiro unico conhecidos */
       var single=["uskids_COMPLETO.json","uskids_complete_v2.json","uskids_americanos.json","uskids_backup_30.json","uskids_complete.json","all_tournaments_consolidated.json","uskids_data.json","data.json"];
       for(var si=0;si<single.length;si++){
         var txt=await tryFetch(single[si]);
-        if(txt){loaded.push(txt);names.push(single[si]);setStatus("Encontrado: "+single[si]);}
+        if(txt){loaded.push(txt);names.push(single[si]);}
       }
-      /* 2. Try batch patterns */
+      /* 3. Sem manifesto: procurar batches por padrao e numeracao */
       var patterns=["scorecards_v2_batch_","batch_","scorecards_batch_","uskids_batch_"];
       for(var pi2=0;pi2<patterns.length;pi2++){
         var misses=0;
@@ -818,7 +843,7 @@ function App(){
           var pad=bi<10?"00"+bi:bi<100?"0"+bi:""+bi;
           var fn=patterns[pi2]+pad+".json";
           var txt2=await tryFetch(fn);
-          if(txt2){loaded.push(txt2);names.push(fn);misses=0;setStatus("A carregar... "+loaded.length+" ficheiro(s) ("+fn+")");}
+          if(txt2){loaded.push(txt2);names.push(fn);misses=0;}
           else{misses++;if(misses>=3&&bi>3)break;}
         }
         if(loaded.length>single.length)break;
@@ -833,6 +858,7 @@ function App(){
       for(var i=0;i<paths.length;i++){
         try{
           var r=await fetch(paths[i]);
+          lastBase=paths[i].slice(0,paths[i].length-f.length);
           if(!r.ok)continue;
           var ct=r.headers.get("content-type")||"";
           if(ct.indexOf("html")>=0)continue;
@@ -900,7 +926,7 @@ function App(){
         <div style={{border:"2px dashed "+T.accent+"60",borderRadius:18,padding:"32px 24px",marginBottom:20,background:T.accent+"08"}}>
           <div style={{fontSize:32,marginBottom:8}}>{"\ud83d\udcc2"}</div>
           <div style={{fontSize:15,fontWeight:600,marginBottom:6}}>Arrasta os ficheiros JSON para aqui</div>
-          <div style={{fontSize:12,color:T.textMuted,marginBottom:18}}>{"batch_001.json a batch_016.json \u2014 ou qualquer ficheiro uskids .json"}</div>
+          <div style={{fontSize:12,color:T.textMuted,marginBottom:18}}>{"os ficheiros batch_*.json \u2014 ou qualquer ficheiro uskids .json"}</div>
           <div style={{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}}>
             <button onClick={function(){if(folderRef.current){folderRef.current.value="";folderRef.current.click();}}} disabled={loading} style={{background:"linear-gradient(135deg, "+T.accent+", #16a34a)",color:"#fff",border:"none",padding:"14px 28px",borderRadius:12,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",boxShadow:"0 4px 24px "+T.accent+"40",fontFamily:F}}>{loading?"A carregar...":"\ud83d\udcc1 Selecionar pasta"}</button>
             <button onClick={function(){if(fileRef.current){fileRef.current.value="";fileRef.current.click();}}} disabled={loading} style={{background:"#1e293b",color:"#94a3b8",border:"1px solid #334155",padding:"14px 28px",borderRadius:12,fontSize:15,fontWeight:700,cursor:loading?"wait":"pointer",fontFamily:F}}>{"\ud83d\udcce Selecionar ficheiros"}</button>
