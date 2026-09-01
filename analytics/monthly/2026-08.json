@@ -1,0 +1,834 @@
+{
+  "tipo": "month",
+  "periodo": "2026-08",
+  "since": "2026-08-01T00:00:00.000Z",
+  "until": "2026-08-31T23:59:59.999Z",
+  "projeto": "prj_95gvfo0COV6IKGhI5YyFjRx5pOyU",
+  "fonte": "Vercel Web Analytics (v1/query/web-analytics/visits)",
+  "nota": "Visitantes e páginas vistas do uskids-golf. Dados agregados — a API não expõe IPs nem identifica pessoas.",
+  "geradoEm": "2026-09-01T08:36:31.188Z",
+  "total": {
+    "visitors": 2,
+    "pageviews": 4
+  },
+  "dimensoes": {
+    "day": [
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-05T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-06T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-07T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-08T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-09T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-10T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-11T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-12T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-13T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-14T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-15T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-16T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-17T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-18T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-19T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-20T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-21T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-22T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-23T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-24T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-25T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-26T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-27T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-28T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 3
+      },
+      {
+        "timestamp": "2026-08-29T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      },
+      {
+        "timestamp": "2026-08-30T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 1
+      },
+      {
+        "timestamp": "2026-08-31T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0
+      }
+    ],
+    "hour": null,
+    "requestPath": [
+      {
+        "requestPath": "/",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "route": [
+      {
+        "route": "",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "country": [
+      {
+        "country": "PT",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "deviceType": [
+      {
+        "deviceType": "desktop",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "browserName": [
+      {
+        "browserName": "Chrome",
+        "visitors": 1,
+        "pageviews": 3
+      },
+      {
+        "browserName": "Firefox",
+        "visitors": 1,
+        "pageviews": 1
+      }
+    ],
+    "osName": [
+      {
+        "osName": "Windows",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "referrerHostname": [
+      {
+        "referrerHostname": "",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "utmSource": null,
+    "utmMedium": null,
+    "utmCampaign": null,
+    "utmContent": null,
+    "utmTerm": null
+  },
+  "cruzamentos": {
+    "day x requestPath": [
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-05T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-06T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-07T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-08T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-09T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-10T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-11T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-12T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-13T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-14T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-15T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-16T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-17T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-18T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-19T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-20T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-21T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-22T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-23T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-24T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-25T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-26T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-27T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-28T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 3,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-29T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-30T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 1,
+        "requestPath": "/"
+      },
+      {
+        "timestamp": "2026-08-31T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "requestPath": "/"
+      }
+    ],
+    "day x country": [
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-05T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-06T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-07T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-08T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-09T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-10T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-11T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-12T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-13T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-14T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-15T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-16T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-17T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-18T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-19T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-20T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-21T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-22T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-23T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-24T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-25T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-26T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-27T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-28T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 3,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-29T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-30T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 1,
+        "country": "PT"
+      },
+      {
+        "timestamp": "2026-08-31T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "country": "PT"
+      }
+    ],
+    "day x deviceType": [
+      {
+        "timestamp": "2026-08-01T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-02T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-03T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-04T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-05T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-06T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-07T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-08T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-09T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-10T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-11T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-12T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-13T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-14T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-15T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-16T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-17T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-18T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-19T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-20T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-21T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-22T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-23T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-24T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-25T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-26T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-27T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-28T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 3,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-29T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-30T00:00:00.000Z",
+        "visitors": 1,
+        "pageviews": 1,
+        "deviceType": "desktop"
+      },
+      {
+        "timestamp": "2026-08-31T00:00:00.000Z",
+        "visitors": 0,
+        "pageviews": 0,
+        "deviceType": "desktop"
+      }
+    ],
+    "requestPath x country": [
+      {
+        "requestPath": "/",
+        "country": "PT",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "requestPath x deviceType": [
+      {
+        "requestPath": "/",
+        "deviceType": "desktop",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ],
+    "requestPath x referrerHostname": [
+      {
+        "requestPath": "/",
+        "referrerHostname": "",
+        "visitors": 2,
+        "pageviews": 4
+      }
+    ]
+  },
+  "avisos": [
+    "hour: falhou (HTTP 400 — pedido recusado ({\"since\":\"2026-08-01T00:00:00.000Z\",\"until\":\"2026-08-31T23:59:59.999Z\",\"by\":[\"hour\"],\"limit\":100}). {\"error\":{\"code\":\"invalid_group_by\",\"message\":\"Can only query up to 168 hours of data. Use a larger granularity or a smaller date range.\"}})",
+    "Indisponíveis no plano actual do Vercel (as dimensões UTM exigem Enterprise ou o add-on Web Analytics Plus): utmSource, utmMedium, utmCampaign, utmContent, utmTerm."
+  ],
+  "indisponiveis": [
+    "utmSource",
+    "utmMedium",
+    "utmCampaign",
+    "utmContent",
+    "utmTerm"
+  ]
+}
