@@ -8938,5 +8938,21 @@
     "name": "Venice Open 2026    \n           (Aug 13)",
     "signupanytime_t": "22243",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "518696",
+    "name": "Seaview Open 2026    \n           (Sep 5)",
+    "signupanytime_t": "22605",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518623",
+    "name": "2026 Gulf Coast State Invitational    \n           (Sep 5)",
+    "signupanytime_t": "22539",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
