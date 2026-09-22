@@ -8962,5 +8962,21 @@
     "name": "2026 Texas - Fall State Invitational    \n           (Sep 12)",
     "signupanytime_t": "22448",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "518728",
+    "name": "Palm Springs Open 2026    \n           (Sep 19)",
+    "signupanytime_t": "22642",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "519179",
+    "name": "Australian Challenge 2026    \n           (Sep 21)",
+    "signupanytime_t": "23089",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
