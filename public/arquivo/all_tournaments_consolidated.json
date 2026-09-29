@@ -8978,5 +8978,29 @@
     "name": "Australian Challenge 2026    \n           (Sep 21)",
     "signupanytime_t": "23089",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518624",
+    "name": "2026 Tennessee - Fall State Invitational    \n           (Sep 26)",
+    "signupanytime_t": "22540",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518592",
+    "name": "Belgium Invitational 2026    \n           (Sep 26)",
+    "signupanytime_t": "22480",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "519041",
+    "name": "International Teen Series at Somabay Golf (EG)    \n           (Sep 25)",
+    "signupanytime_t": "22959",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
