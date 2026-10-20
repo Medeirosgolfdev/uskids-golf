@@ -9018,5 +9018,29 @@
     "name": "PGA Golf Club Invitational 2026    \n           (Oct 10)",
     "signupanytime_t": "22986",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518914",
+    "name": "2026 New England State Invitational     \n           (Oct 17)",
+    "signupanytime_t": "22835",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "519180",
+    "name": "International Teen Series at Al Hamra (UAE)    \n           (Oct 20)",
+    "signupanytime_t": "22984",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518948",
+    "name": "Rome Classic 2026    \n           (Oct 17)",
+    "signupanytime_t": "22876",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
