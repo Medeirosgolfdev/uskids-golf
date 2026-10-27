@@ -9042,5 +9042,29 @@
     "name": "Rome Classic 2026    \n           (Oct 17)",
     "signupanytime_t": "22876",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "state",
+    "year": 2026,
+    "tournament_id": "518913",
+    "name": "2026 Kansas State Invitational    \n           (Oct 24)",
+    "signupanytime_t": "22831",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "girls-invitationals",
+    "year": 2026,
+    "tournament_id": "519140",
+    "name": "2026 Girls Invitational - Bear Trap Dunes (DE)    \n           (Oct 24)",
+    "signupanytime_t": "23048",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "international",
+    "year": 2026,
+    "tournament_id": "518958",
+    "name": "British Kids Championship 2026    \n           (Oct 27)",
+    "signupanytime_t": "22885",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
