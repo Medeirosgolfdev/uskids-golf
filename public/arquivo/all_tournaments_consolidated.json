@@ -9074,5 +9074,21 @@
     "name": "South American Championship 2026    \n           (Oct 31)",
     "signupanytime_t": "23287",
     "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "519427",
+    "name": "Colonial Williamsburg Classic 2026    \n           (Nov 7)",
+    "signupanytime_t": "23318",
+    "iframe_host": "tourcaddiepro.com"
+  },
+  {
+    "category": "regional",
+    "year": 2026,
+    "tournament_id": "519538",
+    "name": "Monterey Challenge 2026    \n           (Nov 7)",
+    "signupanytime_t": "23420",
+    "iframe_host": "tourcaddiepro.com"
   }
 ]
